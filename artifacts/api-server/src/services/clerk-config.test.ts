@@ -31,3 +31,12 @@ test("produção aceita somente o par de chaves live", () => {
     CLERK_PUBLISHABLE_KEY: "pk_live_valid-publishable",
   }));
 });
+
+test("produção aceita chaves de teste somente com escape explícito", () => {
+  assert.doesNotThrow(() => assertClerkConfiguration({
+    NODE_ENV: "production",
+    CLERK_ALLOW_TEST_KEYS: "true",
+    CLERK_SECRET_KEY: "sk_test_valid-secret",
+    CLERK_PUBLISHABLE_KEY: "pk_test_valid-publishable",
+  }));
+});
