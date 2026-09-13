@@ -70,6 +70,7 @@ export default function IdentityOnboardingScreen() {
           <Text style={[styles.brandText, { color: colors.primary }]}>APROVA</Text>
         </View>
         {content}
+        <OnboardingSignOutButton />
       </ScrollView>
     </View>
   );
@@ -148,22 +149,40 @@ function AgeStep({ current, onDone }: { current: AgeBand | null; onDone: () => v
   );
 }
 
-function UnderThirteen({ onCorrect }: { onCorrect: () => void }) {
-  const colors = useColors();
+function OnboardingSignOutButton() {
   const { signOut, userId } = useAuth();
+  const [signingOut, setSigningOut] = useState(false);
+
   const leave = async () => {
+    if (signingOut) return;
+    setSigningOut(true);
     try {
       if (userId) await apiOutbox.clearForOwnerId(userId);
     } finally {
       await signOut().catch(() => undefined);
       router.replace('/(auth)/login');
+      setSigningOut(false);
     }
   };
+
+  return (
+    <AppButton
+      title="Sair da conta"
+      onPress={() => void leave()}
+      variant="ghost"
+      fullWidth
+      loading={signingOut}
+      accessibilityHint="Encerra a sessão e remove os dados pendentes desta conta deste dispositivo."
+    />
+  );
+}
+
+function UnderThirteen({ onCorrect }: { onCorrect: () => void }) {
+  const colors = useColors();
   return (
     <Section title="Acesso indisponível para esta faixa" subtitle="Neste momento, o IA Aprova é destinado a pessoas com 13 anos ou mais.">
       <View accessibilityRole="alert" style={[styles.notice, { backgroundColor: '#FFF7ED', borderColor: '#FDBA74' }]}><Feather name="shield" size={22} color="#C2410C" /><Text style={[styles.noticeText, { color: colors.text }]}>Nenhuma área de estudo, simulado ou recurso social foi liberado para esta conta.</Text></View>
       <AppButton title="Corrigir faixa informada" onPress={onCorrect} variant="outline" fullWidth />
-      <AppButton title="Sair da conta" onPress={() => void leave()} variant="ghost" fullWidth />
       <LegalLinks />
     </Section>
   );
