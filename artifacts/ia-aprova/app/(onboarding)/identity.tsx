@@ -118,8 +118,12 @@ function AgeStep({ current, onDone }: { current: AgeBand | null; onDone: () => v
   const colors = useColors();
   const mutation = useSetAgeProfile();
   const [selected, setSelected] = useState<AgeBand | null>(current);
+  const [selectionError, setSelectionError] = useState(false);
   const submit = () => {
-    if (!selected) return;
+    if (!selected) {
+      setSelectionError(true);
+      return;
+    }
     const run = () => mutation.mutate(selected, { onSuccess: onDone });
     if (current && selected !== current) {
       Alert.alert('Corrigir faixa etária?', 'A alteração desliga social e notificações e pode exigir nova autorização.', [
@@ -135,15 +139,16 @@ function AgeStep({ current, onDone }: { current: AgeBand | null; onDone: () => v
         {AGE_OPTIONS.map((option) => {
           const checked = selected === option.value;
           return (
-            <TouchableOpacity key={option.value} accessibilityRole="radio" accessibilityState={{ checked, disabled: mutation.isPending }} onPress={() => setSelected(option.value)} disabled={mutation.isPending} style={[styles.option, { borderColor: checked ? colors.primary : colors.border, backgroundColor: colors.white }]}>
+            <TouchableOpacity key={option.value} accessibilityRole="radio" accessibilityState={{ checked, disabled: mutation.isPending }} onPress={() => { setSelected(option.value); setSelectionError(false); }} disabled={mutation.isPending} style={[styles.option, { borderColor: checked ? colors.primary : colors.border, backgroundColor: colors.white }]}>
               <View style={[styles.radio, { borderColor: checked ? colors.primary : colors.textLight }]}>{checked ? <View style={[styles.radioDot, { backgroundColor: colors.primary }]} /> : null}</View>
               <View style={styles.flex}><Text style={[styles.optionTitle, { color: colors.text }]}>{option.label}</Text><Text style={[styles.optionDetail, { color: colors.textSecondary }]}>{option.detail}</Text></View>
             </TouchableOpacity>
           );
         })}
       </View>
+      {selectionError ? <Text accessibilityRole="alert" style={[styles.error, { color: colors.error }]}>Selecione uma faixa etária para continuar.</Text> : null}
       {mutation.error ? <InlineError error={mutation.error} /> : null}
-      <AppButton title="Confirmar faixa" onPress={submit} disabled={!selected} loading={mutation.isPending} fullWidth size="lg" />
+      <AppButton title="Confirmar faixa" onPress={submit} disabled={mutation.isPending} loading={mutation.isPending} fullWidth size="lg" accessibilityHint="Confirma a faixa etária selecionada." />
       <AppButton title="Sou responsável e tenho um convite" onPress={() => router.push('/guardian/accept' as any)} variant="outline" fullWidth />
     </Section>
   );
