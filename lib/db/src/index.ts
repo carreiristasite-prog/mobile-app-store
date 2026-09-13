@@ -1,4 +1,5 @@
 import { drizzle } from "drizzle-orm/node-postgres";
+import dns from "node:dns";
 import pg from "pg";
 import * as schema from "./schema";
 
@@ -19,6 +20,7 @@ if (!rawDatabaseUrl) {
 // certificate when the hosting environment provides it.
 const databaseUrl = new URL(rawDatabaseUrl);
 databaseUrl.searchParams.delete("sslmode");
+dns.setDefaultResultOrder("ipv4first");
 
 export const pool = new Pool({
   connectionString: databaseUrl.toString(),
