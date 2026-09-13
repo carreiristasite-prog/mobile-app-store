@@ -22,6 +22,10 @@ databaseUrl.searchParams.delete("sslmode");
 
 export const pool = new Pool({
   connectionString: databaseUrl.toString(),
+  // Render Free currently has no IPv6 egress, while Supabase's direct host
+  // can resolve to AAAA first. Prefer IPv4 so health checks and queries reach
+  // the provisioned database from the hosting runtime.
+  family: 4,
   ssl: { rejectUnauthorized: false },
 });
 export const db = drizzle(pool, { schema });
