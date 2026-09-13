@@ -4,13 +4,26 @@ import * as schema from "./schema";
 
 const { Pool } = pg;
 
-if (!process.env.DATABASE_URL) {
+const rawDatabaseUrl = process.env.DATABASE_URL;
+
+if (!rawDatabaseUrl) {
   throw new Error(
     "DATABASE_URL must be set. Did you forget to provision a database?",
   );
 }
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+// Supabase's direct PostgreSQL endpoint presents a certificate chain that is
+// not included in Render's Node trust store. Keep TLS encryption enabled while
+// avoiding pg's sslmode=require upgrade to certificate verification that cannot
+// succeed in that runtime. Production should replace this with the Supabase CA
+// certificate when the hosting environment provides it.
+const databaseUrl = new URL(rawDatabaseUrl);
+databaseUrl.searchParams.delete("sslmode");
+
+export const pool = new Pool({
+  connectionString: databaseUrl.toString(),
+  ssl: { rejectUnauthorized: false },
+});
 export const db = drizzle(pool, { schema });
 
 export * from "./schema";
