@@ -1,0 +1,234 @@
+Para a IA criar o app corretamente, não cadastre matérias fixas dentro das telas.
+
+Cadastre uma estrutura dinâmica:
+
+```json
+Concurso
+ ├─ Nome
+ ├─ Categoria
+ ├─ Matérias
+ │    ├─ Matéria 1
+ │    ├─ Matéria 2
+ │    ├─ Matéria 3
+ │    └─ ...
+ └─ Banco de Questões
+```
+
+Assim o mesmo aplicativo funciona para qualquer concurso.
+
+## Concursos Militares
+
+### ESA
+
+Matérias:
+
+* Matemática
+* Português
+* História do Brasil
+* Geografia do Brasil
+* Inglês
+* Redação ([Nova Concursos][1])
+
+### EEAR
+
+Matérias:
+
+* Matemática
+* Física
+* Português
+* Inglês ([Militares Estratégia][2])
+
+### EsPCEx
+
+Matérias:
+
+* Matemática
+* Física
+* Química
+* Português
+* Inglês
+* História
+* Geografia
+* Redação
+
+### AFA
+
+Matérias:
+
+* Matemática
+* Física
+* Português
+* Inglês
+* Redação
+
+### Escola Naval
+
+Matérias:
+
+* Matemática
+* Física
+* Português
+* Inglês
+* Redação
+
+### EFNOMM
+
+Matérias:
+
+* Matemática
+* Física
+* Português
+* Inglês
+
+---
+
+# Concursos Policiais
+
+### Polícia Federal
+
+* Português
+* Raciocínio Lógico
+* Informática
+* Direito Constitucional
+* Direito Administrativo
+* Direito Penal
+* Processo Penal
+* Legislação Especial
+* Estatística
+* Contabilidade
+* Arquivologia
+
+### PRF
+
+* Português
+* Raciocínio Lógico
+* Informática
+* Física
+* Ética
+* Direito Constitucional
+* Direito Administrativo
+* Direito Penal
+* Processo Penal
+* Legislação de Trânsito
+
+### PMERJ
+
+* Português
+* Matemática
+* História
+* Geografia
+* Informática
+* Direitos Humanos
+
+---
+
+# Concursos Bancários
+
+### Banco do Brasil
+
+* Português
+* Matemática
+* Conhecimentos Bancários
+* Informática
+* Vendas e Negociação
+* Atualidades do Mercado Financeiro
+
+### Caixa Econômica
+
+* Português
+* Matemática Financeira
+* Conhecimentos Bancários
+* Atendimento
+* Informática
+
+---
+
+# Concursos Administrativos
+
+### INSS
+
+* Português
+* Raciocínio Lógico
+* Informática
+* Direito Constitucional
+* Direito Administrativo
+* Seguridade Social
+
+### IBGE
+
+* Português
+* Matemática
+* Raciocínio Lógico
+* Geografia
+* Atualidades
+
+---
+
+# Concursos Fiscais
+
+### Receita Federal
+
+* Português
+* Inglês ou Espanhol
+* Raciocínio Lógico
+* Direito Constitucional
+* Direito Administrativo
+* Direito Tributário
+* Contabilidade Geral
+* Contabilidade Avançada
+* Auditoria
+* Comércio Internacional
+
+---
+
+# Estrutura que a IA deve usar
+
+Ao selecionar:
+
+**ESA**
+
+O sistema cria automaticamente:
+
+```json
+[
+ "Matemática",
+ "Português",
+ "História",
+ "Geografia",
+ "Inglês",
+ "Redação"
+]
+```
+
+Ao selecionar:
+
+**EEAR**
+
+```json
+[
+ "Matemática",
+ "Física",
+ "Português",
+ "Inglês"
+]
+```
+
+E todas as telas passam a se adaptar automaticamente:
+
+* Home
+* Estatísticas
+* Desempenho
+* Ranking
+* Revisão
+* Simulados
+* Plano de Estudos
+* Relatórios
+
+Ou seja:
+
+**não existe Home da ESA nem Home da EEAR.**
+
+Existe uma única Home dinâmica que lê as matérias do concurso selecionado e monta tudo automaticamente. Isso vai permitir que você adicione novos concursos no futuro sem precisar criar novas telas.
+
+[1]: https://www.novaconcursos.com.br/portal/artigos/concurso-esa-o-que-cai-na-prova/?srsltid=AfmBOopZINP1qxODKu9G7uYayrZiAUKhLDJdN-ACppyRO-7hTm5tKL8L&utm_source=chatgpt.com "O que cai na prova do Concurso ESA 2026?"
+[2]: https://militares.estrategia.com/portal/materias-e-dicas/o-que-cai-no-concurso-eear/?utm_source=chatgpt.com "O que cai na prova do Concurso EEAR 2027.1?"

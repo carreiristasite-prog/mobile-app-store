@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/"
+title = "IA Aprova"
+version = "1.0.0"
+id = "artifacts/ia-aprova"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+name = "expo"
+paths = [ "/" ]
+localPort = 21635
+
+[services.development]
+run = "pnpm --filter @workspace/ia-aprova run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ia-aprova", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/ia-aprova", "run", "serve" ]
+
+[services.env]
+PORT = "21635"
+BASE_PATH = "/"

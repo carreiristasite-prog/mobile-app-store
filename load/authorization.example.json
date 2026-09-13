@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "environment": "staging",
+  "authorizationId": "replace-approval-id",
+  "testRunId": "replace-run-id",
+  "baseUrl": "https://staging.example.test",
+  "profile": "rps_300_1h",
+  "target": "health",
+  "datasetSha256": null,
+  "mutationScope": null,
+  "validFrom": "2000-01-01T00:00:00Z",
+  "expiresAt": "2000-01-01T01:00:00Z"
+}

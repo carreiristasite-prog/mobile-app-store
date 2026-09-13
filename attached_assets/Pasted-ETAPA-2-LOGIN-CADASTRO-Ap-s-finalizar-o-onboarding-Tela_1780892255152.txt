@@ -1,0 +1,272 @@
+ETAPA 2 — LOGIN / CADASTRO
+
+Após finalizar o onboarding.
+
+Tela limpa e moderna.
+
+Título:
+
+Bem-vindo ao IA Aprova
+
+Subtítulo:
+
+Entre para continuar sua jornada rumo à aprovação.
+
+Opções:
+
+Google
+
+Utilizar:
+
+✅ Logo oficial do Google
+
+Texto:
+
+Entrar com Google
+
+⸻
+
+Apple
+
+Utilizar:
+
+✅ Logo oficial da Apple
+
+Texto:
+
+Entrar com Apple
+
+⸻
+
+E-mail
+
+Utilizar:
+
+ícone de envelope
+
+Texto:
+
+Entrar com E-mail
+
+⸻
+
+Botão secundário:
+
+Criar Conta
+
+⸻
+
+Termos:
+
+Ao continuar você concorda com:
+
+* Termos de Uso
+* Política de Privacidade
+
+⸻
+
+ETAPA 3 — ESCOLHA DO CONCURSO
+
+Após login.
+
+Pergunta principal:
+
+🎯 Qual concurso você quer conquistar?
+
+Criar categorias com exemplos.
+
+⸻
+
+Militares
+
+* ESA
+* EEAR
+* EsPCEx
+* AFA
+* Escola Naval
+* Fuzileiro Naval
+* EFOOM
+* EAM
+
+⸻
+
+Policiais
+
+* Polícia Federal
+* PRF
+* Polícia Civil
+* Polícia Penal
+* PM-SP
+* PM-RJ
+* Bombeiros
+
+⸻
+
+Bancários
+
+* Banco do Brasil
+* Caixa Econômica Federal
+* Banco Central
+* BNDES
+
+⸻
+
+Tribunais
+
+* TJ-SP
+* TJ-RJ
+* TJ-MG
+* TRT
+* TRE
+* TRF
+
+⸻
+
+Fiscais
+
+* Receita Federal
+* SEFAZ
+* ISS
+* TCU
+* CGU
+
+⸻
+
+Administrativos
+
+* INSS
+* IBGE
+* Correios
+* Prefeituras
+* Ministérios
+
+⸻
+
+Campo de busca:
+
+🔍 Buscar concurso
+
+⸻
+
+ETAPA 4 — META DIÁRIA
+
+Pergunta:
+
+📚 Quantas questões você pretende resolver por dia?
+
+Opções:
+
+* 10 questões
+* 20 questões
+* 30 questões
+* 50 questões
+* 100 questões
+
+Destacar visualmente:
+
+⭐ Recomendado: 30 questões por dia
+
+⸻
+
+ETAPA 5 — DIAGNÓSTICO INICIAL
+
+Pergunta:
+
+Qual seu nível atual?
+
+Opções:
+
+* Iniciante
+* Intermediário
+* Avançado
+
+⸻
+
+Pergunta:
+
+Quando pretende fazer a prova?
+
+Opções:
+
+* Até 3 meses
+* 3 a 6 meses
+* 6 a 12 meses
+* Mais de 1 ano
+
+⸻
+
+Pergunta:
+
+Qual sua maior dificuldade?
+
+Opções:
+
+* Matemática
+* Português
+* Direito
+* Informática
+* Raciocínio Lógico
+* Atualidades
+* Redação
+* Outros
+
+⸻
+
+ETAPA 6 — MONTANDO PLANO INTELIGENTE
+
+Criar uma tela extremamente moderna com animação.
+
+Título:
+
+🧠 Criando seu plano inteligente
+
+Subtítulo:
+
+Estamos analisando seu concurso e personalizando sua jornada.
+
+Exibir animação de carregamento.
+
+Sugestão:
+
+* AproBot trabalhando em um holograma
+* Barras de progresso animadas
+* Partículas suaves
+* Glow azul
+
+Etapas animadas:
+
+✅ Analisando concurso
+
+✅ Organizando matérias
+
+✅ Definindo metas diárias
+
+✅ Preparando revisões inteligentes
+
+✅ Finalizando sua jornada
+
+Tempo visual:
+
+3 a 5 segundos
+
+Após concluir:
+
+➡️ Entrar automaticamente na Home do aplicativo.
+
+⸻
+
+REGRA FINAL
+
+O usuário NÃO pode acessar a Home sem:
+
+✅ estar logado
+
+✅ escolher concurso
+
+✅ definir meta diária
+
+✅ responder diagnóstico
+
+✅ finalizar a criação do plano inteligente
+
+Somente após essas etapas o sistema deve liberar a Home personalizada do IA Aprova.

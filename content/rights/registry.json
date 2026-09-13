@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "blocked_no_approved_rights_documents",
+  "records": [],
+  "blockingReasons": [
+    "no_commercial_license_registered",
+    "no_authoring_agreement_registered",
+    "no_independent_rights_approval"
+  ],
+  "notes": [
+    "Prova pública não é licença comercial.",
+    "O registro vazio não libera nenhum item ou ativo."
+  ]
+}

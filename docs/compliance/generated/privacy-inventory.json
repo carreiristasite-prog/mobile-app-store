@@ -1,0 +1,722 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T17:36:22.616Z",
+  "scope": "repository-snapshot-only",
+  "releaseEvidence": false,
+  "limitations": [
+    "This inventory is source-derived and does not inspect the compiled IPA/AAB manifest or runtime network traffic.",
+    "No candidate IPA/AAB hash was supplied.",
+    "PRIV-001 remains open until binary inspection, traffic capture, DPO review and candidate-build approval are recorded."
+  ],
+  "sourceSnapshot": {
+    "sha256": "fe9e045dd5a57bf01d634859cc260f526b490f440bc247434387d8517cbb96c1",
+    "files": 19
+  },
+  "buildArtifact": null,
+  "application": {
+    "name": "IA Aprova",
+    "version": "1.0.0",
+    "iosBundleIdentifier": "br.com.iaaprova.app",
+    "androidPackage": "br.com.iaaprova.app"
+  },
+  "permissions": {
+    "android": {
+      "requested": [],
+      "explicitlyBlocked": [
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_MEDIA_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.FOREGROUND_SERVICE_LOCATION",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.READ_MEDIA_VIDEO",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ],
+      "allowBackup": false
+    },
+    "ios": {
+      "entitlements": [
+        "com.apple.developer.declared-age-range"
+      ],
+      "infoPlistUsageDescriptions": [],
+      "privacyAccessedApiTypes": [
+        "NSPrivacyAccessedAPICategoryUserDefaults"
+      ]
+    },
+    "expoPlugins": [
+      "@clerk/expo",
+      "expo-apple-authentication",
+      "expo-font",
+      "expo-router",
+      "expo-secure-store",
+      "expo-splash-screen",
+      "expo-web-browser"
+    ]
+  },
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/billing/entitlement"
+    },
+    {
+      "method": "GET",
+      "path": "/billing/identity"
+    },
+    {
+      "method": "POST",
+      "path": "/billing/restore"
+    },
+    {
+      "method": "POST",
+      "path": "/billing/webhooks/revenuecat"
+    },
+    {
+      "method": "GET",
+      "path": "/catalog/active"
+    },
+    {
+      "method": "POST",
+      "path": "/guardian-invitations/accept"
+    },
+    {
+      "method": "GET",
+      "path": "/healthz"
+    },
+    {
+      "method": "POST",
+      "path": "/integrity/challenges"
+    },
+    {
+      "method": "POST",
+      "path": "/integrity/device-bindings"
+    },
+    {
+      "method": "GET",
+      "path": "/integrity/verifications/{verificationId}"
+    },
+    {
+      "method": "POST",
+      "path": "/learning/sessions"
+    },
+    {
+      "method": "POST",
+      "path": "/learning/sessions/{sessionId}/attempts"
+    },
+    {
+      "method": "GET",
+      "path": "/learning/sessions/{sessionId}/next"
+    },
+    {
+      "method": "DELETE",
+      "path": "/me"
+    },
+    {
+      "method": "PUT",
+      "path": "/me/age-profile"
+    },
+    {
+      "method": "GET",
+      "path": "/me/data-requests/{requestId}"
+    },
+    {
+      "method": "GET",
+      "path": "/me/data-requests/{requestId}/export"
+    },
+    {
+      "method": "POST",
+      "path": "/me/export"
+    },
+    {
+      "method": "POST",
+      "path": "/me/guardian-invitations"
+    },
+    {
+      "method": "DELETE",
+      "path": "/me/guardian-link"
+    },
+    {
+      "method": "GET",
+      "path": "/me/guardian-links"
+    },
+    {
+      "method": "DELETE",
+      "path": "/me/guardian-links/{linkId}"
+    },
+    {
+      "method": "GET",
+      "path": "/me/home"
+    },
+    {
+      "method": "POST",
+      "path": "/me/legal-acknowledgements"
+    },
+    {
+      "method": "GET",
+      "path": "/me/onboarding-state"
+    },
+    {
+      "method": "POST",
+      "path": "/me/optional-consents"
+    },
+    {
+      "method": "POST",
+      "path": "/me/platform-age-signal"
+    },
+    {
+      "method": "POST",
+      "path": "/me/platform-age-signal/verified"
+    },
+    {
+      "method": "GET",
+      "path": "/me/progress"
+    },
+    {
+      "method": "GET",
+      "path": "/readyz"
+    },
+    {
+      "method": "POST",
+      "path": "/reports"
+    },
+    {
+      "method": "POST",
+      "path": "/simulations"
+    },
+    {
+      "method": "GET",
+      "path": "/simulations/{simulationId}"
+    },
+    {
+      "method": "POST",
+      "path": "/simulations/{simulationId}/answers"
+    },
+    {
+      "method": "GET",
+      "path": "/simulations/{simulationId}/result"
+    },
+    {
+      "method": "GET",
+      "path": "/simulations/active"
+    },
+    {
+      "method": "GET",
+      "path": "/simulations/blueprints"
+    },
+    {
+      "method": "GET",
+      "path": "/social/summary"
+    }
+  ],
+  "database": {
+    "drizzleTables": [
+      "achievements",
+      "age_profiles",
+      "app_integrity_keys",
+      "attempts",
+      "audit_logs",
+      "auth_identities",
+      "bancas",
+      "billing_customer_aliases",
+      "billing_customers",
+      "billing_reconciliation_items",
+      "blueprint_subjects",
+      "blueprint_versions",
+      "concursos",
+      "consents",
+      "data_request_evidence",
+      "data_request_export_access_events",
+      "data_requests",
+      "devices",
+      "duel_matches_v1",
+      "duels",
+      "entitlements",
+      "exam_versions",
+      "feature_flags",
+      "friendships",
+      "guardian_invitations",
+      "guardian_links",
+      "identity_operations",
+      "integrity_challenges",
+      "integrity_device_bindings",
+      "integrity_verifications",
+      "item_exposures",
+      "learning_sessions",
+      "licenses",
+      "materias",
+      "outbox_events",
+      "platform_age_signals",
+      "products",
+      "publications",
+      "question_items",
+      "question_options",
+      "question_version_freezes",
+      "question_versions",
+      "questions",
+      "ranking_seasons",
+      "reconciliation_runs",
+      "reports",
+      "review_decisions",
+      "review_schedules",
+      "risk_events",
+      "simulado_questions",
+      "simulados",
+      "simulation_answers",
+      "simulation_questions",
+      "simulation_sessions",
+      "social_profiles",
+      "sources",
+      "study_logs",
+      "subjects",
+      "subscription_events",
+      "topic_mastery",
+      "topics",
+      "user_achievements",
+      "user_answers",
+      "user_blocks",
+      "user_product_selections",
+      "user_stats",
+      "users",
+      "webhook_inbox"
+    ],
+    "migrationTables": [
+      "__drizzle_migrations__",
+      "achievements",
+      "age_profiles",
+      "app_integrity_keys",
+      "attempts",
+      "audit_logs",
+      "auth_identities",
+      "bancas",
+      "billing_customer_aliases",
+      "billing_customers",
+      "billing_reconciliation_items",
+      "blueprint_subjects",
+      "blueprint_versions",
+      "concursos",
+      "consents",
+      "data_request_evidence",
+      "data_request_export_access_events",
+      "data_requests",
+      "devices",
+      "duel_matches_v1",
+      "duels",
+      "entitlements",
+      "exam_versions",
+      "feature_flags",
+      "friendships",
+      "guardian_invitations",
+      "guardian_links",
+      "identity_operations",
+      "integrity_challenges",
+      "integrity_device_bindings",
+      "integrity_verifications",
+      "item_exposures",
+      "learning_sessions",
+      "licenses",
+      "materias",
+      "outbox_events",
+      "platform_age_signals",
+      "products",
+      "publications",
+      "question_items",
+      "question_options",
+      "question_version_freezes",
+      "question_versions",
+      "questions",
+      "ranking_seasons",
+      "reconciliation_runs",
+      "reports",
+      "review_decisions",
+      "review_schedules",
+      "risk_events",
+      "simulado_questions",
+      "simulados",
+      "simulation_answers",
+      "simulation_questions",
+      "simulation_sessions",
+      "social_profiles",
+      "sources",
+      "study_logs",
+      "subjects",
+      "subscription_events",
+      "topic_mastery",
+      "topics",
+      "user_achievements",
+      "user_answers",
+      "user_blocks",
+      "user_product_selections",
+      "user_stats",
+      "users",
+      "webhook_inbox"
+    ],
+    "onlyInDrizzle": [],
+    "onlyInMigrations": [
+      "__drizzle_migrations__"
+    ]
+  },
+  "runtimePackages": [
+    {
+      "name": "@clerk/expo",
+      "declaredVersions": [
+        "4.2.6"
+      ],
+      "consumers": [
+        "artifacts/ia-aprova/package.json"
+      ],
+      "privacyReviewRequired": true
+    },
+    {
+      "name": "@clerk/express",
+      "declaredVersions": [
+        "^2.1.23"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json"
+      ],
+      "privacyReviewRequired": true
+    },
+    {
+      "name": "@clerk/shared",
+      "declaredVersions": [
+        "^4.15.0"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json"
+      ],
+      "privacyReviewRequired": true
+    },
+    {
+      "name": "@tanstack/react-query",
+      "declaredVersions": [
+        "catalog:"
+      ],
+      "consumers": [
+        "lib/api-client-react/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "@workspace/age-integrity",
+      "declaredVersions": [
+        "workspace:*"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json",
+        "lib/api-zod/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "@workspace/api-zod",
+      "declaredVersions": [
+        "workspace:*"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "@workspace/db",
+      "declaredVersions": [
+        "workspace:*"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "@workspace/simulation-engine",
+      "declaredVersions": [
+        "workspace:*"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json",
+        "artifacts/worker/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "cookie-parser",
+      "declaredVersions": [
+        "^1.4.7"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "cors",
+      "declaredVersions": [
+        "^2.8.6"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "drizzle-orm",
+      "declaredVersions": [
+        "catalog:"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json",
+        "lib/db/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "drizzle-zod",
+      "declaredVersions": [
+        "^0.8.3"
+      ],
+      "consumers": [
+        "lib/db/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "expo-age-range",
+      "declaredVersions": [
+        "~57.0.3"
+      ],
+      "consumers": [
+        "artifacts/ia-aprova/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "expo-apple-authentication",
+      "declaredVersions": [
+        "~57.0.1"
+      ],
+      "consumers": [
+        "artifacts/ia-aprova/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "expo-auth-session",
+      "declaredVersions": [
+        "~57.0.8"
+      ],
+      "consumers": [
+        "artifacts/ia-aprova/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "expo-crypto",
+      "declaredVersions": [
+        "~57.0.1"
+      ],
+      "consumers": [
+        "artifacts/ia-aprova/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "expo-dev-client",
+      "declaredVersions": [
+        "~57.0.14"
+      ],
+      "consumers": [
+        "artifacts/ia-aprova/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "expo-secure-store",
+      "declaredVersions": [
+        "~57.0.1"
+      ],
+      "consumers": [
+        "artifacts/ia-aprova/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "expo-sqlite",
+      "declaredVersions": [
+        "~57.0.1"
+      ],
+      "consumers": [
+        "artifacts/ia-aprova/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "express",
+      "declaredVersions": [
+        "^5.2.1"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "http-proxy-middleware",
+      "declaredVersions": [
+        "^4.1.0"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "pg",
+      "declaredVersions": [
+        "^8.20.0"
+      ],
+      "consumers": [
+        "artifacts/worker/package.json",
+        "lib/db/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "pino",
+      "declaredVersions": [
+        "^9.14.0"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "pino-http",
+      "declaredVersions": [
+        "^10.5.0"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json"
+      ],
+      "privacyReviewRequired": false
+    },
+    {
+      "name": "react-native-purchases",
+      "declaredVersions": [
+        "10.7.1"
+      ],
+      "consumers": [
+        "artifacts/ia-aprova/package.json"
+      ],
+      "privacyReviewRequired": true
+    },
+    {
+      "name": "zod",
+      "declaredVersions": [
+        "catalog:"
+      ],
+      "consumers": [
+        "artifacts/api-server/package.json",
+        "lib/age-integrity/package.json",
+        "lib/api-zod/package.json",
+        "lib/db/package.json",
+        "lib/social-engine/package.json"
+      ],
+      "privacyReviewRequired": false
+    }
+  ],
+  "platform": {
+    "logging": [
+      {
+        "path": "artifacts/api-server/src/index.ts",
+        "calls": [
+          "logger.error",
+          "logger.fatal",
+          "logger.info"
+        ]
+      },
+      {
+        "path": "artifacts/worker/src/engine.ts",
+        "calls": [
+          "logger.error",
+          "logger.info",
+          "logger.warn"
+        ]
+      },
+      {
+        "path": "artifacts/worker/src/health.ts",
+        "calls": [
+          "logger.info"
+        ]
+      },
+      {
+        "path": "artifacts/worker/src/index.ts",
+        "calls": [
+          "logger.error",
+          "logger.info",
+          "logger.warn"
+        ]
+      },
+      {
+        "path": "artifacts/ia-aprova/app/(auth)/login.tsx",
+        "calls": [
+          "console.warn"
+        ]
+      },
+      {
+        "path": "lib/db/src/seeds/platform.seed.ts",
+        "calls": [
+          "console.error"
+        ]
+      },
+      {
+        "path": "lib/db/src/seeds/reference.seed.ts",
+        "calls": [
+          "console.error",
+          "console.log"
+        ]
+      }
+    ],
+    "queues": [
+      {
+        "type": "postgres-transactional-outbox",
+        "status": "implemented",
+        "evidence": "outbox_events"
+      },
+      {
+        "type": "google-cloud-tasks",
+        "status": "provisioned-not-integrated"
+      }
+    ],
+    "caches": [
+      {
+        "type": "google_redis_instance",
+        "name": "cache"
+      }
+    ],
+    "objectStorage": [
+      {
+        "type": "google_storage_bucket",
+        "name": "ops_exports"
+      },
+      {
+        "type": "google_storage_bucket",
+        "name": "privacy_exports"
+      },
+      {
+        "type": "google_storage_bucket",
+        "name": "state"
+      },
+      {
+        "type": "google_storage_bucket",
+        "name": "user_content"
+      }
+    ],
+    "localStorage": [
+      "mobile:async-storage",
+      "mobile:expo-sqlite"
+    ]
+  }
+}

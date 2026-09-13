@@ -1,0 +1,1291 @@
+{
+  "inventoryVersion": "1.0.0",
+  "inventoryFingerprint": {
+    "algorithm": "sha256-canonical-json-v1",
+    "value": "c196278a21d94c8e793024a94f9abe958eaca054c88ad4623f143555b99e8ce9"
+  },
+  "sourceRoot": "../Provas Anteriores",
+  "policy": {
+    "copiesSourceFiles": false,
+    "publicationState": "quarantine",
+    "includedExtensions": [
+      "docx",
+      "pdf"
+    ]
+  },
+  "summary": {
+    "fileCount": 156,
+    "distinctHashCount": 156,
+    "duplicateHashGroupCount": 0,
+    "totalBytes": 153429433,
+    "extensionCounts": {
+      "docx": 54,
+      "pdf": 102
+    },
+    "familyFolderCounts": {
+      "Banco do Brasil": 3,
+      "Caixa Econômica": 2,
+      "EAAR": 15,
+      "EAM": 10,
+      "EFOMM": 5,
+      "Enem": 17,
+      "Esa": 23,
+      "ESFECEX": 36,
+      "Especex": 23,
+      "PF": 10,
+      "PMERJ - Soldado": 1,
+      "PRF": 1,
+      "UERJ": 10
+    }
+  },
+  "files": [
+    {
+      "relativePath": "Banco do Brasil/2021/AGENTE DE TECNOLOGIA - MICRORREGIÃO 16 DF-TI - GABARITO 1.pdf",
+      "familyFolder": "Banco do Brasil",
+      "extension": "pdf",
+      "bytes": 617130,
+      "sha256": "6a7b292bb0a498a80081fb928c5e9fdfa6cdf70ee57ea34264a6cf03b1989e1f",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Banco do Brasil/2021/PROVA A - ESCRITURÁRIO - AGENTE COMERCIAL (1).pdf",
+      "familyFolder": "Banco do Brasil",
+      "extension": "pdf",
+      "bytes": 145067,
+      "sha256": "2bc96c0855c648393d8da695cf3e4b3dfab7beb8d268e47acb3b54fe045b3193",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Banco do Brasil/2021/PROVA A - ESCRITURÁRIO - AGENTE COMERCIAL - GABARITO 1.pdf",
+      "familyFolder": "Banco do Brasil",
+      "extension": "pdf",
+      "bytes": 295739,
+      "sha256": "209eb37df001f0b73cd85d1a6dbff7b9193a9ba045302b3bb8478264f5c0fe92",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Caixa Econômica/2021/caixa0121_prova_tb.pdf",
+      "familyFolder": "Caixa Econômica",
+      "extension": "pdf",
+      "bytes": 231368,
+      "sha256": "f886506a0dbf19ed20b918dab471642fcdc4b1a5d57326f75325c93cdb27c384",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Caixa Econômica/2021/caixa0121_prova_ti.pdf",
+      "familyFolder": "Caixa Econômica",
+      "extension": "pdf",
+      "bytes": 428595,
+      "sha256": "8fdda192d70478fb11b58d3f5907af1e45b99d6113603f458826e541c80e06e0",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/2020/CFS.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 358344,
+      "sha256": "41086bd4ba05e2f006ded1ed04a624910c2cc4f3fd3f93b880ce30ef908631b7",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/2020/Controle de Trafégo Aéreo.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 286409,
+      "sha256": "74a805a0e6a4a383f620112544b2e299c542b32df1969cf8e742a2c24fd117b6",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/2021/CFS.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 623697,
+      "sha256": "2c129c05ff1153cf41b6c90113d30251b61b8835d06cfe8056c5a34e796aeece",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/2021/Controle de Tráfego Aéreo.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 464095,
+      "sha256": "12e378877c5622cc304ab8795def3182ed4df59492bb5f7fe9f5b25245675ef9",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/2022/CFS.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 802476,
+      "sha256": "8ddda4d33f2ad5d0a523f6ab0403e455f98ff92277368e91734396b50e6105b3",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/2022/Controle de Tráfego Aéreo.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 741391,
+      "sha256": "3f81d5e84dc97f1e85b43cce3136e4dbe28f5b6d8bb98fafa2b28d4c47733970",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/2023/CFS.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 356410,
+      "sha256": "91a4924def2c9ebdc0c513c725ae4b38dbfb363003288301e4c5985c5acbf2e1",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/2023/Controle de Tráfego Áereo.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 524596,
+      "sha256": "4f775877a0e869ecae61af5d02bf1380df8d6e5bfb0a348fe8f2cff126fc3c15",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/2024/CFS.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 374870,
+      "sha256": "0ab90e70a7e0a3d5b9becd08ee5d5f2655a5ac55c085c7c9a822e0a3fe8c40be",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/2024/Controle de Tráfego Áereo.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 339781,
+      "sha256": "ce79298dc55d08b5b4933b6334f355d37007f1c8788700be26e256260de20437",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/fisica.docx",
+      "familyFolder": "EAAR",
+      "extension": "docx",
+      "bytes": 142779,
+      "sha256": "53408b2445b548d8b33bf3c3d95a4d517b20e93a3b060ee00589fc1e85e7ee5c",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/ingles.docx",
+      "familyFolder": "EAAR",
+      "extension": "docx",
+      "bytes": 88106,
+      "sha256": "b512e0fb180a2b11a344050890a8a3bc0ad82ed5b933ee0dc1dad782d86e1cef",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/matematica.docx",
+      "familyFolder": "EAAR",
+      "extension": "docx",
+      "bytes": 105026,
+      "sha256": "e2ad0f3c18ce650ee490a57149e450530224ab66e27746086c60486af949644d",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/PORTUGUES.docx",
+      "familyFolder": "EAAR",
+      "extension": "docx",
+      "bytes": 104851,
+      "sha256": "a298cda7769c85bf86ba03205faa0bf564a38d5a1b37f253592b87e8b3842ec4",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAAR/Relatório analítico do concurso EEAR.pdf",
+      "familyFolder": "EAAR",
+      "extension": "pdf",
+      "bytes": 110582,
+      "sha256": "64c4fc290a20842234f955ca2f811094d6835da9fa746f7faa29685cb15ae9b7",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAM/2021/CPAEAM-2021 PROVA_Amarela.pdf",
+      "familyFolder": "EAM",
+      "extension": "pdf",
+      "bytes": 566633,
+      "sha256": "1e32102d35770a0b5cb5be118f6e0758ff88e36435476706aa4834db00a7c467",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAM/2022/PORTUGUÊS MATEMÁTICA CIÊNCIAS INGLÊS -ROSA.pdf",
+      "familyFolder": "EAM",
+      "extension": "pdf",
+      "bytes": 1914427,
+      "sha256": "e20d0bd54f972975494305cc0e5f73f5aed6193728e159db89fd74b4c317d6ea",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAM/2023/CPAEAM-2023 PROVA_AZUL (REAPLICAÇÃO).pdf",
+      "familyFolder": "EAM",
+      "extension": "pdf",
+      "bytes": 705695,
+      "sha256": "1020f325055c768f08285301e7985407907284357795f1ab8e734b83eb292059",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAM/2024/2024.pdf",
+      "familyFolder": "EAM",
+      "extension": "pdf",
+      "bytes": 567582,
+      "sha256": "6228754dcc68d5f5e19a7b3b4b08a1afcd05d18a4061b38836f4bed45e9596fc",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAM/2025/CPAEAM 2025 AMARELA.pdf",
+      "familyFolder": "EAM",
+      "extension": "pdf",
+      "bytes": 729709,
+      "sha256": "5bcd8b3220e5eea151222553cccab900253d17069e2b19d7048ef290f2f9c0db",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAM/ciencias.docx",
+      "familyFolder": "EAM",
+      "extension": "docx",
+      "bytes": 86291,
+      "sha256": "aadcec56d45355615dbefda2820b3835639070b2d8eaccce67c724717f7d98c4",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAM/ingles.docx",
+      "familyFolder": "EAM",
+      "extension": "docx",
+      "bytes": 91344,
+      "sha256": "ad47d14baaf6ce1d8421bb42f69a0ec0cecaa3872141989361fea38ee8191634",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAM/Matemática.docx",
+      "familyFolder": "EAM",
+      "extension": "docx",
+      "bytes": 183376,
+      "sha256": "65cfed76fc35a6102282fa5fe77fe44a6c34a83129e3f3241c81bf98dc7b335b",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAM/Português.docx",
+      "familyFolder": "EAM",
+      "extension": "docx",
+      "bytes": 147601,
+      "sha256": "9d0b409af479376fddf62f5025f1914aa860f009ed90afaf08e7c233b7facf34",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EAM/Resumo Executivo.pdf",
+      "familyFolder": "EAM",
+      "extension": "pdf",
+      "bytes": 128969,
+      "sha256": "8c1f2c05bc0bf9f9cae7530348ddcfd18c21e79d4eab159422b575557f085947",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EFOMM/fisica.docx",
+      "familyFolder": "EFOMM",
+      "extension": "docx",
+      "bytes": 198538,
+      "sha256": "f9eebd3925253d2646369f5d58531ed2fde30b3d844c873c7f05f000b7653e44",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EFOMM/ingles.docx",
+      "familyFolder": "EFOMM",
+      "extension": "docx",
+      "bytes": 183073,
+      "sha256": "6d8c25bc0584a29ecdce7d9bf4c9a2ed31d89c1f4249ca0ba16abaee1ee45dac",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EFOMM/matematica.docx",
+      "familyFolder": "EFOMM",
+      "extension": "docx",
+      "bytes": 143572,
+      "sha256": "d0bf30e9561a2e3e0c8659cbf67d5d28964763d0b35fb2eef4cb5f4a276d14b4",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EFOMM/portugues.docx",
+      "familyFolder": "EFOMM",
+      "extension": "docx",
+      "bytes": 211875,
+      "sha256": "231a7a7ef2a49c30c57dbd14bd5954cfce14372f6c8592a679277f7c90206e5a",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "EFOMM/Relatório analítico da EFOMM.pdf",
+      "familyFolder": "EFOMM",
+      "extension": "pdf",
+      "bytes": 161735,
+      "sha256": "90c9d63916d8c56509239227b59ce0269007d3cdc041d67343c7efc78acc9fda",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/2023/Gabarito Primeiro dia.pdf",
+      "familyFolder": "Enem",
+      "extension": "pdf",
+      "bytes": 593395,
+      "sha256": "65a42155caf0473bc1f181e4ca3c3637c2d6f4a812cfb8fcddfa63fa9c784828",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/2023/Primeiro dia.pdf",
+      "familyFolder": "Enem",
+      "extension": "pdf",
+      "bytes": 4261148,
+      "sha256": "4b3398572b57abab43b8290cec9133413ddf8d2476cae5b144b455399179e2f7",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/2024/Gabarito Primeiro dia.pdf",
+      "familyFolder": "Enem",
+      "extension": "pdf",
+      "bytes": 118234,
+      "sha256": "673d3d060156d6ad610ecf96c3dd0b8c61f361e16c57860c4ca5b5fecc8be050",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/2024/Gabarito Segundo dia.pdf",
+      "familyFolder": "Enem",
+      "extension": "pdf",
+      "bytes": 121742,
+      "sha256": "342edd1d18c0266812b9e379c7b9b2ebfcdd739857445bd03cf3c55951861297",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/2024/Primeiro dia.pdf",
+      "familyFolder": "Enem",
+      "extension": "pdf",
+      "bytes": 4775958,
+      "sha256": "a818fc661cdee67325ddb11a053c7c51f452f3d14f24cdd6d2c37df09fb78b15",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/2024/Segundo dia.pdf",
+      "familyFolder": "Enem",
+      "extension": "pdf",
+      "bytes": 4970445,
+      "sha256": "9707d9dae08c177dd27dcd5ac8d6ae97e6f9d45d46fb0892c84679838ff8a4ae",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/Biologia.docx",
+      "familyFolder": "Enem",
+      "extension": "docx",
+      "bytes": 217856,
+      "sha256": "529cebf5dc85ec6ca09354c505e87ddbace17610c7e8f7a7b35c3dc02538c3dc",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/espanhol.docx",
+      "familyFolder": "Enem",
+      "extension": "docx",
+      "bytes": 95793,
+      "sha256": "6567fbc13f624a4d724f46823a667a1a01d7b00aa404747a9fe69e804b6f33ff",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/FISICA.docx",
+      "familyFolder": "Enem",
+      "extension": "docx",
+      "bytes": 96035,
+      "sha256": "c32ac8bb5daefadc61549c9dd252d76d1ecaafccf9d8059879eca81b4a626a49",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/geografia.docx",
+      "familyFolder": "Enem",
+      "extension": "docx",
+      "bytes": 131324,
+      "sha256": "7a0470befe222ad84f9f531d24760de2af9875fc68aef450890b7f51a472ed55",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/historia.docx",
+      "familyFolder": "Enem",
+      "extension": "docx",
+      "bytes": 104897,
+      "sha256": "366ef96fa68b482c79dc467cb5b9e26db4410e2ff6600e6d92654f7e3f9b50a3",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/ingles.docx",
+      "familyFolder": "Enem",
+      "extension": "docx",
+      "bytes": 203189,
+      "sha256": "3e92882c6ca208dde1e1ccc2253bf14d7de5c84978e268962e51c400f3b621eb",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/matematica.docx",
+      "familyFolder": "Enem",
+      "extension": "docx",
+      "bytes": 118809,
+      "sha256": "c349a8dec90438037ae2bac0e46068775be5d92292b2e5a6e5bf0a534cbe3185",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/portugues.docx",
+      "familyFolder": "Enem",
+      "extension": "docx",
+      "bytes": 181769,
+      "sha256": "5a399616d4006ba21ca5a88309774c20283351a19c78c7584d33dbb97cfee44b",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/QUIMICA.docx",
+      "familyFolder": "Enem",
+      "extension": "docx",
+      "bytes": 100297,
+      "sha256": "afa55d3d4547d2956037890bcad5c9660b1ae58e351acc04502e076dfb0788b9",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/Resumo Executivo.pdf",
+      "familyFolder": "Enem",
+      "extension": "pdf",
+      "bytes": 98295,
+      "sha256": "7b2e5050ab5955a4d5b6c9abac0d7065d82d6c8d24297183317b17110fc1c2c4",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Enem/Sociologia.docx",
+      "familyFolder": "Enem",
+      "extension": "docx",
+      "bytes": 81750,
+      "sha256": "6763723b9253c2e662e99faa6c14f04ebce2b79cdeb617f3fde7f4bee83190d0",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2020/GERAL.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1445761,
+      "sha256": "abe93440606b44cd0fff41a5adf2befaa8e0fa2446b89eee5963989a170b90fb",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2020/MÚSICA.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1431651,
+      "sha256": "b16b10ff62c8cbd10c26f760e710cb072954e668db368e8560352b874639125f",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2020/SAÚDE.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1533729,
+      "sha256": "901edc5bd22d35be8067ba91f40c4956d1b0d92fbd4025abce5f554a65da1c7a",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2021/prova_Geral_Tipo_A.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1024963,
+      "sha256": "79ff4b6039621a88eecb91b8263a67f06c3a68b41d2123881fc8fd33d88e6c76",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2021/prova_Musica_Tipo_A.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1034698,
+      "sha256": "ef69db2c3168d21ad045b2e368c0025dcdc9281dd9420d36b28304f4a5f89579",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2021/prova_Saúde_Tipo_A.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1063722,
+      "sha256": "4186f7892b777fab814a852a542c3e699c30edc78326cc7f9315a70995831946",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2022/Prova_Geral_Tipo_A_para_divulgação.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1322319,
+      "sha256": "078add46425cdb9fcf6e18fd6a810346d0f90fce43305714c8c6b088de42bc17",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2022/Prova_MúsicaTipo_A_para_divulgação.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1262366,
+      "sha256": "4bcd47f10099fc44d27526e9a825504c7979dcdd5f0401c558967a0125546db2",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2022/Prova_Saúde_Tipo_A_para_divulgação.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1229348,
+      "sha256": "d8373b57bd2dababd61d88ce2531594535b9f780cb55bdfb6fc75b60330575ce",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2023/Prova_Geral_Tipo_A.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1296827,
+      "sha256": "e19ab1cd4a0966d2bfe693542caff1a0196d63d456a9130892a85bea29aa8162",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2023/Prova_Músico_Tipo_A.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1352769,
+      "sha256": "6de76882fa159f3074c9e91de54d3c2e645b53ca14559da67c5297fe48ef282a",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2023/Prova_Saúde_Tipo_A.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1187203,
+      "sha256": "07b952b920efef29d58463e22bdf2caef0dc28eaab834c78c5bda6edceb943bc",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2024/PROVA_24_-_GERAL_A.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1927458,
+      "sha256": "3678bc8acf471ebebf814ff95a2f63d1be2b66a856f2c27d5f759d52e44465a8",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2024/PROVA_24_-_MÚSICO_A.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1644328,
+      "sha256": "2a08f94c4688faad80e9214b013df302ac775cfcbbe1e5cb757ab69d22099665",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/2024/PROVA_24_-_SAÚDE_A.pdf",
+      "familyFolder": "Esa",
+      "extension": "pdf",
+      "bytes": 1616233,
+      "sha256": "49d689fa250c5b41706d21dd33dd0c3aa580a1058e1ea6cc5f74f5e6bf528559",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/Concurso da ESA.docx",
+      "familyFolder": "Esa",
+      "extension": "docx",
+      "bytes": 215082,
+      "sha256": "c37f86212748bf08a6535de620d9078eb616b6f3590c7648c3a6bff33e53411b",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/enfermagem.docx",
+      "familyFolder": "Esa",
+      "extension": "docx",
+      "bytes": 58103,
+      "sha256": "3cb25f36feaa4bb893e94ef4f936842008e68b2094c2729ae6ee8cc2740e8198",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/geografia.docx",
+      "familyFolder": "Esa",
+      "extension": "docx",
+      "bytes": 62773,
+      "sha256": "c714b681adcf5f636f7ccc1bb3f0765f3db04a2bc1c5fc5aed8ae3cbf7bb204c",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/história.docx",
+      "familyFolder": "Esa",
+      "extension": "docx",
+      "bytes": 63570,
+      "sha256": "d05a2eff6ecefd409d9cece9d395b3840229b9dc69e6842e7de4c76b0948b671",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/Inglês.docx",
+      "familyFolder": "Esa",
+      "extension": "docx",
+      "bytes": 64164,
+      "sha256": "c1ed986656385aefda2f227b35a9651d6d7319e775302d3688983c1e0b460ada",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/Instrução.docx",
+      "familyFolder": "Esa",
+      "extension": "docx",
+      "bytes": 15150,
+      "sha256": "93c4b0c2db832c1e801166d1331ecf7f8546e6f70c3c39cb7dd93731825c766e",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/Matemática.docx",
+      "familyFolder": "Esa",
+      "extension": "docx",
+      "bytes": 113329,
+      "sha256": "707dfc7f0fd6def4c8a75479ec7f9116d05042cb5f8f3eb9d176d8814ad0fa6a",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Esa/portugues.docx",
+      "familyFolder": "Esa",
+      "extension": "docx",
+      "bytes": 92447,
+      "sha256": "baed4cfbfb4435bce205428e52d3fc0baa43b01fd28491aaba1a2173abd65370",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2020/Administração.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 677340,
+      "sha256": "1f1c715fef96ce1cde5d70ad7ad6b5740ef22266168d6281929c7b7a41adfde1",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2020/Ciências Contabéis.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 653818,
+      "sha256": "b5dd195fb9b1da16c41f206ed47c3c9d1ec2ca2bbf31bf7676a13816d8ee0dc6",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2020/Direito.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 616437,
+      "sha256": "f457b99fdc3a961e9b5646788fdf80cb770f3715618c60cc7170a564bdef891d",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2020/Enfermagem.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 592162,
+      "sha256": "36371807424f1e14657cb10bb0dbe6d15207dd61218bfcb3f34c5628824540cc",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2021/Administração.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 605120,
+      "sha256": "47b2be349fe28c9b2791f0e56998aaa382be5d4b2bdfb1b929e91547c36c08e2",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2021/Ciências Contabéis.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 746046,
+      "sha256": "4e299cf7aaa9c3bdabce2ba32844114657870ce311a963254d31f86c3c7775db",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2021/Direito.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 638698,
+      "sha256": "5f0cec09a250a925c60c07805bcfbc995f76beb5138cacae5a2ef9930d9d8ef2",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2021/Enfermagem.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 826140,
+      "sha256": "aae371bf74a9a3f6410c2dc6f700b344d65a07feda5a906e8b71d06dc78d6996",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2022/Administração.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 573723,
+      "sha256": "7a5c3a9a9b90040729a0a45ccc49fba0a2a685bb3dab801ebb4ddb0bbbe869f4",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2022/Ciências Contábeis.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 673798,
+      "sha256": "3cde479a1d5b592094c307df4ecd37b5e40df4c16682c95c204026acaae1f8e0",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2022/Direito.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 599036,
+      "sha256": "e54ee12f49bf3ce875a6d911972b0e83fa12d8c667154eeb18318c0b0c0e6794",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2022/Enfermagem.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 631930,
+      "sha256": "2844330d36c5cc0b60dd20510b1871ab8911e59bf9819b875d6b44f1d44c520c",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2023/Administração.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 794155,
+      "sha256": "1ec44354164777c7765df71e965136087a6a64e9d3a52c063cd79bc976340021",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2023/Ciências Contábeis.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 724212,
+      "sha256": "5c8b1ca0d7dd7a1853e65e98749b94a0adaf88e9f77b300b234924910871852b",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2023/Direito.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 715771,
+      "sha256": "debf5d9cdf8a2ce5639f0d9ec688e14bb2a01eb7f722df1d494402b36eb02f00",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2023/Enfermagem.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 708558,
+      "sha256": "5ea75e746d573637d458d1f046bebc0db0e7df54111e4394ac1de2618578ffb6",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Administração.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 653466,
+      "sha256": "9780449f6271b7646be6f52800c99baf5cf5b89cc531f6ec5a428fa87488adbb",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Ciências Contábeis.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 675294,
+      "sha256": "fe3865e235bdc082a1fdfaf89ff019adbc7210ee879e3557a1cf413303409e54",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Dentista - cirurgia e traumatologia bucomaxilofacial.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 389731,
+      "sha256": "001faebd0d8c8c4d37e47974003e8de74b60ebbd826848cc1912ea777a609a77",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Dentista ortodontia e ortopedia facial.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 365498,
+      "sha256": "8bac0586ed3edbddd4525515cab8466bd5d8a2449aa728ceca9b251b4e4022db",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/dentista periodontia.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 369201,
+      "sha256": "ea938fdc81f098963f284e74659e05e32aaf725fec94b0b033ebeb8c34a1da00",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Dentista prótese dental.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 374627,
+      "sha256": "50130af7d38b8e02dfeee841a299cd258aea18962303991e3be0383f0a3869ee",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Dentista Restauradora.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 372841,
+      "sha256": "4b168e95d2f4abece4309df783cdcecde5ed743e2c0e7028f99b7ab6cda5a350",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Direito.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 628655,
+      "sha256": "6380aa8f23e53903a68a03a71e66c332846a8b12eb18a26c3dab61fa8c9c4ea4",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Enfermagem.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 631844,
+      "sha256": "460022267c86572a4b4a6806e8cf5703e5ff8b716be55a288411488603c1000b",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Farmácia.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 427844,
+      "sha256": "8930b8d2fb3657ed9d99c47d4dffc99e4bb5ab98682807a083864c19e3b8fcd3",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Medicina  cirurgia geral.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 432393,
+      "sha256": "6222df6df9f6a56425a8925997d703242c68f6257cb70cc0c6a3a0f81257460e",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Medicina anestesiologia.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 392741,
+      "sha256": "f41a9902ac2ee9aef7115b924b38395295bf7c7e43429dab82a98fe90c8059ab",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Medicina Cancerologia - Oncologia.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 402037,
+      "sha256": "486004ac0b0a39f454b322fb0323ec7762a7548fb2c824421d0d0331750d1419",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Medicina cardiologia intervencionista (hemodinâmica).pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 666592,
+      "sha256": "ad35e2cf9b20eafaf7d31495a6105afcdef900f05e105a24cb6ee67fcef43064",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Medicina Cardiologia.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 584128,
+      "sha256": "0a5e7058a2764707eaf16e2a1183a7e6116a4a5f9e1d6ee1c644cb6de1a9ecfb",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Medicina cirurgia de cabeça e pescoço.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 409557,
+      "sha256": "0e30b05a86534666b8bac2cb4374a0830ca5559662299214130a2ef1a66f8990",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Medicina Cirurgia de mão.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 389430,
+      "sha256": "91530792d919601052af31161e6e4468f6c514b328de1307db73a2124b46d063",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Medicina Cirurgia Pediátrica.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 389916,
+      "sha256": "89817206cefca8dd6c3001c8749dc0e1594a57455015b8b06260b235a0a34dfb",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Medicina Cirurgia Plástica.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 405205,
+      "sha256": "c536df15f4b0dcbc7c2dec8d42d0bfdff9d5ae737ae9dea29207b23f85b42288",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "ESFECEX/2024/Medicina Cirurgia Torácica.pdf",
+      "familyFolder": "ESFECEX",
+      "extension": "pdf",
+      "bytes": 400056,
+      "sha256": "99759fbbf42a073b2f9be92cf80094410098ca7b8c5d2d62cdcdebfaaf765bbe",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2020/2020 - EsPCEx - MATGEOHISING- MODELO D.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 264216,
+      "sha256": "6e8c52221b268642ac75cd77a618e9393a524b3f283458fbfa93b813437fe17b",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2020/2020 - EsPCEx - PORTFISQUI - MODELO A.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 300763,
+      "sha256": "7f3ba09a13e16b8cd799770fccabd4e8756fa40a7c56a39e2108fadb71ede7a8",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2021/2021 - EsPCEx - MATGEOHISING- MODELO D.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 1144581,
+      "sha256": "2b3fe29126420487c99566aec9b07f5582a17123d384c22afe02c268ac90243f",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2021/2021 - EsPCEx - PORTFISQUI - MODELO A.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 1225151,
+      "sha256": "b3c40bf15c8d6a0406c3e0db2c163947cd2d5d0a70cfde72a7a896cabbee6dbf",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2021/2021-gabarito-1-dia-de-prova.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 35875,
+      "sha256": "47f84ba6465bebf8ce1e80504ed9fe0e80d2e8fe18e153b078cf99ffc4dbc839",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2022/2022 PROVA DIA 1 MODELO A.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 1345422,
+      "sha256": "392d65afbb1b7d4e9f8ec9e81a436df14d4adadc887174e965caaef8199b4b9e",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2022/2022 PROVA DIA 2 MODELO D.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 776742,
+      "sha256": "9125ce4082795849e6299d38c1d8b5bdf889cb0fc0880f13c9f9c0c5cb323094",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2023/2023-gabarito-1-dia-de-prova.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 36480,
+      "sha256": "9833d6cc281d096b9106e179a2b290feb166dd6981147472037a84ada65c58de",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2023/2023-gabarito-2-dia-de-prova.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 36506,
+      "sha256": "d0550a67cc10d161775fb7f9c0690fdf1e5bd06357958425c8edb730087bfde3",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2023/2023-modelo-d-2-dia-de-prova.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 15826233,
+      "sha256": "4a8dff070b97c694fded6388de0d5f4d821a2f3f45a714dd7d1eb084eecf5c72",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2023/2024-modelo-d-2-dia-de-prova.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 19611983,
+      "sha256": "621b6114432c2896505723c6f063257c6b0ea4703cfbbe364636288b4842d2bd",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2024/2024-gabarito-1-dia-de-prova.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 248241,
+      "sha256": "bc912307688e8635dc95e3519e08576090f9ddf88c24d95ac9e945eaaf6ac36b",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2024/2024-gabarito-2-dia-de-prova.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 187094,
+      "sha256": "2ca53c9451bc9b0312a0554c70a4b725e040293d99eb3c7d26e189ce1da0827f",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2024/2024-modelo-a-1-dia-de-prova.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 20245965,
+      "sha256": "a7cbf044fc15acab8a51fe27ea391d21baf7bfdd53429892a05430f47f515bcd",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/2024/2024-modelo-d-2-dia-de-prova.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 17445394,
+      "sha256": "b7f7cf3103d021ca25d029dc95066660fa5dd2e72eb6e74a9278699d21e151a1",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/fisica.docx",
+      "familyFolder": "Especex",
+      "extension": "docx",
+      "bytes": 90463,
+      "sha256": "42711602e86a4db253c375c0a3a77a7c27a1cd0fd7d6dbb2cdcf9853e94bd3ec",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/geografia.docx",
+      "familyFolder": "Especex",
+      "extension": "docx",
+      "bytes": 152836,
+      "sha256": "2963c6b4a138a46a244d2c66b40d61f7cba37ee9f53fb41bd83098b0dca42065",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/Hisória.docx",
+      "familyFolder": "Especex",
+      "extension": "docx",
+      "bytes": 192518,
+      "sha256": "d7973d9965a025a5d489d2d05991c538256846487e04e81928040ca9fe67b2e6",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/ingles.docx",
+      "familyFolder": "Especex",
+      "extension": "docx",
+      "bytes": 90015,
+      "sha256": "15dec8b531658e0b32baf27f8828295ba925cc111056e326d645776752699e07",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/Matemática.docx",
+      "familyFolder": "Especex",
+      "extension": "docx",
+      "bytes": 75877,
+      "sha256": "41c0630b48556a3f8ebce4504dcd55c1b890d6287fd42a372ea7f4dfe7d47e8d",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/Português.docx",
+      "familyFolder": "Especex",
+      "extension": "docx",
+      "bytes": 170626,
+      "sha256": "4488046cdaac64fe821b203f46c4952fce66ea3e348091499a6d4d5f8eca0929",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/quimica.docx",
+      "familyFolder": "Especex",
+      "extension": "docx",
+      "bytes": 89189,
+      "sha256": "b7b049ad48e86a253f10be1dbf8e1561733d233b514d99666a7fe0c4294755e6",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "Especex/Resumo Executivo.pdf",
+      "familyFolder": "Especex",
+      "extension": "pdf",
+      "bytes": 98386,
+      "sha256": "3742bc195be788d75961283dad68fe0c68d764cccbf4b81e6a1fa3064f4003e6",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PF/agente/prova_CARGO_2_AGENTE_DE_POLCIA_FEDERAL.pdf",
+      "familyFolder": "PF",
+      "extension": "pdf",
+      "bytes": 688936,
+      "sha256": "5464654f02abfcafe921eaa65c4f30bf9c267d80e667b7b35a8ca9e3f115b42f",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PF/constitucional.docx",
+      "familyFolder": "PF",
+      "extension": "docx",
+      "bytes": 67550,
+      "sha256": "b856e054c9ef6602a39d40ecb3503ffe462cc4d115019145b199278744e0bddf",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PF/contabilidade.docx",
+      "familyFolder": "PF",
+      "extension": "docx",
+      "bytes": 72202,
+      "sha256": "c40948d3869ba310d78df770815449dd252acf06aa2f77329a3f2e5f47ccd057",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PF/Direito administrativo.docx",
+      "familyFolder": "PF",
+      "extension": "docx",
+      "bytes": 107104,
+      "sha256": "e1197f8c6b330d054e895a5a2aca6476eeffba051f0d8c6ff97a05ca794c4cbd",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PF/Direito penal.docx",
+      "familyFolder": "PF",
+      "extension": "docx",
+      "bytes": 146696,
+      "sha256": "5b069f5691efc03205756f85f9f5527c158a58144f0b5c3e712ce56c69017add",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PF/Estatistica.docx",
+      "familyFolder": "PF",
+      "extension": "docx",
+      "bytes": 128504,
+      "sha256": "72706424d5246e2c8064fc4e41b52422b07fd00e630bb4b285b062e11fd83c2b",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PF/Informatica.docx",
+      "familyFolder": "PF",
+      "extension": "docx",
+      "bytes": 98822,
+      "sha256": "b30859498e4626ed107fe1d3b45b82be4d767edf38dc305f62fb664cf160229c",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PF/português.docx",
+      "familyFolder": "PF",
+      "extension": "docx",
+      "bytes": 126353,
+      "sha256": "9c6d1a79e4118acb4e5dda47f54a56b59b0cfb6583718af83b1fdbfe5c42ce98",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PF/raciocionio logico.docx",
+      "familyFolder": "PF",
+      "extension": "docx",
+      "bytes": 127058,
+      "sha256": "4747d18cfb0a987ea1370c802cfde1406768a0a926b86f097f8c3c7878023cce",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PF/Resumo Executivo.pdf",
+      "familyFolder": "PF",
+      "extension": "pdf",
+      "bytes": 91441,
+      "sha256": "8b85d267e52f293ca6c15031822202996bc04b769f7dee2035d8b3916b24f438",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PMERJ - Soldado/Resumo Executivo.pdf",
+      "familyFolder": "PMERJ - Soldado",
+      "extension": "pdf",
+      "bytes": 110520,
+      "sha256": "34b18b77910d36ae6bfec11bed9a7e760c393d7242aeec75143aa5ff9db0dfce",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "PRF/Resumo Executivo.pdf",
+      "familyFolder": "PRF",
+      "extension": "pdf",
+      "bytes": 118714,
+      "sha256": "d3e60c2c6abf2be3bb64f524cd98904a977889198a054faa76f5d69f102df224",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "UERJ/Biologia.docx",
+      "familyFolder": "UERJ",
+      "extension": "docx",
+      "bytes": 146668,
+      "sha256": "98c1cd737f534a832e4b8789e68fc72648401cc84e609b0023826e68876492e6",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "UERJ/Espanhol.docx",
+      "familyFolder": "UERJ",
+      "extension": "docx",
+      "bytes": 70681,
+      "sha256": "e977292a38d429bcd8ae1e32e81a29ef62cb1e3d4847bd20a6c76dd3659a4d33",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "UERJ/Física.docx",
+      "familyFolder": "UERJ",
+      "extension": "docx",
+      "bytes": 134024,
+      "sha256": "beeb8aa63f93f50de3d79e5b4bf7f69b86e6758870e1f4b78bdb84bb40f3e6d8",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "UERJ/Geografia.docx",
+      "familyFolder": "UERJ",
+      "extension": "docx",
+      "bytes": 140260,
+      "sha256": "29e924403fa4ff6b7f2b817ec410bdd5ce635572ce65aca9a95b91db1aec655c",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "UERJ/História.docx",
+      "familyFolder": "UERJ",
+      "extension": "docx",
+      "bytes": 172543,
+      "sha256": "1f443cc5146e3162c90f828cf8e7f45353729202bb6fabc9aedaca2e90eebd64",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "UERJ/ingles.docx",
+      "familyFolder": "UERJ",
+      "extension": "docx",
+      "bytes": 74643,
+      "sha256": "fdde42c55722f35aa38ee8869db452cdbd652d17fd4d86558eac44522a824240",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "UERJ/Matematica.docx",
+      "familyFolder": "UERJ",
+      "extension": "docx",
+      "bytes": 122878,
+      "sha256": "4be57206c590dbefad65968ea5e4b738ba1ce4757b36c5e2172b57dbdfea947b",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "UERJ/PORTUGUES.docx",
+      "familyFolder": "UERJ",
+      "extension": "docx",
+      "bytes": 139335,
+      "sha256": "2f3bac360e0fdf77a5b70bde4e8ed55df2ab2138f4e892170b7d1ab02c117dbb",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "UERJ/quimica.docx",
+      "familyFolder": "UERJ",
+      "extension": "docx",
+      "bytes": 149379,
+      "sha256": "bbe07294f473a0e580e7535d0d55fa1c3001e1fc2194a66d3a1e778afcb7d02e",
+      "state": "quarantine"
+    },
+    {
+      "relativePath": "UERJ/Resumo Executivo.pdf",
+      "familyFolder": "UERJ",
+      "extension": "pdf",
+      "bytes": 75905,
+      "sha256": "f2c7ab358fa100f03306baecbfe968c7ef482a29bab149ef076303a4c880f24b",
+      "state": "quarantine"
+    }
+  ]
+}

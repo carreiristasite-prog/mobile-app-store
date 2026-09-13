@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-08-23",
+  "status": "draft_blocked",
+  "releaseAllowed": false,
+  "app": {
+    "name": "IA Aprova",
+    "version": "1.0.0",
+    "iosBundleIdentifier": "br.com.iaaprova.app",
+    "iosBuildNumber": "1",
+    "androidPackage": "br.com.iaaprova.app",
+    "androidVersionCode": 1,
+    "minimumAge": 13,
+    "madeForKids": false,
+    "primaryLocale": "pt-BR"
+  },
+  "urls": {
+    "origin": "https://iaaprova.com.br",
+    "privacy": "https://iaaprova.com.br/privacy/",
+    "terms": "https://iaaprova.com.br/terms/",
+    "support": "https://iaaprova.com.br/support/",
+    "accountDeletion": "https://iaaprova.com.br/account-deletion/",
+    "subprocessors": "https://iaaprova.com.br/subprocessors/"
+  },
+  "subscription": {
+    "productId": "iaaprova.pro.monthly",
+    "entitlement": "pro",
+    "period": "P1M",
+    "autoRenewing": true,
+    "freeTrialAtLaunch": false,
+    "priceSource": "store_localized",
+    "targetBrazilPriceBrl": "39.90",
+    "googleBasePlanId": "monthly-auto-renewing"
+  },
+  "distribution": {
+    "appleCategoryPrimary": "Education",
+    "appleCategorySecondary": "Reference",
+    "googleCategory": "EDUCATION",
+    "countriesAtLaunch": ["BR"],
+    "iosSupportsTablet": false,
+    "orientation": "portrait"
+  },
+  "ageSignals": {
+    "ios": "declared_age_range",
+    "android": "play_age_signals",
+    "missingOrErrorBehavior": "restrict_as_minor",
+    "storeSignalMayNotBeOverriddenToAdult": true
+  },
+  "requiredLaunchCapabilities": {
+    "questions": true,
+    "simulationRules": true,
+    "socialComplete": true,
+    "socialModerationAndBlocking": true,
+    "nativeStoreBilling": true,
+    "accountExportAndDeletion": true
+  },
+  "claims": {
+    "humanTeacherReview": false,
+    "officialAffiliation": false,
+    "approvalGuarantee": false,
+    "generativeAiInProduction": false,
+    "advertising": false,
+    "crossAppTracking": false,
+    "chat": false,
+    "realNameRequiredForSocial": false,
+    "preciseLocation": false
+  },
+  "files": {
+    "appConfig": "artifacts/ia-aprova/app.json",
+    "easConfig": "artifacts/ia-aprova/eas.json",
+    "mobilePackage": "artifacts/ia-aprova/package.json",
+    "releaseEvidence": "docs/store-release/release-evidence.json",
+    "privacyDisclosures": "docs/store-release/privacy-disclosures.pt-BR.md",
+    "officialSources": "docs/store-release/official-requirements-2026-08-23.md"
+  }
+}

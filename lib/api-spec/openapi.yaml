@@ -1,0 +1,1502 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 1.0.0
+  description: API transacional e server-authoritative do IA Aprova.
+servers:
+  - url: /api/v1
+security:
+  - bearerAuth: []
+tags:
+  - { name: operations }
+  - { name: catalog }
+  - { name: learning }
+  - { name: simulations }
+  - { name: me }
+  - { name: identity }
+  - { name: integrity }
+  - { name: billing }
+  - { name: social }
+  - { name: trust }
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [operations]
+      summary: Liveness superficial, sem dependências
+      security: []
+      servers:
+        - url: /api
+      responses:
+        "200":
+          description: Processo HTTP vivo
+          headers:
+            Cache-Control:
+              schema: { type: string, const: no-store }
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/HealthCheck" }
+  /readyz:
+    get:
+      operationId: readinessCheck
+      tags: [operations]
+      summary: Prontidão opaca baseada no PostgreSQL e no estado de drain
+      security: []
+      servers:
+        - url: /api
+      responses:
+        "200":
+          description: Instância pronta para receber tráfego
+          headers:
+            Cache-Control:
+              schema: { type: string, const: no-store }
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ReadinessCheck" }
+        "503":
+          description: Instância indisponível; sem detalhes internos
+          headers:
+            Cache-Control:
+              schema: { type: string, const: no-store }
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ReadinessCheck" }
+  /catalog/active:
+    get:
+      operationId: getActiveCatalog
+      tags: [catalog]
+      security: []
+      responses:
+        "200":
+          description: Catálogo publicado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/CatalogActiveResponse" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/onboarding-state:
+    get:
+      operationId: getOnboardingState
+      tags: [identity]
+      responses:
+        "200":
+          description: Estado autoritativo de elegibilidade e onboarding
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/OnboardingState" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/age-profile:
+    put:
+      operationId: setAgeProfile
+      tags: [identity]
+      description: Atualiza somente a faixa autodeclarada, restaura defaults protetivos e invalida vínculos em que a conta deixe de ser um responsável 18_plus.
+      parameters:
+        - $ref: "#/components/parameters/IdempotencyKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/SetAgeProfileRequest" }
+      responses:
+        "200":
+          description: Faixa etária autodeclarada registrada; social e notificações retornam desligados
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/OnboardingState" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/platform-age-signal:
+    post:
+      operationId: reportPlatformAgeSignal
+      tags: [identity]
+      description: Registra somente a faixa normalizada e o estado de compartilhamento informados pelo bridge nativo. O cliente não envia data de nascimento, installId ou prova de garantia; até existir App Attest/Play Integrity validado pelo servidor, o registro permanece device_reported_monitoring e nunca libera social ou notificações.
+      parameters:
+        - $ref: "#/components/parameters/IdempotencyKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/PlatformAgeSignalReportRequest" }
+      responses:
+        "200":
+          description: Sinal minimizado registrado para restrição e monitoramento
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/OnboardingState" }
+        default: { $ref: "#/components/responses/Problem" }
+  /integrity/device-bindings:
+    post:
+      operationId: registerIntegrityDeviceBinding
+      tags: [integrity]
+      description: Registra de forma idempotente um identificador operacional aleatório de instalação. Não é fingerprint nem prova de aparelho.
+      parameters:
+        - $ref: "#/components/parameters/IdempotencyKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/RegisterIntegrityDeviceBindingRequest" }
+      responses:
+        "201":
+          description: Vínculo operacional criado ou reproduzido pela mesma chave
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/IntegrityDeviceBinding" }
+        default: { $ref: "#/components/responses/Problem" }
+  /integrity/challenges:
+    post:
+      operationId: createIntegrityChallenge
+      tags: [integrity]
+      description: Emite desafio curto, de uso único e vinculado à conta, sessão e instalação. Não é enfileirável offline.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/CreateIntegrityChallengeRequest" }
+      responses:
+        "201":
+          description: Desafio emitido; nonce não persiste em claro no servidor
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/IntegrityChallenge" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/platform-age-signal/verified:
+    post:
+      operationId: submitVerifiedPlatformAgeSignal
+      tags: [integrity, identity]
+      description: Reserva de forma idempotente uma verificação vinculada ao challenge. Na Fase A os adapters Apple/Google falham fechados em indeterminate e esta operação nunca grava server_verified.
+      parameters:
+        - $ref: "#/components/parameters/IdempotencyKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/VerifiedPlatformAgeSignalEnvelope" }
+      responses:
+        "200":
+          description: Resultado terminal sanitizado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/IntegrityVerification" }
+        "202":
+          description: Verificação reservada e ainda protegida por lease
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/IntegrityVerification" }
+        default: { $ref: "#/components/responses/Problem" }
+  /integrity/verifications/{verificationId}:
+    get:
+      operationId: getIntegrityVerification
+      tags: [integrity]
+      description: Consulta ownership-scoped; nunca expõe verdict, counter, receipt, nonce, hash ou material de prova.
+      parameters:
+        - name: verificationId
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        "200":
+          description: Resultado terminal sanitizado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/IntegrityVerification" }
+        "202":
+          description: Verificação em andamento
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/IntegrityVerification" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/legal-acknowledgements:
+    post:
+      operationId: recordLegalAcknowledgement
+      tags: [identity]
+      description: Registra uma ação afirmativa versionada de uma conta 18_plus. Documentos de menores são registrados pelo responsável autenticado no aceite do convite. O reconhecimento do aviso de privacidade não é consentimento genérico.
+      parameters:
+        - $ref: "#/components/parameters/IdempotencyKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/RecordLegalAcknowledgementRequest" }
+      responses:
+        "200":
+          description: Reconhecimento legal registrado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/OnboardingState" }
+        "412":
+          $ref: "#/components/responses/Problem"
+        default: { $ref: "#/components/responses/Problem" }
+  /me/optional-consents:
+    post:
+      operationId: recordOptionalConsent
+      tags: [identity]
+      description: Registra concessão ou recusa opcional para adulto; escolhas de menores são feitas pelo responsável autenticado.
+      parameters:
+        - $ref: "#/components/parameters/IdempotencyKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/RecordOptionalConsentRequest" }
+      responses:
+        "200":
+          description: Escolha opcional registrada
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/OnboardingState" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/guardian-invitations:
+    post:
+      operationId: createGuardianInvitation
+      tags: [identity]
+      description: Cria convite de uso único para perfil de 13 a 17 anos. O token bruto é entregue somente nesta resposta e nunca persiste no banco, auditoria ou outbox.
+      parameters:
+        - $ref: "#/components/parameters/IdempotencyKey"
+      responses:
+        "201":
+          description: Convite criado; uma repetição com a mesma chave reproduz o mesmo token enquanto o resultado existir
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/GuardianInvitation" }
+        default: { $ref: "#/components/responses/Problem" }
+  /guardian-invitations/accept:
+    post:
+      operationId: acceptGuardianInvitation
+      tags: [identity]
+      description: Exige sessão autenticada, faixa 18_plus do responsável, convite válido e escolhas opcionais explícitas.
+      parameters:
+        - $ref: "#/components/parameters/IdempotencyKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/AcceptGuardianInvitationRequest" }
+      responses:
+        "200":
+          description: Vínculo verificado ou replay consistente do mesmo aceite
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/GuardianLink" }
+        "412":
+          $ref: "#/components/responses/Problem"
+        default: { $ref: "#/components/responses/Problem" }
+  /me/guardian-links:
+    get:
+      operationId: listGuardianLinks
+      tags: [identity]
+      description: Lista somente vínculos ativos em que a conta autenticada participa. O contraparte é identificado por pseudônimo do vínculo, sem nome, e-mail ou ID de usuário.
+      responses:
+        "200":
+          description: Vínculos ativos do estudante ou responsável
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/GuardianLinks" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/guardian-links/{linkId}:
+    delete:
+      operationId: revokeGuardianLinkById
+      tags: [identity]
+      description: Revoga exatamente o vínculo identificado, desde que a conta autenticada seja o estudante ou o responsável participante. Repetições são idempotentes.
+      parameters:
+        - $ref: "#/components/parameters/GuardianLinkId"
+        - $ref: "#/components/parameters/IdempotencyKey"
+      responses:
+        "200":
+          description: Vínculo revogado ou resultado idempotente de revogação anterior
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/GuardianRevocation" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/guardian-link:
+    delete:
+      operationId: revokeGuardianLink
+      tags: [identity]
+      deprecated: true
+      description: Compatibilidade temporária para contas com exatamente um vínculo ativo. Retorna conflito quando a conta participa de mais de um; novos clientes usam /me/guardian-links/{linkId}.
+      parameters:
+        - $ref: "#/components/parameters/IdempotencyKey"
+      responses:
+        "200":
+          description: Vínculo revogado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/GuardianRevocation" }
+        default: { $ref: "#/components/responses/Problem" }
+  /learning/sessions:
+    post:
+      operationId: createLearningSession
+      tags: [learning]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/CreateLearningSessionRequest" }
+      responses:
+        "201":
+          description: Sessão persistida
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/LearningSession" }
+        default: { $ref: "#/components/responses/Problem" }
+  /learning/sessions/{sessionId}/next:
+    parameters:
+      - $ref: "#/components/parameters/SessionId"
+    get:
+      operationId: getNextQuestion
+      tags: [learning]
+      responses:
+        "200":
+          description: Exposição atual ou próxima questão
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  question:
+                    anyOf:
+                      - $ref: "#/components/schemas/PublicQuestion"
+                      - type: "null"
+                required: [question]
+        default: { $ref: "#/components/responses/Problem" }
+  /learning/sessions/{sessionId}/attempts:
+    parameters:
+      - $ref: "#/components/parameters/SessionId"
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema: { type: string, minLength: 8, maxLength: 128 }
+    post:
+      operationId: submitAttempt
+      tags: [learning]
+      description: Corrige no servidor. Gabarito e justificativas só aparecem após a primeira tentativa válida.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/SubmitAttemptRequest" }
+      responses:
+        "200":
+          description: Reexecução idempotente
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/AttemptResult" }
+        "201":
+          description: Tentativa criada
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/AttemptResult" }
+        default: { $ref: "#/components/responses/Problem" }
+  /simulations/blueprints:
+    get:
+      operationId: getSimulationBlueprints
+      tags: [simulations]
+      parameters:
+        - { name: productId, in: query, schema: { type: string } }
+      responses:
+        "200":
+          description: Blueprints publicados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  blueprints:
+                    type: array
+                    items: { $ref: "#/components/schemas/SimulationBlueprint" }
+                required: [blueprints]
+        default: { $ref: "#/components/responses/Problem" }
+  /simulations:
+    post:
+      operationId: createSimulation
+      tags: [simulations]
+      description: Cria um snapshot imutável somente com questões text-only publicadas, vinculadas ao blueprint, com três revisores independentes e instrumento autoral/licença de escopo comercial, digital, Brasil, iOS e Android vigente até o fim da prova. Itens com ativos externos permanecem bloqueados. O plano Free pode iniciar um simulado por mês; Pro é verificado no servidor.
+      parameters:
+        - $ref: "#/components/parameters/IdempotencyKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                blueprintVersionId: { type: string, format: uuid }
+              required: [blueprintVersionId]
+      responses:
+        "201":
+          description: Simulado online criado ou replay idempotente da mesma criação
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/SimulationSession" }
+        "409":
+          description: Blueprint incompatível, chave em conflito ou conteúdo elegível insuficiente
+          content:
+            application/problem+json:
+              schema: { $ref: "#/components/schemas/ProblemDetails" }
+        default: { $ref: "#/components/responses/Problem" }
+  /simulations/active:
+    get:
+      operationId: getActiveSimulation
+      tags: [simulations]
+      description: Retoma a sessão mais recente da conta, ativa ou finalizada. A leitura usa o relógio do servidor e finaliza oportunisticamente quando o prazo terminou; o banco impede duas sessões ativas para a mesma conta.
+      responses:
+        "200":
+          description: Sessão ativa/finalizada na leitura ou null
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  simulation:
+                    oneOf:
+                      - $ref: "#/components/schemas/SimulationSession"
+                      - type: "null"
+                required: [simulation]
+        default: { $ref: "#/components/responses/Problem" }
+  /simulations/{simulationId}:
+    get:
+      operationId: getSimulation
+      tags: [simulations]
+      description: Retoma exclusivamente um simulado pertencente à conta autenticada. Antes do fim, não retorna gabarito, solução, score, snapshotHash ou resultHash.
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+      responses:
+        "200":
+          description: Apresentação pública e estado de respostas
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/SimulationSession" }
+        "404":
+          $ref: "#/components/responses/Problem"
+        default: { $ref: "#/components/responses/Problem" }
+  /simulations/{simulationId}/answers:
+    post:
+      operationId: submitSimulationAnswer
+      tags: [simulations]
+      description: Aceita somente a primeira resposta válida da questão antes do deadline exclusivo. O relógio, acerto e score são sempre do servidor; não existe correção parcial durante a prova.
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+        - $ref: "#/components/parameters/IdempotencyKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/SubmitSimulationAnswerRequest" }
+      responses:
+        "200":
+          description: Resposta aceita, replay idempotente ou simulado finalizado no deadline
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/SimulationAnswerResponse" }
+        "409":
+          $ref: "#/components/responses/Problem"
+        default: { $ref: "#/components/responses/Problem" }
+  /simulations/{simulationId}/result:
+    get:
+      operationId: getSimulationResult
+      tags: [simulations]
+      description: Calcula/reproduz o resultado no servidor. Gabarito, soluções e justificativas aparecem somente depois da finalização por quantidade ou prazo.
+      parameters:
+        - $ref: "#/components/parameters/SimulationId"
+      responses:
+        "200":
+          description: Resultado final imutável
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/SimulationResult" }
+        "409":
+          description: Simulado ainda ativo ou integridade divergente
+          content:
+            application/problem+json:
+              schema: { $ref: "#/components/schemas/ProblemDetails" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/home:
+    get:
+      operationId: getHome
+      tags: [me]
+      responses:
+        "200":
+          description: Resumo autenticado
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/HomeResponse" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/progress:
+    get:
+      operationId: getProgress
+      tags: [me]
+      responses:
+        "200":
+          description: Progresso derivado de tentativas do servidor
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Progress" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/export:
+    post:
+      operationId: requestDataExport
+      tags: [me]
+      responses:
+        "202":
+          description: Exportação enfileirada
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/AsyncRequest" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/data-requests/{requestId}:
+    get:
+      operationId: getOwnDataRequest
+      tags: [me]
+      description: Consulta somente um pedido pertencente à identidade autenticada. A chave interna do objeto privado nunca é exposta.
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        "200":
+          description: Estado e evidências públicas mínimas do pedido
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/DataRequestStatus" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me/data-requests/{requestId}/export:
+    get:
+      operationId: downloadOwnDataExport
+      tags: [me]
+      summary: Baixa um export privado concluído pertencente à conta autenticada
+      description: O servidor valida ownership, expiração, revogação, prefixo, geração, tamanho e checksum. A chave interna do objeto nunca é exposta. Arquivos maiores que o limite de faixa exigem downloads sequenciais por Range.
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - name: Range
+          in: header
+          required: false
+          description: Uma única faixa de bytes limitada pelo servidor; faixas múltiplas e sufixos são rejeitados.
+          schema: { type: string, pattern: "^bytes=[0-9]+-[0-9]*$" }
+      responses:
+        "200":
+          description: Export completo não armazenável em cache
+          headers:
+            Cache-Control: { schema: { type: string, enum: ["private, no-store, max-age=0"] } }
+            Accept-Ranges: { schema: { type: string, enum: [bytes] } }
+            X-Content-SHA256: { schema: { type: string, pattern: "^[a-f0-9]{64}$" } }
+          content:
+            application/json:
+              schema: { type: string, format: binary }
+        "206":
+          description: Faixa única limitada do export privado
+          headers:
+            Cache-Control: { schema: { type: string, enum: ["private, no-store, max-age=0"] } }
+            Content-Range: { schema: { type: string } }
+            X-Content-SHA256:
+              description: Checksum SHA-256 do objeto completo, não apenas da faixa.
+              schema: { type: string, pattern: "^[a-f0-9]{64}$" }
+          content:
+            application/json:
+              schema: { type: string, format: binary }
+        "416":
+          description: Faixa ausente, inválida, múltipla, sufixa ou acima do limite permitido
+          headers:
+            Cache-Control: { schema: { type: string, const: no-store } }
+            Content-Range: { schema: { type: string, pattern: "^bytes \\*/[0-9]+$" } }
+          content:
+            application/problem+json:
+              schema: { $ref: "#/components/schemas/ProblemDetails" }
+        default: { $ref: "#/components/responses/Problem" }
+  /me:
+    delete:
+      operationId: requestAccountDeletion
+      tags: [me]
+      responses:
+        "202":
+          description: Exclusão enfileirada e conta marcada
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/AsyncRequest" }
+        default: { $ref: "#/components/responses/Problem" }
+  /billing/entitlement:
+    get:
+      operationId: getEntitlement
+      tags: [billing]
+      responses:
+        "200":
+          description: Entitlement autoritativo
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Entitlement" }
+        default: { $ref: "#/components/responses/Problem" }
+  /billing/identity:
+    get:
+      operationId: getBillingIdentity
+      tags: [billing]
+      responses:
+        "200":
+          description: Identidade canônica da conta na camada de cobrança
+          headers:
+            Cache-Control: { schema: { type: string, const: "private, no-store, max-age=0" } }
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  appUserId: { type: string, format: uuid }
+                required: [appUserId]
+        default: { $ref: "#/components/responses/Problem" }
+  /billing/restore:
+    post:
+      operationId: requestBillingRestore
+      tags: [billing]
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema: { type: string, minLength: 8, maxLength: 128 }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appUserId: { type: string, minLength: 1, maxLength: 255 }
+              required: [appUserId]
+      responses:
+        "202":
+          description: Reconciliação enfileirada
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/AsyncRequest" }
+        default: { $ref: "#/components/responses/Problem" }
+  /billing/webhooks/revenuecat:
+    post:
+      operationId: receiveRevenueCatWebhook
+      tags: [billing]
+      security: []
+      description: Inbox idempotente; valida HMAC ou Authorization configurado e atualiza o entitlement no servidor.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, additionalProperties: true }
+      responses:
+        "200": { description: Evento recebido, duplicado ou ignorado de forma segura }
+        default: { $ref: "#/components/responses/Problem" }
+  /social/summary:
+    get:
+      operationId: getSocialSummary
+      tags: [social]
+      responses:
+        "200":
+          description: Resumo social respeitando consentimento
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/SocialSummary" }
+        default: { $ref: "#/components/responses/Problem" }
+  /reports:
+    post:
+      operationId: createReport
+      tags: [trust]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/CreateReport" }
+      responses:
+        "200":
+          description: Denúncia aberta já existente para o mesmo alvo e motivo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reportId: { type: string, format: uuid }
+                  status: { const: open }
+                required: [reportId, status]
+        "201":
+          description: Denúncia persistida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reportId: { type: string, format: uuid }
+                  status: { const: open }
+                required: [reportId, status]
+        default: { $ref: "#/components/responses/Problem" }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: O primeiro request com session token Clerk válido provisiona, de forma idempotente, o UUID interno a partir do subject verificado; nenhuma rota aceita clerk_user_id no corpo.
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema: { type: string, minLength: 8, maxLength: 128 }
+    SessionId:
+      name: sessionId
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+    SimulationId:
+      name: simulationId
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+    GuardianLinkId:
+      name: linkId
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+  responses:
+    Problem:
+      description: Erro no formato RFC 9457
+      content:
+        application/problem+json:
+          schema: { $ref: "#/components/schemas/ProblemDetails" }
+  schemas:
+    HealthCheck:
+      type: object
+      additionalProperties: false
+      properties:
+        status: { const: ok }
+      required: [status]
+    ReadinessCheck:
+      type: object
+      additionalProperties: false
+      properties:
+        status: { enum: [ready, not_ready] }
+      required: [status]
+    ProblemDetails:
+      type: object
+      properties:
+        type: { type: string }
+        title: { type: string }
+        status: { type: integer }
+        detail: { type: string }
+        instance: { type: string }
+        requestId: { type: string }
+        errors:
+          type: object
+          additionalProperties: { type: array, items: { type: string } }
+      required: [type, title, status, requestId]
+    AgeBand:
+      type: string
+      enum: ["under_13", "13_15", "16_17", "18_plus"]
+    EligibilityDecision:
+      type: object
+      additionalProperties: false
+      properties:
+        eligible: { type: boolean }
+        reason:
+          enum:
+            - eligible
+            - identity_policy_unavailable
+            - age_profile_required
+            - under_13_not_supported
+            - terms_acceptance_required
+            - guardian_verification_required
+            - social_permission_required
+            - notifications_permission_required
+            - platform_age_signal_required
+            - platform_age_signal_unavailable
+            - platform_age_signal_minor
+            - platform_age_signal_conflict
+            - platform_age_signal_unverified
+      required: [eligible, reason]
+    OnboardingState:
+      type: object
+      additionalProperties: false
+      properties:
+        configurationReady: { type: boolean }
+        policyVersion: { type: [string, "null"] }
+        ageBand:
+          anyOf:
+            - $ref: "#/components/schemas/AgeBand"
+            - type: "null"
+        requiredDocuments:
+          type: object
+          additionalProperties: false
+          properties:
+            termsVersion: { type: [string, "null"] }
+            privacyNoticeVersion: { type: [string, "null"] }
+          required: [termsVersion, privacyNoticeVersion]
+        termsAccepted: { type: boolean }
+        privacyNoticeAcknowledged: { type: boolean }
+        guardian:
+          type: object
+          additionalProperties: false
+          properties:
+            required: { type: boolean }
+            verified: { type: boolean }
+            status: { enum: [not_required, missing, verified, revoked] }
+          required: [required, verified, status]
+        platformAgeSignal:
+          $ref: "#/components/schemas/PlatformAgeSignalState"
+        learning: { $ref: "#/components/schemas/EligibilityDecision" }
+        social: { $ref: "#/components/schemas/EligibilityDecision" }
+        notifications: { $ref: "#/components/schemas/EligibilityDecision" }
+        onboardingComplete: { type: boolean }
+      required:
+        - configurationReady
+        - policyVersion
+        - ageBand
+        - requiredDocuments
+        - termsAccepted
+        - privacyNoticeAcknowledged
+        - guardian
+        - platformAgeSignal
+        - learning
+        - social
+        - notifications
+        - onboardingComplete
+    SetAgeProfileRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        ageBand: { $ref: "#/components/schemas/AgeBand" }
+      required: [ageBand]
+    PlatformAgeSignalState:
+      type: object
+      additionalProperties: false
+      description: Estado distinto da faixa autodeclarada. device_reported_monitoring restringe, mas não concede privilégio.
+      properties:
+        required: { const: true }
+        platform: { type: [string, "null"], enum: [ios, android, null] }
+        source: { type: [string, "null"], enum: [apple_declared_age_range, google_play_age_signals, null] }
+        status: { enum: [missing, shared, not_shared, verification_required, not_required, unsupported, error] }
+        ageBand:
+          anyOf:
+            - $ref: "#/components/schemas/AgeBand"
+            - type: "null"
+        trust: { enum: [none, device_reported_monitoring, server_verified] }
+        pendingConflict: { type: boolean }
+        observedAt: { type: [string, "null"], format: date-time }
+      required: [required, platform, source, status, ageBand, trust, pendingConflict, observedAt]
+    PlatformAgeSignalReportRequest:
+      type: object
+      additionalProperties: false
+      description: Payload minimizado produzido pelo bridge Expo; não é prova criptográfica e o servidor define source/trust.
+      properties:
+        platform: { enum: [ios, android] }
+        status: { enum: [shared, not_shared, verification_required, not_required, unsupported, error] }
+        ageBand:
+          anyOf:
+            - $ref: "#/components/schemas/AgeBand"
+            - type: "null"
+      required: [platform, status, ageBand]
+    Base64Url32Bytes:
+      type: string
+      minLength: 43
+      maxLength: 43
+      pattern: '^[A-Za-z0-9_-]{43}$'
+    RegisterIntegrityDeviceBindingRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        installationNonce: { $ref: "#/components/schemas/Base64Url32Bytes" }
+        platform: { enum: [ios, android] }
+      required: [installationNonce, platform]
+    IntegrityDeviceBinding:
+      type: object
+      additionalProperties: false
+      properties:
+        deviceBindingId: { type: string, format: uuid }
+        platform: { enum: [ios, android] }
+        environment: { enum: [development, production] }
+        status: { enum: [active, revoked] }
+        registeredAt: { type: string, format: date-time }
+      required: [deviceBindingId, platform, environment, status, registeredAt]
+    CreateIntegrityChallengeRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        purpose: { const: platform_age_signal }
+        platform: { enum: [ios, android] }
+        deviceBindingId: { type: string, format: uuid }
+        appleKeyId:
+          anyOf:
+            - $ref: "#/components/schemas/Base64Url32Bytes"
+            - type: "null"
+      required: [purpose, platform, deviceBindingId, appleKeyId]
+    IntegrityChallenge:
+      type: object
+      additionalProperties: false
+      properties:
+        challengeId: { type: string, format: uuid }
+        nonce: { $ref: "#/components/schemas/Base64Url32Bytes", x-sensitive: true }
+        principalBinding: { $ref: "#/components/schemas/Base64Url32Bytes" }
+        principalBindingKeyVersion: { type: string, minLength: 1, maxLength: 64, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]*$' }
+        canonicalizationVersion: { const: age-integrity-v1 }
+        expiresAt: { type: string, format: date-time }
+      required: [challengeId, nonce, principalBinding, principalBindingKeyVersion, canonicalizationVersion, expiresAt]
+    AgeIntegrityClientContext:
+      type: object
+      additionalProperties: false
+      properties:
+        osApiGeneration: { enum: [ios_pre_26, ios_26, ios_27_or_later, android, unknown] }
+        ageApiCapability: { enum: [declared_age_range_available, play_age_signals_available, unsupported, unknown] }
+        runtimeVersion: { type: string, minLength: 1, maxLength: 120, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]*$' }
+        updateLaunch: { enum: [embedded, ota] }
+        updateId:
+          oneOf:
+            - const: embedded
+            - type: string
+              format: uuid
+      required: [osApiGeneration, ageApiCapability, runtimeVersion, updateLaunch, updateId]
+    NormalizedPlatformAgeSignal:
+      type: object
+      additionalProperties: false
+      properties:
+        platform: { enum: [ios, android] }
+        status: { enum: [shared, not_shared, verification_required, not_required, unsupported, error] }
+        ageBand:
+          anyOf:
+            - $ref: "#/components/schemas/AgeBand"
+            - type: "null"
+      required: [platform, status, ageBand]
+    VerifiedPlatformAgeSignalEnvelope:
+      oneOf:
+        - type: object
+          additionalProperties: false
+          properties:
+            challengeId: { type: string, format: uuid }
+            challengeNonce: { $ref: "#/components/schemas/Base64Url32Bytes", x-sensitive: true }
+            deviceBindingId: { type: string, format: uuid }
+            canonicalizationVersion: { const: age-integrity-v1 }
+            clientContext: { $ref: "#/components/schemas/AgeIntegrityClientContext" }
+            signal:
+              allOf:
+                - $ref: "#/components/schemas/NormalizedPlatformAgeSignal"
+                - type: object
+                  properties: { platform: { const: ios } }
+            proof:
+              type: object
+              additionalProperties: false
+              properties:
+                provider: { const: apple_app_attest }
+                keyId: { $ref: "#/components/schemas/Base64Url32Bytes" }
+                assertion: { type: string, minLength: 16, maxLength: 24576, x-sensitive: true }
+              required: [provider, keyId, assertion]
+          required: [challengeId, challengeNonce, deviceBindingId, canonicalizationVersion, clientContext, signal, proof]
+        - type: object
+          additionalProperties: false
+          properties:
+            challengeId: { type: string, format: uuid }
+            challengeNonce: { $ref: "#/components/schemas/Base64Url32Bytes", x-sensitive: true }
+            deviceBindingId: { type: string, format: uuid }
+            canonicalizationVersion: { const: age-integrity-v1 }
+            clientContext: { $ref: "#/components/schemas/AgeIntegrityClientContext" }
+            signal:
+              allOf:
+                - $ref: "#/components/schemas/NormalizedPlatformAgeSignal"
+                - type: object
+                  properties: { platform: { const: android } }
+            proof:
+              type: object
+              additionalProperties: false
+              properties:
+                provider: { const: google_play_integrity_standard }
+                integrityToken: { type: string, minLength: 16, maxLength: 60000, x-sensitive: true }
+              required: [provider, integrityToken]
+          required: [challengeId, challengeNonce, deviceBindingId, canonicalizationVersion, clientContext, signal, proof]
+    IntegrityVerification:
+      type: object
+      additionalProperties: false
+      description: Projeção sanitizada; verdict bruto, counter, receipt, nonce e digests são deliberadamente ausentes.
+      properties:
+        verificationId: { type: string, format: uuid }
+        status: { enum: [verifying, verified, rejected, expired, indeterminate] }
+        statusUrl: { type: string, pattern: '^/api/v1/integrity/verifications/[0-9a-f-]{36}$' }
+        retryAfterSeconds: { type: [integer, "null"], minimum: 1, maximum: 30 }
+        decision: { type: [string, "null"], enum: [verification_unavailable, proof_rejected, challenge_expired, verified, null] }
+      required: [verificationId, status, statusUrl, retryAfterSeconds, decision]
+    RecordLegalAcknowledgementRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        kind: { enum: [terms_acceptance, privacy_notice_acknowledgement] }
+        acknowledged: { const: true }
+        policyVersion: { type: string, minLength: 1, maxLength: 80 }
+        termsVersion: { type: string, minLength: 1, maxLength: 80 }
+        privacyNoticeVersion: { type: string, minLength: 1, maxLength: 80 }
+      required: [kind, acknowledged, policyVersion, termsVersion, privacyNoticeVersion]
+    RecordOptionalConsentRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        kind: { enum: [social, notifications, marketing] }
+        granted: { type: boolean }
+      required: [kind, granted]
+    GuardianPermissions:
+      type: object
+      additionalProperties: false
+      properties:
+        social: { type: boolean }
+        notifications: { type: boolean }
+      required: [social, notifications]
+    GuardianInvitation:
+      type: object
+      additionalProperties: false
+      properties:
+        invitationId: { type: string, format: uuid }
+        token: { type: string, minLength: 40, maxLength: 128, x-sensitive: true }
+        expiresAt: { type: string, format: date-time }
+      required: [invitationId, token, expiresAt]
+    AcceptGuardianInvitationRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        token: { type: string, minLength: 40, maxLength: 128, writeOnly: true }
+        acknowledgements:
+          type: object
+          additionalProperties: false
+          properties:
+            responsibility: { const: true }
+            termsAccepted: { const: true }
+            privacyNoticeAcknowledged: { const: true }
+          required: [responsibility, termsAccepted, privacyNoticeAcknowledged]
+        permissions: { $ref: "#/components/schemas/GuardianPermissions" }
+        policyVersion: { type: string, minLength: 1, maxLength: 80 }
+        termsVersion: { type: string, minLength: 1, maxLength: 80 }
+        privacyNoticeVersion: { type: string, minLength: 1, maxLength: 80 }
+      required: [token, acknowledgements, permissions, policyVersion, termsVersion, privacyNoticeVersion]
+    GuardianLink:
+      type: object
+      additionalProperties: false
+      properties:
+        linkId: { type: string, format: uuid }
+        status: { const: verified }
+        verifiedAt: { type: string, format: date-time }
+        permissions: { $ref: "#/components/schemas/GuardianPermissions" }
+      required: [linkId, status, verifiedAt, permissions]
+    GuardianLinkSummary:
+      type: object
+      additionalProperties: false
+      properties:
+        linkId: { type: string, format: uuid }
+        role: { enum: [student, guardian] }
+        counterpartPseudonym: { type: string, minLength: 1, maxLength: 80 }
+        status: { const: verified }
+        verifiedAt: { type: string, format: date-time }
+      required: [linkId, role, counterpartPseudonym, status, verifiedAt]
+    GuardianLinks:
+      type: object
+      additionalProperties: false
+      properties:
+        links:
+          type: array
+          items: { $ref: "#/components/schemas/GuardianLinkSummary" }
+      required: [links]
+    GuardianRevocation:
+      type: object
+      additionalProperties: false
+      properties:
+        linkId: { type: string, format: uuid }
+        status: { const: revoked }
+        revokedAt: { type: string, format: date-time }
+      required: [linkId, status, revokedAt]
+    Product:
+      type: object
+      properties:
+        id: { type: string }
+        slug: { type: string }
+        name: { type: string }
+        institution: { type: [string, "null"] }
+        category: { type: string }
+        defaultTrack: { type: [string, "null"] }
+        examVersions:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string, format: uuid }
+              code: { type: string }
+              board: { type: [string, "null"] }
+              role: { type: [string, "null"] }
+              phase: { type: [string, "null"] }
+              modality: { type: [string, "null"] }
+            required: [id, code, board, role, phase, modality]
+      required: [id, slug, name, institution, category, defaultTrack, examVersions]
+    CatalogActiveResponse:
+      type: object
+      properties:
+        products: { type: array, items: { $ref: "#/components/schemas/Product" } }
+      required: [products]
+    PublicQuestion:
+      type: object
+      description: Nunca contém gabarito ou justificativas.
+      properties:
+        exposureId: { type: string, format: uuid }
+        questionVersionId: { type: string, format: uuid }
+        sequence: { type: integer, minimum: 1 }
+        subject: { $ref: "#/components/schemas/NamedRef" }
+        topic: { $ref: "#/components/schemas/NamedUuidRef" }
+        statement: { type: string }
+        difficulty: { enum: [easy, medium, hard] }
+        options:
+          type: array
+          minItems: 2
+          items:
+            type: object
+            properties:
+              id: { type: string, format: uuid }
+              key: { type: string }
+              body: { type: string }
+            required: [id, key, body]
+      required: [exposureId, questionVersionId, sequence, subject, topic, statement, difficulty, options]
+    NamedRef:
+      type: object
+      properties: { id: { type: string }, name: { type: string } }
+      required: [id, name]
+    NamedUuidRef:
+      type: object
+      properties: { id: { type: string, format: uuid }, name: { type: string } }
+      required: [id, name]
+    CreateLearningSessionRequest:
+      type: object
+      properties:
+        productId: { type: string, minLength: 1, maxLength: 80 }
+        examVersionId: { type: string, format: uuid }
+        mode: { enum: [diagnostic, practice, review], default: practice }
+      required: [productId]
+    LearningSession:
+      type: object
+      properties:
+        sessionId: { type: string, format: uuid }
+        status: { enum: [active, completed] }
+        algorithmVersion: { type: string }
+        nextQuestion:
+          anyOf:
+            - $ref: "#/components/schemas/PublicQuestion"
+            - type: "null"
+      required: [sessionId, status, algorithmVersion, nextQuestion]
+    SubmitAttemptRequest:
+      type: object
+      properties:
+        exposureId: { type: string, format: uuid }
+        selectedOptionId: { type: string, format: uuid }
+        elapsedMs: { type: integer, minimum: 250, maximum: 7200000 }
+      required: [exposureId, selectedOptionId, elapsedMs]
+    AttemptResult:
+      type: object
+      properties:
+        attemptId: { type: string, format: uuid }
+        isCorrect: { type: boolean }
+        correctOptionId: { type: string, format: uuid }
+        solution: { type: string }
+        optionRationales: { type: object, additionalProperties: { type: string } }
+        validForCalibration: { type: boolean }
+        mastery:
+          type: object
+          properties:
+            topicId: { type: string, format: uuid }
+            probability: { type: number, minimum: 0, maximum: 1 }
+            observations: { type: integer, minimum: 0 }
+          required: [topicId, probability, observations]
+        nextQuestion:
+          anyOf:
+            - $ref: "#/components/schemas/PublicQuestion"
+            - type: "null"
+      required: [attemptId, isCorrect, correctOptionId, solution, optionRationales, validForCalibration, mastery, nextQuestion]
+    Progress:
+      type: object
+      properties:
+        totalAnswered: { type: integer, minimum: 0 }
+        totalCorrect: { type: integer, minimum: 0 }
+        accuracy: { type: number, minimum: 0, maximum: 1 }
+        topics:
+          type: array
+          items:
+            type: object
+            properties:
+              topicId: { type: string, format: uuid }
+              topicName: { type: string }
+              subjectId: { type: string }
+              probability: { type: number, minimum: 0, maximum: 1 }
+              observations: { type: integer, minimum: 0 }
+              updatedAt: { type: string, format: date-time }
+            required: [topicId, topicName, subjectId, probability, observations, updatedAt]
+      required: [totalAnswered, totalCorrect, accuracy, topics]
+    Entitlement:
+      type: object
+      properties:
+        entitlement: { const: pro }
+        active: { type: boolean }
+        status: { enum: [free, active, grace_period, expired, revoked] }
+        productSku: { type: [string, "null"] }
+        store: { type: [string, "null"] }
+        expiresAt: { type: [string, "null"], format: date-time }
+      required: [entitlement, active, status, productSku, store, expiresAt]
+    SimulationBlueprint:
+      type: object
+      additionalProperties: false
+      properties:
+        id: { type: string, format: uuid }
+        productId: { type: string }
+        examVersionId: { type: string, format: uuid }
+        version: { type: integer, minimum: 1 }
+        rules: { $ref: "#/components/schemas/SimulationBlueprintRules" }
+      required: [id, productId, examVersionId, version, rules]
+    SimulationBlueprintRules:
+      type: object
+      additionalProperties: false
+      properties:
+        schemaVersion: { const: simulation-blueprint-rules.v1 }
+        questionCount: { type: integer, minimum: 1, maximum: 10000 }
+        durationMinutes: { type: integer, minimum: 1, maximum: 10080 }
+        scoring:
+          type: object
+          additionalProperties: false
+          properties:
+            model: { const: weighted-sum.v1 }
+            rounding:
+              type: object
+              additionalProperties: false
+              properties:
+                decimalPlaces: { type: integer, minimum: 0, maximum: 6 }
+                mode: { const: half-away-from-zero }
+              required: [decimalPlaces, mode]
+            aggregateFloor:
+              type: object
+              additionalProperties: false
+              properties:
+                policy: { enum: [none, zero] }
+              required: [policy]
+          required: [model, rounding, aggregateFloor]
+        subjects:
+          type: array
+          minItems: 1
+          maxItems: 10000
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              subjectId: { type: string, minLength: 1, maxLength: 200 }
+              questionCount: { type: integer, minimum: 1, maximum: 10000 }
+              correctPoints: { type: string, pattern: "^(0|[1-9]\\d{0,11})(\\.\\d{1,6})?$" }
+              weight: { type: string, pattern: "^(0|[1-9]\\d{0,11})(\\.\\d{1,6})?$" }
+              incorrect:
+                oneOf:
+                  - type: object
+                    additionalProperties: false
+                    properties: { policy: { const: zero } }
+                    required: [policy]
+                  - type: object
+                    additionalProperties: false
+                    properties:
+                      policy: { const: penalty }
+                      penaltyPoints: { type: string, pattern: "^(0|[1-9]\\d{0,11})(\\.\\d{1,6})?$" }
+                    required: [policy, penaltyPoints]
+              unanswered:
+                type: object
+                additionalProperties: false
+                properties: { policy: { const: zero } }
+                required: [policy]
+            required: [subjectId, questionCount, correctPoints, weight, incorrect, unanswered]
+      required: [schemaVersion, questionCount, durationMinutes, scoring, subjects]
+    SimulationPublicQuestion:
+      type: object
+      additionalProperties: false
+      properties:
+        position: { type: integer, minimum: 0 }
+        questionVersionId: { type: string, format: uuid }
+        subject:
+          type: object
+          additionalProperties: false
+          properties:
+            id: { type: string }
+            name: { type: string }
+          required: [id, name]
+        statement: { type: string }
+        difficulty: { enum: [easy, medium, hard] }
+        options:
+          type: array
+          minItems: 2
+          maxItems: 100
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              id: { type: string, format: uuid }
+              key: { type: string }
+              body: { type: string }
+            required: [id, key, body]
+      required: [position, questionVersionId, subject, statement, difficulty, options]
+    SimulationSession:
+      type: object
+      additionalProperties: false
+      properties:
+        simulationId: { type: string, format: uuid }
+        status: { enum: [active, finalized] }
+        serverNow: { type: string, format: date-time }
+        startedAt: { type: string, format: date-time }
+        deadlineAt: { type: string, format: date-time }
+        blueprint: { $ref: "#/components/schemas/SimulationBlueprint" }
+        answeredQuestionVersionIds:
+          type: array
+          items: { type: string, format: uuid }
+        answers:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              questionVersionId: { type: string, format: uuid }
+              selectedOptionId: { type: string, format: uuid }
+            required: [questionVersionId, selectedOptionId]
+        questions:
+          type: array
+          items: { $ref: "#/components/schemas/SimulationPublicQuestion" }
+        resultAvailable: { type: boolean }
+      required: [simulationId, status, serverNow, startedAt, deadlineAt, blueprint, answeredQuestionVersionIds, answers, questions, resultAvailable]
+    SubmitSimulationAnswerRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        questionVersionId: { type: string, format: uuid }
+        selectedOptionId: { type: string, format: uuid }
+      required: [questionVersionId, selectedOptionId]
+    SimulationAnswerResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        outcome: { enum: [accepted, replayed, finalized] }
+        status: { enum: [active, finalized] }
+        serverNow: { type: string, format: date-time }
+        answeredQuestionVersionIds:
+          type: array
+          items: { type: string, format: uuid }
+        resultAvailable: { type: boolean }
+      required: [outcome, status, serverNow, answeredQuestionVersionIds, resultAvailable]
+    SimulationResult:
+      type: object
+      additionalProperties: false
+      properties:
+        simulationId: { type: string, format: uuid }
+        resultHash: { type: string, pattern: "^[a-f0-9]{64}$" }
+        finalizedAt: { type: string, format: date-time }
+        finishReason: { enum: [question-count, deadline] }
+        score: { type: string }
+        maxScore: { type: string }
+        correctCount: { type: integer, minimum: 0 }
+        incorrectCount: { type: integer, minimum: 0 }
+        unansweredCount: { type: integer, minimum: 0 }
+        subjects:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              subjectId: { type: string }
+              subjectName: { type: string }
+              score: { type: string }
+              maxScore: { type: string }
+              correctCount: { type: integer, minimum: 0 }
+              incorrectCount: { type: integer, minimum: 0 }
+              unansweredCount: { type: integer, minimum: 0 }
+            required: [subjectId, subjectName, score, maxScore, correctCount, incorrectCount, unansweredCount]
+        questions:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              position: { type: integer, minimum: 0 }
+              questionVersionId: { type: string, format: uuid }
+              statement: { type: string }
+              subject:
+                type: object
+                additionalProperties: false
+                properties:
+                  id: { type: string }
+                  name: { type: string }
+                required: [id, name]
+              selectedOptionId: { type: [string, "null"], format: uuid }
+              correctOptionId: { type: string, format: uuid }
+              isCorrect: { type: [boolean, "null"] }
+              solution: { type: string }
+              options:
+                type: array
+                minItems: 2
+                maxItems: 100
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    id: { type: string, format: uuid }
+                    key: { type: string }
+                    body: { type: string }
+                    rationale: { type: string }
+                  required: [id, key, body, rationale]
+            required: [position, questionVersionId, statement, subject, selectedOptionId, correctOptionId, isCorrect, solution, options]
+      required: [simulationId, resultHash, finalizedAt, finishReason, score, maxScore, correctCount, incorrectCount, unansweredCount, subjects, questions]
+    AsyncRequest:
+      type: object
+      properties:
+        requestId: { type: string, format: uuid }
+        status: { const: pending }
+      required: [requestId, status]
+    DataRequestStatus:
+      type: object
+      properties:
+        requestId: { type: string, format: uuid }
+        kind: { enum: [export, deletion] }
+        status: { enum: [pending, processing, completed, failed] }
+        phase: { enum: [requested, export_snapshot, export_stored, access_revoked, external_accounts_erased, internal_data_erased, completed] }
+        requestedAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+        completedAt: { type: [string, "null"], format: date-time }
+        export:
+          anyOf:
+            - type: object
+              properties:
+                checksumSha256: { type: string, pattern: "^[a-f0-9]{64}$" }
+                sizeBytes: { type: integer, minimum: 0 }
+                expiresAt: { type: string, format: date-time }
+                available: { type: boolean }
+                downloadPath: { type: string, pattern: "^/api/v1/me/data-requests/[0-9a-f-]{36}/export$" }
+              required: [checksumSha256, sizeBytes, expiresAt, available, downloadPath]
+            - type: "null"
+        errorCode: { type: [string, "null"], maxLength: 120 }
+      required: [requestId, kind, status, phase, requestedAt, updatedAt, completedAt, export, errorCode]
+    SocialSummary:
+      type: object
+      properties:
+        enabled: { type: boolean }
+        profile:
+          anyOf:
+            - type: object
+              properties:
+                pseudonym: { type: string }
+                avatarKey: { type: string }
+                inviteCode: { type: string }
+              required: [pseudonym, avatarKey, inviteCode]
+            - type: "null"
+        friendCount: { type: integer, minimum: 0 }
+        pendingInvites: { type: integer, minimum: 0 }
+        activeDuels: { type: integer, minimum: 0 }
+      required: [enabled, profile, friendCount, pendingInvites, activeDuels]
+    HomeResponse:
+      type: object
+      properties:
+        activeProductId: { type: [string, "null"] }
+        dailyGoalMinutes: { type: integer, minimum: 1 }
+        streak: { type: integer, minimum: 0 }
+        progress: { $ref: "#/components/schemas/Progress" }
+        entitlement: { $ref: "#/components/schemas/Entitlement" }
+      required: [activeProductId, dailyGoalMinutes, streak, progress, entitlement]
+    CreateReport:
+      type: object
+      properties:
+        targetType: { enum: [question, user, duel] }
+        targetId: { type: string, minLength: 1, maxLength: 255 }
+        reason: { enum: [incorrect, outdated, copyright, abuse, cheating, other] }
+        details: { type: string, maxLength: 2000 }
+      required: [targetType, targetId, reason]

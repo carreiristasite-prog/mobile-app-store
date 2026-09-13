@@ -1,0 +1,228 @@
+A tela de Duelo está boa visualmente, mas ainda faltam funcionalidades importantes para transformar isso em um recurso realmente viciante e competitivo.
+
+1. Falta a opção mais importante: Duelo com Amigo
+
+Hoje parece que existem apenas modos de partida.
+
+Adicione:
+
+👥 Duelar com amigo
+
+* Gerar código da sala (AB12CD)
+* Compartilhar no WhatsApp
+* Copiar link
+* Se o amigo não tiver o app:
+    * abre App Store/Play Store
+    * após instalar → entra direto na sala
+
+⸻
+
+2. Falta “Partidas em andamento”
+
+Se o usuário saiu de um duelo:
+
+Duelo em andamento
+VS João Silva
+Questão 4/10
+⏱ 01:32 restantes
+[Continuar duelo]
+
+⸻
+
+3. Histórico de batalhas
+
+Uma seção:
+
+Últimos duelos
+
+✅ Vitória x Pedro — 8x6
+❌ Derrota x Lucas — 4x5
+✅ Vitória x Maria — 10x9
+
+Com:
+
+* Data
+* Concurso
+* Aproveitamento
+* XP ganho
+
+⸻
+
+4. Ranking de Duelistas
+
+Muito importante para retenção.
+
+Pode ter:
+
+Global
+
+Por concurso
+
+Amigos
+
+Exemplo:
+
+🥇 João — 1.820 pts
+🥈 Maria — 1.740 pts
+🥉 Você — 1.680 pts
+
+⸻
+
+5. Sistema de ligas
+
+Em vez de só contar vitórias:
+
+* Bronze
+* Prata
+* Ouro
+* Diamante
+* Mestre
+
+Isso aumenta o vício positivo.
+
+⸻
+
+6. Revanche
+
+Após terminar:
+
+Vitória!
+Você: 8
+Pedro: 6
++25 XP
+[Revanche]
+[Sair]
+
+⸻
+
+7. Mostrar informações do adversário
+
+Card do oponente:
+
+* Foto
+* Nome
+* Concurso
+* Patente
+* Taxa de vitórias
+
+Exemplo:
+
+João Silva
+PF
+Sargento
+72% de vitórias
+
+⸻
+
+8. Escolher o tema do duelo
+
+Antes de começar:
+
+Tipo do duelo
+
+○ Aleatório
+○ Português
+○ Matemática
+○ Direito Constitucional
+○ Revisão de erros
+
+⸻
+
+9. Aposta de XP (muito forte para gamificação)
+
+Exemplo:
+
+Aposta:
+50 XP
+Vencedor leva 100 XP.
+
+⸻
+
+10. Tempo de resposta
+
+Durante a partida:
+
+Questão 3/10
+Você: 7,2s
+Adversário: 9,8s
+
+Isso deixa o duelo mais emocionante.
+
+⸻
+
+11. Animação final
+
+Robot x Aprovinho:
+
+* Aprovinho comemora na vitória.
+* Aprobot comemora quando a IA vence.
+
+⸻
+
+12. Estatísticas exclusivas do Duelo
+
+Adicionar:
+
+* Vitórias.
+* Derrotas.
+* Aproveitamento.
+* Maior sequência de vitórias.
+* XP obtido em duelos.
+* Melhor posição no ranking.
+* Tempo médio por questão.
+
+⸻
+
+13. Modo “Contra IA”
+
+Fundamental quando não houver adversários online.
+
+Níveis:
+
+* Recruta
+* Soldado
+* Sargento
+* Tenente
+* Capitão
+* Major
+
+⸻
+
+14. Melhorar os modos atuais
+
+⚡ Relâmpago
+
+3 questões — 20 segundos por questão.
+
+🔥 Rápido
+
+5 questões — 45 segundos.
+
+🏆 Clássico
+
+10 questões — sem limite rígido.
+
+👥 Amigo
+
+Código ou link.
+
+🤖 IA
+
+Contra Aprobot.
+
+⸻
+
+O que considero indispensável:
+
+1. Duelo com amigo.
+2. Link via WhatsApp.
+3. Histórico.
+4. Ranking.
+5. Revanche.
+6. Contra IA.
+7. Estatísticas.
+8. Escolha de matéria.
+9. Sistema de ligas.
+10. Aposta de XP.
+
+Esses 10 itens transformam o Duelo em uma funcionalidade forte o suficiente para se tornar o principal diferencial do IA Aprova.

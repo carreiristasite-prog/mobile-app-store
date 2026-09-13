@@ -1,0 +1,370 @@
+IA APROVA — IMPLEMENTAÇÃO DE NOVAS FUNCIONALIDADES
+
+IMPORTANTE:
+
+O aplicativo já está funcionando.
+
+NÃO remover telas.
+NÃO alterar a identidade visual.
+NÃO substituir componentes que já funcionam.
+NÃO refatorar partes desnecessárias.
+NÃO apagar dados mockados.
+NÃO quebrar fluxos existentes.
+
+Objetivo:
+
+Adicionar novas funcionalidades mantendo total compatibilidade com o sistema atual.
+
+Todas as novas funções devem seguir a arquitetura já existente do projeto.
+
+Antes de informar que terminou, testar tudo.
+
+══════════════════════════════════
+
+1. PLANO DE ESTUDO
+    ══════════════════════════════════
+
+A tela Plano de Estudo NÃO é uma tela de resolver questões.
+
+Ela deve ser uma tela de ORGANIZAÇÃO DA SEMANA.
+
+Objetivo:
+
+Permitir que o aluno organize suas matérias e horários.
+
+Adicionar:
+
+• calendário semanal;
+• segunda a domingo;
+• horário de início e fim;
+• duração da sessão;
+• marcar como concluída;
+• editar;
+• excluir;
+• repetir semanalmente;
+• total de horas planejadas;
+• matéria mais estudada;
+• matéria menos estudada;
+• sugestões da IA.
+
+Exemplo:
+
+Segunda
+19h — Português
+20h — Direito Penal
+
+Terça
+18h — Informática
+
+Mostrar:
+
+“Você planejou 15 horas para esta semana.”
+
+══════════════════════════════════
+2. TELA DUELO
+══════════════════════════════════
+
+Criar nova tela:
+
+DUEL0
+
+Não chamar de Duelo IA.
+
+Modos:
+
+1. Convidar amigo;
+2. Entrar por código;
+3. Adversário aleatório;
+4. Histórico de partidas.
+
+══════════════════
+CONVIDAR AMIGO
+══════════════════
+
+Se o amigo já possui o aplicativo:
+
+abrir diretamente na partida.
+
+Se não possui:
+
+gerar link compartilhável.
+
+Botão:
+
+Enviar pelo WhatsApp
+
+Deep link obrigatório:
+
+Após instalar o app, entrar automaticamente na partida.
+
+══════════════════
+PARTIDA
+══════════════════
+
+• mesmas questões para os dois jogadores;
+• cronômetro;
+• placar em tempo real;
+• XP;
+• bônus por sequência;
+• revanche;
+• compartilhar resultado.
+
+Nunca misturar concursos.
+
+PF enfrenta PF.
+ESA enfrenta ESA.
+PRF enfrenta PRF.
+
+══════════════════════════════════
+3. ALGORITMO DAS QUESTÕES
+══════════════════════════════════
+
+Criar algoritmo inteligente.
+
+Objetivo:
+
+Evitar que a resposta correta fique repetindo sempre a mesma letra.
+
+Exemplo ruim:
+
+A A A A A
+
+Exemplo desejado:
+
+A C B E D A B C
+
+Criar lógica que:
+
+• distribua melhor as alternativas;
+• misture dificuldade;
+• evite repetir questões recentes;
+• priorize matérias fracas;
+• aumente dificuldade gradualmente;
+• salve histórico de questões respondidas.
+
+A experiência deve parecer natural e divertida.
+
+══════════════════════════════════
+4. QUESTÃO INDIVIDUAL
+══════════════════════════════════
+
+Criar tela completa da questão.
+
+Adicionar:
+
+• cronômetro;
+• favoritar;
+• marcar para revisão;
+• reportar erro;
+• explicação da resposta;
+• alternativa correta destacada;
+• próxima questão;
+• XP.
+
+Se o usuário errar:
+
+enviar automaticamente para Revisão.
+
+══════════════════════════════════
+5. REVISÃO
+══════════════════════════════════
+
+Criar:
+
+• erradas;
+• favoritas;
+• marcadas;
+• revisão inteligente.
+
+Prioridades da revisão:
+
+1. erros recentes;
+2. matérias fracas;
+3. questões esquecidas;
+4. favoritas;
+5. marcadas.
+
+Botão:
+
+Começar revisão inteligente.
+
+══════════════════════════════════
+6. ESTATÍSTICAS
+══════════════════════════════════
+
+Adicionar CRONÔMETRO DE ESTUDO.
+
+Fluxo:
+
+Selecionar matéria →
+Iniciar →
+Pausar →
+Finalizar.
+
+Salvar:
+
+• horas por matéria;
+• horas semanais;
+• horas totais.
+
+Exemplos:
+
+“Você estudou 40 horas de Direito Penal esta semana.”
+
+“Você estudou apenas 2 horas de Informática.”
+
+“A IA recomenda aumentar Informática.”
+
+Mostrar:
+
+• tempo total;
+• sequência;
+• aproveitamento;
+• evolução semanal;
+• pontos fortes;
+• pontos fracos;
+• tempo por matéria.
+
+══════════════════════════════════
+7. SIMULADOS
+══════════════════════════════════
+
+Adicionar:
+
+• rápido;
+• personalizado;
+• por concurso;
+• prova completa.
+
+Resultado:
+
+• acertos;
+• erros;
+• percentual;
+• tempo;
+• matérias fortes;
+• matérias fracas;
+• revisão dos erros.
+
+══════════════════════════════════
+8. RANKING
+══════════════════════════════════
+
+Criar:
+
+• geral;
+• por concurso;
+• semanal;
+• mensal;
+• entre amigos;
+• duelos.
+
+Mostrar:
+
+posição atual e XP necessário para subir.
+
+══════════════════════════════════
+9. PERFIL
+══════════════════════════════════
+
+Mostrar:
+
+• foto;
+• concurso;
+• patente;
+• XP;
+• sequência;
+• questões resolvidas;
+• tempo estudado;
+• vitórias no Duelo;
+• conquistas.
+
+══════════════════════════════════
+10. CONFIGURAÇÕES
+══════════════════════════════════
+
+Adicionar:
+
+• meta diária;
+• meta semanal;
+• notificações;
+• plano atual;
+• cobrança;
+• ajuda;
+• feedback;
+• política de privacidade;
+• termos de uso;
+• sair da conta.
+
+══════════════════════════════════
+11. IA APROVA PRO
+══════════════════════════════════
+
+Preparar recursos Premium:
+
+• revisão inteligente avançada;
+• plano automático;
+• estatísticas avançadas;
+• explicações avançadas;
+• simulados personalizados;
+• análise de pontos fracos.
+
+NÃO implementar pagamento agora.
+
+Apenas preparar a estrutura.
+
+══════════════════════════════════
+12. SISTEMA DE CONQUISTAS
+══════════════════════════════════
+
+Criar:
+
+🏆 100 questões
+
+🏆 1.000 questões
+
+🔥 7 dias seguidos
+
+🔥 30 dias seguidos
+
+📚 primeiro simulado
+
+⚔ primeira vitória no Duelo
+
+⚔ 10 vitórias no Duelo
+
+⏱ 10 horas estudadas
+
+⏱ 50 horas estudadas
+
+⏱ 100 horas estudadas
+
+══════════════════════════════════
+NÃO IMPLEMENTAR
+══════════════════════════════════
+
+Não criar:
+
+• chat;
+• comunidade;
+• fórum;
+• sala de estudos.
+
+══════════════════════════════════
+TESTES OBRIGATÓRIOS
+══════════════════════════════════
+
+Antes de dizer que terminou:
+
+✓ testar botões;
+✓ testar navegação;
+✓ testar Duelo;
+✓ testar revisão;
+✓ testar estatísticas;
+✓ testar perfil;
+✓ testar plano de estudo;
+✓ testar simulados;
+✓ testar ranking;
+✓ testar configurações;
+
+Somente informar “concluído” após todos os testes passarem.

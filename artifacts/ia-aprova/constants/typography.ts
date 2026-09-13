@@ -1,0 +1,15 @@
+export const typography = {
+  h1: { fontSize: 32, fontWeight: '700' as const, lineHeight: 40 },
+  h2: { fontSize: 26, fontWeight: '700' as const, lineHeight: 34 },
+  h3: { fontSize: 20, fontWeight: '600' as const, lineHeight: 28 },
+  body: { fontSize: 16, fontWeight: '400' as const, lineHeight: 24 },
+  bodyMedium: { fontSize: 16, fontWeight: '500' as const, lineHeight: 24 },
+  bodySemiBold: { fontSize: 16, fontWeight: '600' as const, lineHeight: 24 },
+  bodyBold: { fontSize: 16, fontWeight: '700' as const, lineHeight: 24 },
+  aux: { fontSize: 14, fontWeight: '400' as const, lineHeight: 20 },
+  auxMedium: { fontSize: 14, fontWeight: '500' as const, lineHeight: 20 },
+  auxSemiBold: { fontSize: 14, fontWeight: '600' as const, lineHeight: 20 },
+  auxBold: { fontSize: 14, fontWeight: '700' as const, lineHeight: 20 },
+  micro: { fontSize: 12, fontWeight: '500' as const, lineHeight: 16 },
+  microBold: { fontSize: 12, fontWeight: '700' as const, lineHeight: 16 },
+};

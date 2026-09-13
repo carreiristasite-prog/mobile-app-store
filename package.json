@@ -1,0 +1,42 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "node scripts/enforce-pnpm.cjs",
+    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "typecheck:libs": "tsc --build",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck",
+    "test:content": "python -m unittest discover -s scripts/tests -p \"test_content_*.py\"",
+    "test:content-schemas": "node scripts/check-content-schemas.mjs",
+    "test:release-gate": "python -m unittest discover -s scripts/tests -p \"test_release_gate.py\"",
+    "test:contracts": "python -m unittest discover -s scripts/tests -p \"test_contract_alignment.py\"",
+    "test:mobile-identity": "node artifacts/ia-aprova/scripts/check-identity-onboarding.mjs",
+    "test:mobile-age-signals": "pnpm --filter @workspace/ia-aprova test:age-signals",
+    "test:mobile-outbox": "node artifacts/ia-aprova/scripts/check-offline-outbox.mjs",
+    "test:mobile-simulations": "pnpm --filter @workspace/ia-aprova test:simulations",
+    "test:api": "pnpm --filter @workspace/api-server test",
+    "test:worker": "pnpm --filter @workspace/worker test",
+    "test:postgres:guard": "node --test lib/db/integration/database-guard.test.mjs lib/db/integration/migrations-contract.test.mjs",
+    "test:postgres:integration": "node --experimental-strip-types --test --test-timeout=30000 lib/db/integration/postgres.integration.test.mjs",
+    "test:dead-letter-ops": "node --test scripts/ops/dead-letter-core.test.mjs scripts/ops/dead-letter.postgres.test.mjs",
+    "test:security": "python -m unittest discover -s scripts/security/tests -p \"test_*.py\" && python scripts/security/check_security_docs.py",
+    "test:store-release": "python -m unittest discover -s scripts/tests -p \"test_store_release_check.py\"",
+    "audit:release": "python scripts/release_gate.py",
+    "inventory:content": "python scripts/content_pipeline.py inventory",
+    "quarantine:eear": "python scripts/content_pipeline.py quarantine-eear",
+    "validate:content": "python scripts/content_pipeline.py validate",
+    "ci": "pnpm run typecheck && pnpm run test:content && pnpm run test:content-schemas && pnpm run test:release-gate && pnpm run test:contracts && pnpm run test:mobile-identity && pnpm run test:mobile-age-signals && pnpm run test:mobile-outbox && pnpm run test:mobile-simulations && pnpm run test:api && pnpm run test:worker && pnpm run test:postgres:guard && pnpm run test:dead-letter-ops && pnpm run test:security && pnpm run test:store-release && pnpm -r --if-present run build"
+  },
+  "engines": {
+    "node": ">=22.13 <23"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "private": true,
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "prettier": "^3.8.3",
+    "typescript": "~6.0.3"
+  }
+}

@@ -1,0 +1,248 @@
+CORRIGIR A TELA DE SELEÇÃO DE CONCURSO DO IA APROVA
+
+Objetivo:
+Transformar a tela de seleção de concurso em uma experiência premium, escalável e focada em conversão, mantendo a identidade visual atual do IA Aprova.
+
+═══════════════════════════════
+HIERARQUIA VISUAL
+═══════════════════════════════
+
+A tela atualmente possui muitos elementos competindo pela atenção.
+
+Reorganizar a hierarquia visual para que o fluxo natural seja:
+
+1. Título
+2. Categoria
+3. Concurso
+4. Botão Continuar
+
+O usuário deve entender instantaneamente o que fazer.
+
+═══════════════════════════════
+TÍTULO
+═══════════════════════════════
+
+Substituir:
+
+"Qual concurso você quer conquistar?"
+
+Por:
+
+"Qual concurso vai mudar sua vida?"
+
+Subtítulo:
+
+"Escolha seu objetivo para criarmos um plano de aprovação personalizado."
+
+O título deve ter destaque máximo.
+
+Fonte:
+- Peso 800
+- Grande
+- Cor #0F172A
+
+═══════════════════════════════
+BARRA DE PROGRESSO
+═══════════════════════════════
+
+A barra atual não explica o processo.
+
+Adicionar indicador textual:
+
+Etapa 1 de 4
+
+Abaixo:
+
+Escolha seu concurso
+
+Exemplo visual:
+
+●────○────○────○
+
+Ou
+
+1/4
+
+O usuário precisa entender onde está no fluxo.
+
+═══════════════════════════════
+ESTRUTURA ESCALÁVEL
+═══════════════════════════════
+
+NÃO listar todos os concursos na mesma tela.
+
+Criar sistema em duas etapas:
+
+ETAPA 1
+
+Escolha da categoria:
+
+- Militar
+- Policial
+- Bancário
+- Fiscal
+- Tribunal
+- Administrativo
+- Saúde
+- Outros
+
+Utilizar cards grandes.
+
+Após selecionar uma categoria:
+
+Expandir ou abrir lista dos concursos correspondentes.
+
+═══════════════════════════════
+CONCURSOS
+═══════════════════════════════
+
+Militar:
+
+- ESA
+- EEAR
+- EsPCEx
+- AFA
+- Escola Naval
+- EFOMM
+- EAM
+- Fuzileiro Naval
+
+Policial:
+
+- Polícia Federal
+- PRF
+- Polícia Civil
+- Polícia Penal
+- PM-SP
+- PM-RJ
+
+Bancário:
+
+- Banco do Brasil
+- Caixa
+- Banco Central
+- BNDES
+
+Tribunais:
+
+- TJ
+- TRT
+- TRE
+- TRF
+
+Administrativo:
+
+- INSS
+- Correios
+- IBGE
+
+Fiscal:
+
+- Receita Federal
+- SEFAZ
+- ISS
+
+Saúde:
+
+- EBSERH
+- SUS
+
+Outros:
+
+- Concurso Personalizado
+
+═══════════════════════════════
+SELEÇÃO DOS CARDS
+═══════════════════════════════
+
+Ao selecionar:
+
+- Fundo azul suave
+- Borda azul principal
+- Check verde no canto
+- Leve sombra
+- Micro animação de escala (1.0 → 1.03)
+
+O usuário precisa sentir claramente que escolheu algo.
+
+═══════════════════════════════
+BUSCA
+═══════════════════════════════
+
+Reduzir a altura da barra de busca.
+
+A busca não deve chamar mais atenção que os concursos.
+
+Utilizar:
+
+🔍 Buscar concurso
+
+Apenas para usuários que já sabem exatamente o que querem.
+
+═══════════════════════════════
+BOTÃO CONTINUAR
+═══════════════════════════════
+
+Quando nada estiver selecionado:
+
+- Não deixar aparência de erro.
+- Exibir texto:
+
+"Selecione um concurso para continuar."
+
+Botão:
+
+- Azul com opacidade reduzida
+
+Quando selecionar:
+
+- Azul IA Aprova
+- Totalmente ativo
+- Pequena animação de entrada
+
+Texto:
+
+"Continuar"
+
+═══════════════════════════════
+RESPONSIVIDADE
+═══════════════════════════════
+
+Garantir funcionamento perfeito em:
+
+- iPhone SE
+- iPhone 15 Pro Max
+- Android pequenos
+- Android grandes
+
+Sem quebra de layout.
+
+═══════════════════════════════
+PERFORMANCE
+═══════════════════════════════
+
+A lista de concursos deve ser dinâmica.
+
+Não criar telas separadas para cada concurso.
+
+Utilizar estrutura baseada em JSON:
+
+Categoria
+→ Concursos
+→ Matérias
+→ Banco de questões
+
+Toda a tela deve ser gerada dinamicamente para permitir adicionar novos concursos sem alterar código visual.
+
+═══════════════════════════════
+RESULTADO ESPERADO
+═══════════════════════════════
+
+A tela deve transmitir:
+
+- Clareza
+- Organização
+- Escalabilidade
+- Sensação de produto premium
+
+O usuário deve conseguir escolher seu concurso em menos de 5 segundos e entender exatamente qual é o próximo passo.

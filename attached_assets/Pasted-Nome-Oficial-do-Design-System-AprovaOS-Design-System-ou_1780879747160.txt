@@ -1,0 +1,588 @@
+Nome Oficial do Design System
+
+AprovaOS™ Design System
+
+ou
+
+AprovaOS Neo Learning
+
+Esse nome transmite que não é apenas um layout, mas um sistema completo de produto.
+
+⸻
+
+Conceito Visual
+
+O IA Aprova utiliza uma combinação de:
+
+* Gamificação
+* Educação
+* IA
+* Concursos Públicos
+* Design Mobile First
+
+Misturando referências de:
+
+* Duolingo
+* Headway
+* Khan Academy
+* Notion
+* Apple Human Interface Guidelines
+
+O objetivo é parecer:
+
+Moderno + Inteligente + Confiável + Motivador
+
+Nunca infantil.
+
+Nunca corporativo demais.
+
+Nunca gamer exagerado.
+
+⸻
+
+Paleta de Cores
+
+Azul Principal
+
+#1D5DFF
+
+Cor da marca.
+
+Usada em:
+
+* CTAs
+* Navegação ativa
+* Botões principais
+
+⸻
+
+Azul Escuro
+
+#0E2F7A
+
+Cards premium.
+
+⸻
+
+Verde Sucesso
+
+#22C55E
+
+Acertos.
+
+Metas.
+
+Conquistas.
+
+⸻
+
+Laranja
+
+#F59E0B
+
+XP.
+
+Patentes.
+
+Ranking.
+
+⸻
+
+Vermelho
+
+#EF4444
+
+Erros.
+
+Alertas.
+
+⸻
+
+Fundo
+
+#F8FAFC
+
+Branco levemente acinzentado.
+
+⸻
+
+Tipografia
+
+Fonte Principal
+
+Inter
+
+Usar:
+
+font-family: Inter;
+
+ou
+
+font-family:
+Inter,
+SF Pro Display,
+sans-serif;
+
+⸻
+
+Escala Tipográfica
+
+H1
+
+Nome do usuário
+
+32px
+700
+
+Exemplo:
+
+Olá, Caynã!
+
+⸻
+
+H2
+
+Títulos
+
+26px
+700
+
+⸻
+
+H3
+
+Subseções
+
+20px
+600
+
+⸻
+
+Corpo
+
+16px
+400
+
+⸻
+
+Informações auxiliares
+
+14px
+400
+
+⸻
+
+Microtexto
+
+12px
+500
+
+⸻
+
+Bordas
+
+Tudo arredondado.
+
+Padrão:
+
+24px
+
+Cards menores:
+
+16px
+
+Botões:
+
+999px
+
+Formato cápsula.
+
+⸻
+
+Sombras
+
+Muito suaves.
+
+Nunca usar sombra forte.
+
+Exemplo:
+
+0 8px 24px rgba(0,0,0,0.06)
+
+⸻
+
+Grid
+
+Padding:
+
+24px
+
+Entre cards:
+
+16px
+
+Entre componentes:
+
+24px
+
+⸻
+
+Mascote Humano
+
+Nome
+
+Aprovinho
+
+⸻
+
+Características
+
+Menino
+
+14–18 anos
+
+Visual Pixar.
+
+Olhos grandes.
+
+Sorriso amigável.
+
+Não parecer bebê.
+
+Não parecer adulto.
+
+⸻
+
+Roupa
+
+Moletom azul.
+
+Logo IA Aprova.
+
+Mochila preta.
+
+Tablet preto.
+
+⸻
+
+Estilo
+
+3D semi-realista.
+
+Pixar.
+
+Disney.
+
+Dreamworks.
+
+⸻
+
+Proibições
+
+Não usar:
+
+* realista
+* anime
+* caricatura
+* cartoon exagerado
+
+⸻
+
+Enquadramento
+
+Home
+
+Da cintura para cima.
+
+Nunca corpo inteiro.
+
+⸻
+
+Cards
+
+Peito para cima.
+
+⸻
+
+Splash
+
+Corpo inteiro.
+
+⸻
+
+Conquistas
+
+Corpo inteiro.
+
+⸻
+
+Ranking
+
+Peito para cima.
+
+⸻
+
+Expressões
+
+Acertou
+
+Sorrindo.
+
+Punho fechado.
+
+⸻
+
+Errou
+
+Pensativo.
+
+⸻
+
+Meta concluída
+
+Comemorando.
+
+⸻
+
+Estudando
+
+Segurando tablet.
+
+⸻
+
+Mascote IA
+
+Nome
+
+AproBot
+
+⸻
+
+Características
+
+Robô branco.
+
+Detalhes azuis.
+
+Visor preto.
+
+Olhos azuis.
+
+Formato arredondado.
+
+Sem aparência agressiva.
+
+⸻
+
+Função
+
+Nunca motivação.
+
+Sempre inteligência.
+
+⸻
+
+Onde aparece
+
+Explicação IA.
+
+Tutor IA.
+
+Análise de desempenho.
+
+Plano de estudos.
+
+⸻
+
+Splash Screen
+
+Elementos:
+
+Logo.
+
+Aprovinho.
+
+AproBot.
+
+Gradiente azul.
+
+Texto:
+
+Seu parceiro inteligente para conquistar a aprovação.
+
+⸻
+
+Home
+
+Estrutura obrigatória
+
+Topo
+
+Concurso
+
+Patente
+
+XP
+
+Notificações
+
+⸻
+
+Hero
+
+Olá, usuário
+
+Meta do dia
+
+Mascote
+
+⸻
+
+Meta diária
+
+18/30
+
+Barra
+
+Botão principal
+
+⸻
+
+IA recomenda
+
+Robô
+
+Insight
+
+Ação
+
+⸻
+
+Continue de onde parou
+
+Progresso
+
+⸻
+
+Recomendações
+
+Cards horizontais
+
+⸻
+
+Ranking
+
+Posição
+
+Top %
+
+⸻
+
+Questões
+
+Filtro superior.
+
+Cards limpos.
+
+Muito espaço branco.
+
+Poucas cores.
+
+⸻
+
+Quiz
+
+Tela minimalista.
+
+Foco total na questão.
+
+Timer no topo.
+
+Alternativas grandes.
+
+Botão próximo.
+
+⸻
+
+IA Tutor
+
+Chat estilo ChatGPT.
+
+Robô no topo.
+
+Sugestões rápidas.
+
+⸻
+
+Plano de Estudos
+
+Visual semelhante ao Notion.
+
+Checklist.
+
+Progresso.
+
+Dias.
+
+⸻
+
+Ranking
+
+Visual semelhante ao Duolingo.
+
+Pódio.
+
+Avatares.
+
+XP.
+
+⸻
+
+Perfil
+
+Avatar.
+
+XP.
+
+Conquistas.
+
+Desempenho.
+
+⸻
+
+Conquistas
+
+Grid 2x2.
+
+Badges coloridos.
+
+Visual premium.
+
+⸻
+
+Configurações
+
+Apple Settings Style.
+
+Minimalista.
+
+Muito espaço branco.
+
+⸻
+
+Regra mais importante
+
+A IA que for gerar novas telas deve seguir exatamente estes princípios:
+
+1. Mobile First.
+2. Design inspirado em Apple + Duolingo.
+3. Mascote humano apenas da cintura para cima na Home.
+4. Robô apenas para recursos de IA.
+5. Inter como fonte principal.
+6. Bordas grandes e suaves.
+7. Muito espaço em branco.
+8. Azul IA Aprova como cor dominante.
+9. CTA principal sempre visível.
+10. Gamificação sempre presente (XP, patente, ranking, sequência e metas).
+
+Esse conjunto forma a identidade visual completa do AprovaOS™ Neo Learning Design System.

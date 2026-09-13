@@ -1,0 +1,496 @@
+CRIE A ARQUITETURA DINÂMICA DO IA APROVA.
+
+O app NÃO deve ter telas fixas por concurso.
+
+Não criar:
+- tela da ESA
+- tela da PF
+- tela da PRF
+- tela do INSS
+
+Criar telas genéricas e dinâmicas que mudam conforme o concurso escolhido pelo usuário.
+
+OBJETIVO:
+O IA Aprova deve funcionar para qualquer concurso público, mesmo que cada concurso tenha matérias, bancas, tópicos, metas e questões diferentes.
+
+A Home, Questões, Simulados, Revisão, Desempenho, Ranking e Plano de Estudos devem se adaptar automaticamente ao concurso ativo do usuário.
+
+========================
+1. CONCEITO CENTRAL
+========================
+
+Toda a experiência do app deve depender do:
+
+activeContestId
+
+Ou seja:
+
+Se o usuário escolheu ESA:
+mostrar matérias, questões, rankings e plano da ESA.
+
+Se o usuário escolheu Polícia Federal:
+mostrar matérias, questões, rankings e plano da PF.
+
+Se o usuário trocar de concurso:
+todo o app deve atualizar automaticamente.
+
+========================
+2. ESTRUTURA DE DADOS
+========================
+
+Criar os seguintes modelos TypeScript:
+
+User:
+- id
+- name
+- email
+- avatar
+- activeContestId
+- selectedContestIds
+- dailyGoal
+- xp
+- streakDays
+- plan
+- createdAt
+
+Contest:
+- id
+- name
+- shortName
+- category
+- year
+- description
+- isActive
+- subjects
+
+Subject:
+- id
+- name
+- contestId
+- category
+- progress
+- accuracy
+- questionsAnswered
+- weakLevel
+
+Topic:
+- id
+- name
+- subjectId
+- contestId
+- accuracy
+- questionsAnswered
+
+Question:
+- id
+- contestId
+- subjectId
+- topicId
+- bank
+- year
+- difficulty
+- statement
+- alternatives
+- correctAlternative
+- explanation
+
+Alternative:
+- id
+- letter
+- text
+
+UserProgress:
+- userId
+- contestId
+- subjectId
+- topicId
+- questionsAnswered
+- correctAnswers
+- wrongAnswers
+- accuracy
+- lastStudiedAt
+
+StudyPlan:
+- id
+- userId
+- contestId
+- dailyGoal
+- weeklySchedule
+- prioritySubjects
+- createdAt
+
+Ranking:
+- contestId
+- users
+
+RankingUser:
+- id
+- name
+- avatar
+- xp
+- position
+
+========================
+3. EXEMPLOS DE CONCURSOS
+========================
+
+Criar mockData com categorias e concursos.
+
+Militares:
+- ESA
+- EEAR
+- EsPCEx
+- AFA
+- Escola Naval
+- Fuzileiro Naval
+- EAM
+- EFOOM
+
+Policiais:
+- Polícia Federal
+- PRF
+- Polícia Civil
+- Polícia Penal
+- PM-SP
+- PM-RJ
+- Bombeiros
+
+Bancários:
+- Banco do Brasil
+- Caixa
+- Banco Central
+- BNDES
+
+Tribunais:
+- TJ-SP
+- TJ-RJ
+- TJ-MG
+- TRT
+- TRE
+- TRF
+
+Fiscais:
+- Receita Federal
+- SEFAZ
+- ISS
+- TCU
+- CGU
+
+Administrativos:
+- INSS
+- IBGE
+- Correios
+- Prefeituras
+- Ministérios
+
+========================
+4. EXEMPLOS DE MATÉRIAS POR CONCURSO
+========================
+
+ESA:
+- Matemática
+- Português
+- História
+- Geografia
+- Inglês
+
+Polícia Federal:
+- Português
+- Direito Administrativo
+- Direito Constitucional
+- Direito Penal
+- Direito Processual Penal
+- Estatística
+- Informática
+- Raciocínio Lógico
+- Contabilidade
+
+Banco do Brasil:
+- Português
+- Matemática
+- Matemática Financeira
+- Atualidades do Mercado Financeiro
+- Conhecimentos Bancários
+- Informática
+- Inglês
+
+INSS:
+- Português
+- Direito Constitucional
+- Direito Administrativo
+- Direito Previdenciário
+- Raciocínio Lógico
+- Informática
+- Ética no Serviço Público
+
+TJ-SP:
+- Português
+- Direito Administrativo
+- Direito Constitucional
+- Direito Penal
+- Direito Processual Penal
+- Direito Civil
+- Direito Processual Civil
+- Normas da Corregedoria
+
+IMPORTANTE:
+Esses são apenas exemplos iniciais.
+A arquitetura deve permitir adicionar novos concursos e novas matérias sem alterar as telas.
+
+========================
+5. LÓGICA DA HOME DINÂMICA
+========================
+
+A Home deve fazer:
+
+1. Buscar o usuário atual.
+2. Ler activeContestId.
+3. Buscar o concurso ativo.
+4. Buscar matérias do concurso ativo.
+5. Buscar progresso do usuário nesse concurso.
+6. Calcular meta diária.
+7. Calcular matéria prioritária.
+8. Mostrar recomendação da IA baseada nos dados desse concurso.
+
+Exemplo:
+
+Se activeContestId = ESA:
+Home mostra:
+- ESA 2027
+- Matemática em foco
+- Português
+- História
+- Geografia
+- Ranking ESA
+
+Se activeContestId = PF:
+Home mostra:
+- Polícia Federal
+- Direito Penal em foco
+- Estatística
+- Administrativo
+- Constitucional
+- Ranking PF
+
+Nunca hardcodar matéria na Home.
+
+========================
+6. LÓGICA DE QUESTÕES
+========================
+
+A tela Questões deve ser dinâmica.
+
+Filtros:
+
+- Concurso
+- Matéria
+- Tópico
+- Banca
+- Dificuldade
+- Quantidade
+
+O filtro de matéria deve carregar apenas as matérias do concurso selecionado.
+
+Exemplo:
+
+Se concurso = ESA:
+mostrar Matemática, Português, História, Geografia, Inglês.
+
+Se concurso = PF:
+mostrar Direito Penal, Estatística, Administrativo, Constitucional etc.
+
+Ao iniciar quiz:
+criar QuizSession com perguntas filtradas pelo concurso ativo.
+
+========================
+7. LÓGICA DE REVISÃO
+========================
+
+A Revisão deve mostrar:
+
+- questões erradas do concurso ativo
+- matérias fracas do concurso ativo
+- tópicos com menor acerto do concurso ativo
+- questões favoritas do concurso ativo
+
+Nunca misturar dados de concursos diferentes.
+
+========================
+8. LÓGICA DE DESEMPENHO
+========================
+
+A tela Desempenho deve calcular:
+
+- taxa de acerto geral do concurso ativo
+- taxa por matéria
+- taxa por tópico
+- evolução semanal
+- matérias fortes
+- matérias fracas
+- questões respondidas
+- tempo estimado de estudo
+
+Critério:
+
+Matéria fraca:
+acerto abaixo de 60%
+
+Matéria média:
+60% a 75%
+
+Matéria forte:
+acima de 75%
+
+========================
+9. LÓGICA DO PLANO DE ESTUDOS
+========================
+
+O plano de estudos deve ser criado com base em:
+
+- concurso ativo
+- matérias do concurso
+- dificuldade declarada pelo usuário
+- desempenho real
+- meta diária
+- data da prova, se informada
+
+A IA deve priorizar:
+
+1. matérias com pior desempenho
+2. matérias com maior peso
+3. tópicos mais recorrentes
+4. proximidade da prova
+
+========================
+10. LÓGICA DO RANKING
+========================
+
+Ranking deve ser separado por concurso.
+
+Exemplo:
+
+Ranking ESA
+Ranking PF
+Ranking INSS
+Ranking Banco do Brasil
+
+A posição do usuário deve depender apenas do concurso ativo.
+
+Mostrar:
+
+- posição
+- XP
+- top %
+- total de candidatos daquele concurso
+
+========================
+11. LÓGICA PARA TROCAR DE CONCURSO
+========================
+
+Criar uma tela ou modal:
+
+"Trocar concurso"
+
+Quando o usuário troca o concurso ativo:
+
+1. Atualizar activeContestId.
+2. Recarregar Home.
+3. Recarregar matérias.
+4. Recarregar ranking.
+5. Recarregar plano.
+6. Recarregar estatísticas daquele concurso.
+
+O progresso antigo não deve ser perdido.
+
+Cada concurso deve ter seu próprio progresso.
+
+========================
+12. PLANOS E LIMITES
+========================
+
+Criar lógica preparada para monetização futura:
+
+Free:
+- 1 concurso ativo
+- 20 questões por dia
+- ranking básico
+
+Pro:
+- até 3 concursos
+- questões ilimitadas
+- simulados
+- revisão inteligente
+
+Elite:
+- até 5 concursos
+- IA avançada
+- ranking avançado
+- relatório completo
+
+Ilimitado:
+- concursos ilimitados
+- todos os recursos
+
+Não implementar pagamento agora.
+Apenas preparar a estrutura de permissões.
+
+========================
+13. FUNÇÕES UTILITÁRIAS
+========================
+
+Criar funções em /utils:
+
+getActiveContest(user)
+getContestSubjects(contestId)
+getUserProgressByContest(userId, contestId)
+getWeakSubjects(userId, contestId)
+getStrongSubjects(userId, contestId)
+getRecommendedSubject(userId, contestId)
+getQuestionsByContest(contestId)
+filterQuestions(filters)
+calculateAccuracy(correct, total)
+calculateDailyGoalProgress(userId, contestId)
+generateStudyPlan(userId, contestId)
+generateAIRecommendation(userId, contestId)
+switchActiveContest(userId, contestId)
+
+========================
+14. REGRAS IMPORTANTES
+========================
+
+Não hardcodar ESA na Home.
+Não hardcodar Matemática na Home.
+Não criar telas específicas por concurso.
+Não misturar progresso de concursos diferentes.
+Não perder dados ao trocar de concurso.
+Todas as telas devem depender do activeContestId.
+Todas as métricas devem vir de mockData ou cálculo.
+
+========================
+15. RESULTADO ESPERADO
+========================
+
+O app deve ficar preparado para crescer.
+
+Quando eu adicionar um novo concurso no mockData, por exemplo:
+
+Guarda Municipal
+
+com matérias:
+
+- Português
+- Direito Constitucional
+- Legislação Municipal
+- Raciocínio Lógico
+
+O app deve automaticamente:
+
+- exibir esse concurso na seleção
+- carregar suas matérias
+- permitir questões
+- criar plano de estudos
+- mostrar desempenho
+- gerar ranking
+- adaptar a Home
+
+Sem precisar criar novas telas.

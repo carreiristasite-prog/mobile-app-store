@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packageVersion": "0.1.0-draft",
+  "generatedOn": "2026-08-21",
+  "releaseAllowed": false,
+  "instructions": "A release exige zero itens status=open com severity=release, aprovacoes registradas e checker do site sem -AllowPlaceholders.",
+  "blockers": [
+    {"id":"LEGAL-001","severity":"release","status":"open","owner":"founder-legal","requirement":"Preencher razao social, CNPJ, endereco, nome fantasia e dominio.","evidence":"cartao CNPJ, contrato social e DNS"},
+    {"id":"LEGAL-002","severity":"release","status":"open","owner":"privacy","requirement":"Nomear encarregado/canal ou documentar dispensa aplicavel; criar e-mails funcionais de privacidade, suporte, seguranca, editorial e direitos.","evidence":"ato interno e testes de recebimento"},
+    {"id":"LEGAL-003","severity":"release","status":"open","owner":"legal","requirement":"Advogado brasileiro aprovar Termos, Privacidade, menores, social, assinatura, editorial e direitos.","evidence":"parecer/aceite versionado"},
+    {"id":"PRIV-001","severity":"release","status":"open","owner":"privacy-engineering","requirement":"Inventariar tabelas, endpoints, SDKs, permissoes, logs, filas, caches e storage do build candidato.","evidence":"data map e SBOM com hash do build"},
+    {"id":"PRIV-002","severity":"release","status":"open","owner":"privacy-legal-accounting","requirement":"Aprovar bases legais, LIAs/RIPD e prazos de retencao, inclusive fiscal, fraude, suporte, incidentes e backups.","evidence":"matriz assinada e data de sign-off"},
+    {"id":"VEND-001","severity":"release","status":"open","owner":"procurement-privacy","requirement":"Confirmar entidades, papeis, regioes, suboperadores, DPA e transferencia de Clerk, RevenueCat, GCP, suporte, e-mail e push.","evidence":"contratos e matriz de transferencias"},
+    {"id":"MINOR-001","severity":"release","status":"open","owner":"product-legal","requirement":"Homologar age gate 13+, sinais etarios Declared Age Range/Play Age Signals, verificacao/vinculo do responsavel, defaults protetivos, revogacao e transicao aos 18.","evidence":"RIPD, testes E2E e sandbox por faixa/erro/revogacao, aceite juridico"},
+    {"id":"DSR-001","severity":"release","status":"open","owner":"backend-privacy","requirement":"Implementar e testar exportacao e exclusao em app e web, incluindo Clerk, RevenueCat, social, cache, fila, storage e ledger de backup.","evidence":"testes E2E e comprovantes dos operadores"},
+    {"id":"BILL-001","severity":"release","status":"open","owner":"payments-legal","requirement":"Cadastrar SKU iaaprova.pro.monthly/entitlement pro, exibir preco localizado, restore e gerenciamento; validar impostos e CDC.","evidence":"sandbox Apple/Google/RevenueCat e aceite contabil"},
+    {"id":"STORE-001","severity":"release","status":"open","owner":"store-privacy","requirement":"Preencher App Privacy/Data Safety a partir do build final e publicar URLs acessiveis.","evidence":"exports App Store Connect/Play Console e teste de URLs"},
+    {"id":"STORE-002","severity":"release","status":"open","owner":"store-ops","requirement":"Definir Apple App ID, Android package, classificacao etaria e conta organizacional.","evidence":"registros das lojas"},
+    {"id":"SEC-001","severity":"release","status":"open","owner":"security","requirement":"Aprovar threat model, pentest autorizado, gestao de segredos, incidente, backup/restore e canal de vulnerabilidade.","evidence":"relatorios sem critico/alto aberto"},
+    {"id":"INC-001","severity":"release","status":"open","owner":"security-privacy","requirement":"Designar incident commander, juridico e encarregado; realizar tabletop e testar comunicacao ANPD/titular.","evidence":"ata do exercicio e plano de correcao"},
+    {"id":"RIGHTS-001","severity":"release","status":"open","owner":"editorial-legal","requirement":"Registrar licenca comercial e cadeia de direitos de todo item/ativo oficial; manter sem licenca em quarentena.","evidence":"rights ledger sem item publicado pendente"},
+    {"id":"CONTENT-001","severity":"release","status":"open","owner":"editorial","requirement":"Confirmar que marketing e produto nao alegam revisao humana, afiliacao oficial, garantia de aprovacao, IA em producao nem recurso ausente; Arena/social e regras integrais de simulado exigem E2E antes de qualquer alegacao.","evidence":"auditoria de copy do build e stores vinculada aos testes de cada recurso"},
+    {"id":"CONSENT-001","severity":"release","status":"open","owner":"product-privacy-legal","requirement":"Implementar aceite afirmativo e versionado dos Termos, sem caixa pre-marcada nem agrupamento com consentimentos opcionais; registrar e testar revogacao por finalidade.","evidence":"fluxos E2E adulto e menor, registros de consentimento/aceite e auditoria de dark patterns"},
+    {"id":"SITE-001","severity":"release","status":"open","owner":"web-legal","requirement":"Substituir todos os placeholders, configurar dominio/HTTPS e executar checker sem AllowPlaceholders.","evidence":"relatorio do checker e captura HTTPS"},
+    {"id":"SITE-002","severity":"release","status":"open","owner":"web-legal","requirement":"Publicar Termos e Politica de Privacidade integrais e sincronizados com as versoes aprovadas; nao apresentar resumos como se fossem os documentos completos.","evidence":"hash dos documentos fonte e paginas publicas, revisao juridica e teste de conteudo"},
+    {"id":"VEND-002","severity":"release","status":"open","owner":"procurement-privacy-web","requirement":"Publicar a lista de operadores/suboperadores prometida na Politica, com entidade, finalidade e transferencias coerentes com a matriz aprovada.","evidence":"URL publica /subprocessors/, matriz assinada e teste de link"}
+  ]
+}

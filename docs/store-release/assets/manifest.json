@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23",
+  "assets": [
+    {
+      "kind": "google_play_store_icon",
+      "path": "docs/store-release/assets/google-play-icon-v3.png",
+      "source": "artifacts/ia-aprova/assets/images/icon-v2.png",
+      "transformation": "centered high-quality RGBA export with a fully opaque alpha channel",
+      "width": 512,
+      "height": 512,
+      "bytes": 409868,
+      "sha256": "2bb35672b2e06d119e5de2bde0b03e2aeda2aa91ea17a655d95a6564733dddb9"
+    },
+    {
+      "kind": "google_play_feature_graphic",
+      "path": "docs/store-release/assets/google-play-feature-graphic-v3.png",
+      "generator": "built-in image generation",
+      "prompt": "Recompose the IA Aprova Google Play feature graphic with all key content inside the central safe region from 15% to 85%: app name around x=18%-43% and study visual around x=52%-82%, with generous margins; retain restrained glassmorphism and claymorphism; exact text IA APROVA; no other words, public-institution logos, affiliation claims, approval guarantees, badges or watermark.",
+      "transformation": "high-quality RGB export to the required store dimensions",
+      "altText": "IA Aprova ao lado de um cartão de questões, livros e indicadores de progresso em tons de roxo e verde.",
+      "width": 1024,
+      "height": 500,
+      "bytes": 675325,
+      "sha256": "ece535f621f8419ec4fbbf7f3633172f350b18d4ab5415b6e72858b86a66bc12"
+    }
+  ],
+  "approvals": {
+    "visual": false,
+    "legal": false,
+    "accessibility": false,
+    "independentStoreReviewer": false
+  }
+}

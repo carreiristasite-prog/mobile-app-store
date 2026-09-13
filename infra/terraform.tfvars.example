@@ -1,0 +1,63 @@
+# Copy to an untracked file outside the repository or inject values in CI.
+# This example contains no credentials and deliberately keeps deployment off.
+project_id  = "ia-aprova-prod-REPLACE"
+region      = "southamerica-east1"
+environment = "prod"
+
+enable_workloads                    = false
+enable_external_https_load_balancer = false
+confirm_paid_platform_provisioning  = false
+confirm_api_readiness_probe_staging = false
+confirm_privacy_export_delivery_staging = false
+
+# Required only after the safety gate is deliberately opened. Use digests,
+# never mutable tags such as :latest.
+api_image    = "southamerica-east1-docker.pkg.dev/ia-aprova-prod-REPLACE/iaaprova-prod/api@sha256:REPLACE_WITH_64_HEX"
+worker_image = "southamerica-east1-docker.pkg.dev/ia-aprova-prod-REPLACE/iaaprova-prod/worker@sha256:REPLACE_WITH_64_HEX"
+api_domain   = "api.example.com"
+
+# Public/non-sensitive runtime configuration. Legal version identifiers remain
+# blocked until the legal review has supplied the exact published versions.
+clerk_publishable_key            = "pk_live_REPLACE"
+cors_allowed_origins             = "https://app.example.com"
+revenuecat_project_id            = "proj_REPLACE"
+required_terms_version           = "REPLACE_AFTER_LEGAL_APPROVAL"
+required_privacy_notice_version  = "REPLACE_AFTER_LEGAL_APPROVAL"
+
+# Aprovados externamente pelo DPO/jurídico. O hash é do JSON canônico usado
+# pelo worker; placeholders mantêm o deployment gate fechado.
+privacy_retention_policy_id       = "REPLACE_AFTER_DPO_APPROVAL"
+privacy_retention_policy_sha256   = ""
+privacy_retention_approved_at     = ""
+privacy_retention_approved_by     = ""
+privacy_retention_rules_json      = ""
+
+# Populate only after the six secret containers have enabled versions. Version
+# numbers are safe metadata; secret values remain outside Terraform/state.
+secret_versions = {}
+# Example shape after provisioning (IDs include the selected environment):
+# secret_versions = {
+#   "iaaprova-prod-database-url"                         = "1"
+#   "iaaprova-prod-clerk-secret-key"                    = "1"
+#   "iaaprova-prod-guardian-invite-secret"              = "1"
+#   "iaaprova-prod-revenuecat-webhook-signing-secret"   = "1"
+#   "iaaprova-prod-revenuecat-webhook-authorization"    = "1"
+#   "iaaprova-prod-revenuecat-secret-api-key"           = "1"
+# }
+
+# Existing channel IDs can be created by a separate organization-level stack.
+notification_channel_ids = []
+
+# Optional; empty means the billing budget is not managed by this stack.
+billing_account_id = ""
+monthly_budget_brl = 15000
+
+# Initial 80k-MAU envelope. Tune only from capacity-test evidence.
+api_min_instances    = 3
+api_max_instances    = 100
+api_concurrency      = 40
+worker_min_instances = 2
+worker_max_instances = 10
+sql_tier             = "db-custom-4-15360"
+sql_disk_size_gb     = 100
+redis_memory_size_gb = 5

@@ -1,0 +1,8 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "bef4XBBpmpceHMtlkMBDT"
+uri = "file://artifacts/ia-aprova/assets/images/icon.png"
+type = "image"
+title = "generated_image"

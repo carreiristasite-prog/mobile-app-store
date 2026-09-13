@@ -1,0 +1,394 @@
+Crie um app mobile chamado IA Aprova, focado em estudo para concursos públicos, usando React Native + Expo + TypeScript.
+
+Neste momento, NÃO criar banco real de questões ainda. O objetivo agora é criar a estrutura do app, navegação, design system e todas as telas principais com dados mockados. Depois enviarei as questões reais para alimentar o banco.
+
+Use o design system chamado AprovaOS Neo Learning.
+
+IDENTIDADE VISUAL:
+
+Fonte principal:
+Inter ou SF Pro Display.
+
+Cores:
+Azul principal: #1D5DFF
+Azul escuro: #0E2F7A
+Fundo: #F8FAFC
+Texto principal: #0F172A
+Texto secundário: #64748B
+Verde sucesso: #22C55E
+Laranja XP: #F59E0B
+Vermelho erro: #EF4444
+
+Estilo:
+Mobile first.
+Visual premium.
+Inspirado em Duolingo, Headway, Khan Academy e Apple.
+Cards arredondados.
+Sombras suaves.
+Muito espaço em branco.
+Botões em formato cápsula.
+Layout limpo, moderno e profissional.
+
+Bordas:
+Cards grandes: 24px
+Cards pequenos: 16px
+Botões: 999px
+
+Sombras:
+0 8px 24px rgba(0,0,0,0.06)
+
+MASCOTES:
+
+Criar suporte visual para dois mascotes:
+
+1. Aprovinho:
+    Mascote humano jovem, estilo 3D semi-realista, moletom azul IA Aprova, mochila preta, segurando tablet.
+    Na Home usar apenas da cintura para cima.
+    Nunca cortar cabeça ou braços.
+    Nunca colocar fundo branco atrás.
+    Ele deve parecer integrado ao card.
+2. AproBot:
+    Robô branco e azul, visor preto, olhos azuis, amigável.
+    Usar apenas em telas de IA, explicações, recomendações, análise de desempenho e tutor.
+
+IMPORTANTE:
+Neste primeiro momento, usar imagens placeholder em assets/mascots/:
+
+* aprovinho-tablet.png
+* aprobot.png
+
+Criar a estrutura para substituir depois pelos PNGs finais transparentes.
+
+STACK:
+
+React Native
+Expo
+TypeScript
+expo-router
+Componentização limpa
+Design tokens centralizados
+Sem backend real ainda
+Sem banco de questões real ainda
+Usar dados mockados
+
+ESTRUTURA DE PASTAS:
+
+/app
+/(auth)
+splash.tsx
+login.tsx
+register.tsx
+forgot-password.tsx
+/(tabs)
+index.tsx
+questions.tsx
+performance.tsx
+review.tsx
+profile.tsx
+/quiz
+index.tsx
+result.tsx
+explanation.tsx
+/study-plan
+index.tsx
+/simulados
+index.tsx
+active.tsx
+result.tsx
+/ranking
+index.tsx
+/achievements
+index.tsx
+/notifications
+index.tsx
+/settings
+index.tsx
+/contest
+select.tsx
+
+/components
+AppButton.tsx
+AppCard.tsx
+ProgressBar.tsx
+Mascot.tsx
+Header.tsx
+XPBadge.tsx
+StatCard.tsx
+RecommendationCard.tsx
+BottomTabs.tsx
+
+/constants
+colors.ts
+typography.ts
+spacing.ts
+mockData.ts
+
+/assets
+/mascots
+/icons
+/logo
+
+TELAS QUE DEVEM SER CRIADAS AGORA:
+
+1. Splash
+2. Login
+3. Cadastro
+4. Recuperar senha
+5. Seleção de concurso
+6. Home
+7. Questões / filtros
+8. Resumo do banco filtrado
+9. Quiz
+10. Explicação IA
+11. Resultado do Quiz
+12. Plano de Estudos
+13. Simulados
+14. Simulado em andamento
+15. Resultado do Simulado
+16. Desempenho
+17. Revisão
+18. Ranking
+19. Perfil
+20. Conquistas
+21. Notificações
+22. Configurações
+
+NAVEGAÇÃO:
+
+Usar bottom tab com 5 abas:
+
+1. Início
+2. Questões
+3. Desempenho
+4. Revisão
+5. Perfil
+
+Não usar IA Tutor como aba principal.
+A IA deve aparecer dentro das telas certas, principalmente explicação, recomendações e análise.
+
+HOME — ESTRUTURA OBRIGATÓRIA:
+
+Topo:
+Mostrar concurso ativo:
+ESA 2027
+
+Mostrar patente:
+Capitão
+
+Mostrar XP:
+3.250 / 5.000 XP
+
+Mostrar próxima patente:
+Major
+
+Mostrar notificação.
+
+Hero:
+Card grande com:
+Olá, Caynã!
+Você está a apenas 12 questões de concluir sua missão diária.
+
+Stats:
+Hoje: 18 questões
+Taxa de acerto: 72%
+Sequência: 12 dias
+
+Mascote Aprovinho da cintura para cima, segurando tablet, integrado ao card.
+
+Card Meta Diária:
+18 / 30 questões
+60% concluído
+Faltam 12 questões para concluir sua meta de hoje.
+Barra de progresso grande.
+Botão principal:
+▶ Continuar estudando
+
+Card IA Aprova Recomenda:
+Usar AproBot.
+Texto:
+IA Aprova detectou:
+Constitucional Administrativa
+Taxa de acerto: 42%
+Essa matéria está abaixo da média dos aprovados ESA.
+Botão:
+Revisar agora
+
+Continue de onde parou:
+Direito Administrativo · ESA
+Poderes Administrativos
+154 / 210 questões
+73% concluído
+Aula 3 de 8
+Botão Continuar
+
+Recomendações para hoje:
+Carrossel horizontal com:
+Revisar erros
+Constitucional
+Simulado ESA
+Matemática
+Português
+
+Ranking:
+Mostrar:
+Você está em 134º lugar
+Top 8%
+entre 3.214 candidatos ESA
+Botão Ver ranking
+
+TELA DE QUESTÕES:
+
+Filtros:
+Concurso
+Matéria
+Banca
+Dificuldade
+Quantidade de questões
+
+Botão:
+Ver questões
+
+Dados mockados:
+ESA, EEAR, EsPCEx, AFA, Escola Naval, PF, PRF, INSS, Banco do Brasil, Caixa, TJ-SP.
+
+TELA DE QUIZ:
+
+Mostrar:
+Questão 12 de 25
+Timer
+Enunciado
+Alternativas A, B, C, D, E
+Botão próxima questão
+Botão Explicação IA
+Botão Reportar erro
+
+A alternativa correta deve ficar verde.
+A errada deve ficar vermelha.
+Após responder, liberar explicação curta.
+
+TELA EXPLICAÇÃO IA:
+
+Usar AproBot.
+Mostrar:
+Explicação objetiva da questão.
+Por que a alternativa correta está certa.
+Por que as outras estão erradas.
+Botão Próxima questão.
+
+TELA PLANO DE ESTUDOS:
+
+Mostrar:
+Meta diária
+Matérias de hoje
+Matérias de amanhã
+Progresso semanal
+Botão Ver calendário completo.
+
+TELA SIMULADOS:
+
+Opções:
+20 questões
+50 questões
+100 questões
+Prova completa
+
+Mostrar tempo estimado.
+Botão Meus simulados.
+
+TELA DESEMPENHO:
+
+Mostrar:
+Taxa de acerto geral
+Questões resolvidas
+Matérias fortes
+Matérias fracas
+Evolução semanal
+Recomendação da IA com AproBot.
+
+TELA REVISÃO:
+
+Mostrar:
+Erros recentes
+Questões favoritaras
+Matérias fracas
+Revisão inteligente.
+
+TELA RANKING:
+
+Mostrar:
+Ranking geral
+Ranking por concurso
+Ranking entre amigos
+
+Pódio:
+1º Você
+2º Beatriz
+3º Rafael
+
+Mostrar XP.
+
+TELA PERFIL:
+
+Mostrar:
+Avatar
+Nome
+Nível
+XP
+Questões resolvidas
+Taxa de acerto
+Sequência
+Menu:
+Desempenho
+Conquistas
+Meus dados
+Configurações
+
+TELA CONQUISTAS:
+
+Grid de badges:
+Primeiros Passos
+Sequência 7 dias
+Foco Total
+Mestre das Questões
+Simulado Expert
+IA Power User
+
+TELA NOTIFICAÇÕES:
+
+Lista:
+Meta diária concluída
+Novo ranking disponível
+Simulado finalizado
+Lembrete de estudos
+
+TELA CONFIGURAÇÕES:
+
+Estilo Apple Settings.
+Itens:
+Conta e segurança
+Preferências
+Notificações
+Tema
+Ajuda e suporte
+Sobre o app
+Sair da conta
+
+REGRAS DE IMPLEMENTAÇÃO:
+
+1. Criar primeiro a estrutura completa.
+2. Criar navegação funcional entre telas.
+3. Criar dados mockados.
+4. Criar componentes reutilizáveis.
+5. Criar design tokens.
+6. Garantir responsividade para iPhone e Android.
+7. Não implementar backend ainda.
+8. Não implementar pagamento ainda.
+9. Não implementar banco real de questões ainda.
+10. Não criar telas genéricas vazias.
+
+RESULTADO ESPERADO:
+
+Um app mobile navegável, bonito, profissional, com todas as telas principais criadas, pronto para depois receber banco de questões, autenticação real, assinaturas, ranking real e IA real.
+
+Prioridade desta etapa:
+Design + estrutura + navegação + telas.

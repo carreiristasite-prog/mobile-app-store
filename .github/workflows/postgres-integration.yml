@@ -1,0 +1,50 @@
+name: PostgreSQL integration
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: postgres-integration-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  postgres-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: iaaprova_test
+          POSTGRES_PASSWORD: ci-local-only-not-a-secret
+          POSTGRES_DB: ia_aprova_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U iaaprova_test -d ia_aprova_test"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 12
+    env:
+      TEST_DATABASE_URL: postgresql://iaaprova_test:ci-local-only-not-a-secret@localhost:5432/ia_aprova_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - name: Install locked dependencies
+        run: pnpm --filter @workspace/db --filter @workspace/worker install --frozen-lockfile
+      - name: Validate fail-closed guard and migration contract
+        run: pnpm test:postgres:guard
+      - name: Run PostgreSQL transaction and concurrency suite
+        run: pnpm test:postgres:integration

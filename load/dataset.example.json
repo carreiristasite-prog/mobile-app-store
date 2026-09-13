@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "environment": "staging",
+  "seedId": "replace-with-approved-staging-seed-id",
+  "users": [
+    {
+      "alias": "loadtest-000001",
+      "accessToken": "INJECT_SYNTHETIC_STAGING_TOKEN_AT_RUNTIME",
+      "tokenExpiresAt": "2000-01-01T00:00:00Z",
+      "productId": "replace-with-seeded-product-id",
+      "examVersionId": "00000000-0000-4000-8000-000000000000",
+      "mode": "practice"
+    }
+  ]
+}

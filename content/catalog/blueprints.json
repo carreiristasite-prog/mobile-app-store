@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "blocked_missing_approved_blueprints",
+  "blueprints": [],
+  "blockingReasons": [
+    "no_business_owner_approved_track_dimensions",
+    "no_editorial_owner_approved_subject_topic_skill_taxonomy",
+    "no_independent_blueprint_review"
+  ],
+  "notes": [
+    "A lista vazia é intencional: pastas e nomes de DOCX não são blueprints.",
+    "Nenhuma matéria será inferida ou inventada pelo checker."
+  ]
+}

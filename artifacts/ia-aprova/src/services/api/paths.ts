@@ -1,0 +1,35 @@
+/**
+ * Single source of truth for the public mobile API. Keep paths here so a
+ * contract revision never leaks through screen components.
+ */
+export const apiPaths = {
+  health: '/api/healthz',
+  home: '/api/v1/me/home',
+  onboardingState: '/api/v1/me/onboarding-state',
+  ageProfile: '/api/v1/me/age-profile',
+  platformAgeSignal: '/api/v1/me/platform-age-signal',
+  legalAcknowledgements: '/api/v1/me/legal-acknowledgements',
+  optionalConsents: '/api/v1/me/optional-consents',
+  guardianInvitations: '/api/v1/me/guardian-invitations',
+  guardianInvitationAccept: '/api/v1/guardian-invitations/accept',
+  guardianLinks: '/api/v1/me/guardian-links',
+  guardianLink: (linkId: string) => `/api/v1/me/guardian-links/${encodeURIComponent(linkId)}`,
+  activeCatalog: '/api/v1/catalog/active',
+  learningSessions: '/api/v1/learning/sessions',
+  learningSessionNext: (sessionId: string) => `/api/v1/learning/sessions/${encodeURIComponent(sessionId)}/next`,
+  learningSessionAttempts: (sessionId: string) => `/api/v1/learning/sessions/${encodeURIComponent(sessionId)}/attempts`,
+  simulationBlueprints: '/api/v1/simulations/blueprints',
+  simulations: '/api/v1/simulations',
+  activeSimulation: '/api/v1/simulations/active',
+  simulation: (simulationId: string) => `/api/v1/simulations/${encodeURIComponent(simulationId)}`,
+  simulationAnswers: (simulationId: string) => `/api/v1/simulations/${encodeURIComponent(simulationId)}/answers`,
+  simulationResult: (simulationId: string) => `/api/v1/simulations/${encodeURIComponent(simulationId)}/result`,
+  progress: '/api/v1/me/progress',
+  socialSummary: '/api/v1/social/summary',
+  reports: '/api/v1/reports',
+  entitlement: '/api/v1/billing/entitlement',
+  billingIdentity: '/api/v1/billing/identity',
+  billingRestore: '/api/v1/billing/restore',
+  account: '/api/v1/me',
+  accountExport: '/api/v1/me/export',
+} as const;

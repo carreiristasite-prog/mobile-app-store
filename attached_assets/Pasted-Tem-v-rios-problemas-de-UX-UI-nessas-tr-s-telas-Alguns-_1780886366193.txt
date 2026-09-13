@@ -1,0 +1,237 @@
+Tem vários problemas de UX/UI nessas três telas. Alguns são pequenos, mas outros passam imediatamente a sensação de “app feito por IA” em vez de produto profissional.
+
+Slide 1 — Sua aprovação começa hoje
+
+1. Logo gigante demais
+
+O usuário já viu a logo na splash.
+
+Agora ela está ocupando quase 40% da tela.
+
+Resultado:
+
+* rouba atenção da mensagem
+* parece propaganda
+* diminui a força do mascote
+
+Correção:
+
+* remover a logo completa
+* deixar apenas o mascote
+
+ou
+
+* usar apenas o símbolo IA Aprova pequeno no topo
+
+⸻
+
+2. Mascote muito alto
+
+A cabeça está quase encostando no topo.
+
+Falta respiro.
+
+Correção:
+
+Diminuir 15-20%.
+
+⸻
+
+3. Texto cinza muito apagado
+
+A frase:
+
+Pare de estudar sem direção.
+
+está praticamente invisível.
+
+Contraste insuficiente.
+
+⸻
+
+4. Ondas muito altas
+
+As ondas estão brigando visualmente com o conteúdo.
+
+Parecem um componente separado.
+
+Correção:
+
+Reduzir altura em 40%.
+
+⸻
+
+Slide 2 — Estude com inteligência
+
+Esse é o mais fraco dos três.
+
+5. Emoji cérebro parece amador
+
+Parece apresentação PowerPoint.
+
+Não parece produto premium.
+
+Correção:
+
+Usar:
+
+* AproBot
+    ou
+* ícone vetorial premium
+
+⸻
+
+6. Chips coloridos demais
+
+Questões por IA
+Revisão estratégica
+Evolução diária
+Foco nos erros
+
+Cada um tem uma cor.
+
+Isso cria ruído visual.
+
+Correção:
+
+Todos azul.
+
+Apenas ícones diferentes.
+
+⸻
+
+7. Muito texto
+
+O usuário não lê isso.
+
+Trocar:
+
+A IA identifica seus erros…
+
+por:
+
+Descubra exatamente
+o que estudar.
+
+mais forte.
+
+⸻
+
+Slide 3 — Milhares já estão evoluindo
+
+8. 98% aprovaram
+
+Isso é perigoso.
+
+Se não for verdade:
+
+* gera desconfiança
+* pode gerar problema legal
+
+Retire.
+
+⸻
+
+9. #1 Ranking IA
+
+Não significa nada.
+
+O cérebro pergunta:
+
+“Ranking de quê?”
+
+Remover.
+
+⸻
+
+10. +15k candidatos
+
+Só usar se for real.
+
+Senão remover.
+
+⸻
+
+11. Troféu não conversa com a marca
+
+Você criou:
+
+* Aprovinho
+* AproBot
+
+E de repente aparece:
+
+🏆
+
+Sem conexão.
+
+Correção:
+
+Usar Aprovinho segurando medalha.
+
+⸻
+
+Problema geral
+
+Você está misturando:
+
+* mascote
+* logo
+* cérebro
+* troféu
+* ondas
+
+O usuário vê 5 identidades visuais.
+
+Uma marca forte usa:
+
+Slide 1
+
+Aprovinho
+
+⸻
+
+Slide 2
+
+AproBot
+
+⸻
+
+Slide 3
+
+Aprovinho novamente
+
+Pronto.
+
+⸻
+
+Erro mais grave
+
+O onboarding está explicando.
+
+Ele deveria gerar desejo.
+
+Hoje ele fala:
+
+Estude com inteligência
+
+Mas deveria falar:
+
+Sua vaga pode estar
+mais perto do que você imagina.
+
+e
+
+Milhares de candidatos
+já estão evoluindo todos os dias.
+
+e
+
+Descubra exatamente
+o que falta para você ser aprovado.
+
+Essas frases vendem transformação.
+
+As atuais descrevem funcionalidades.
+
+A diferença é enorme em conversão.

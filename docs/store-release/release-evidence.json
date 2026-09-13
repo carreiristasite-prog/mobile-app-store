@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "sourceCommit": null,
+    "builtAt": null,
+    "iosIpaSha256": null,
+    "androidAabSha256": null,
+    "iosNativeManifestAudit": false,
+    "androidMergedManifestAudit": false,
+    "sbomSha256": null
+  },
+  "ownership": {
+    "organizationLegalName": null,
+    "expoOwner": null,
+    "easProjectId": null,
+    "appleTeamId": null,
+    "appleAppStoreConnectId": null,
+    "appleBundleIdReserved": false,
+    "googlePackageReserved": false,
+    "organizationAccountsActive": false
+  },
+  "runtimeConfiguration": {
+    "easProductionEnvironmentVerified": false,
+    "apiProductionUrlVerified": false,
+    "clerkProductionInstanceVerified": false,
+    "revenueCatIosPublicKeyVerified": false,
+    "revenueCatAndroidPublicKeyVerified": false,
+    "oauthRedirectsVerified": false
+  },
+  "publicUrls": {
+    "privacyReachable": false,
+    "termsReachable": false,
+    "supportReachable": false,
+    "accountDeletionReachable": false,
+    "subprocessorsReachable": false,
+    "httpsAndContentVerifiedAt": null
+  },
+  "assets": {
+    "appleIconVisualApproval": false,
+    "androidAdaptiveMaskApproval": false,
+    "androidMonochromeApproval": false,
+    "googlePlayStoreIcon": "docs/store-release/assets/google-play-icon-v3.png",
+    "googleFeatureGraphic": "docs/store-release/assets/google-play-feature-graphic-v3.png",
+    "iosScreenshots": [],
+    "androidPhoneScreenshots": [],
+    "screenshotsMatchCandidateBuild": false
+  },
+  "billing": {
+    "appleProductCreated": false,
+    "googleSubscriptionCreated": false,
+    "revenueCatEntitlementCreated": false,
+    "revenueCatOfferingCreated": false,
+    "appleSandboxPassed": false,
+    "googleLicenseTestPassed": false,
+    "restorePassedBothStores": false,
+    "refundAndRevocationPassed": false,
+    "localizedPriceVerified": false
+  },
+  "privacyAndSafety": {
+    "privacyOwnerApproval": false,
+    "legalApproval": false,
+    "vendorSdkDisclosuresVerified": false,
+    "networkTrafficObserved": false,
+    "applePrivacyAnswersExport": null,
+    "googleDataSafetyAnswersExport": null,
+    "appleAgeRatingExport": null,
+    "googleContentRatingCertificate": null,
+    "accountDeletionEndToEndPassed": false,
+    "guardianFlowsEndToEndPassed": false,
+    "appleDeclaredAgeRangeSandboxPassed": false,
+    "googlePlayAgeSignalsPassed": false,
+    "ageSignalFailureAndRevocationPassed": false
+  },
+  "productFeatures": {
+    "catalogRightsAndCoveragePassed": false,
+    "questionsEndToEndPassed": false,
+    "simulationRulesEndToEndPassed": false,
+    "socialEndToEndPassed": false,
+    "socialModerationAndBlockingPassed": false,
+    "freePlanLimitsEndToEndPassed": false
+  },
+  "reviewAccess": {
+    "appleReviewerAdultEmail": null,
+    "appleReviewerAdultPasswordSecretRef": null,
+    "googleReviewerAdultEmail": null,
+    "googleReviewerAdultPasswordSecretRef": null,
+    "testDataResetVerified": false,
+    "reviewContactName": null,
+    "reviewContactEmail": null,
+    "reviewContactPhone": null
+  },
+  "quality": {
+    "node22FrozenInstallPassed": false,
+    "expoDoctorPassed": false,
+    "typecheckPassed": false,
+    "iosReleaseBuildPassed": false,
+    "androidReleaseBuildPassed": false,
+    "voiceOverPassed": false,
+    "talkBackPassed": false,
+    "smallAndLargePhonePassed": false,
+    "ipadCompatibilityModePassed": false
+  },
+  "approvals": {
+    "product": null,
+    "mobile": null,
+    "security": null,
+    "privacy": null,
+    "legal": null,
+    "payments": null,
+    "independentStoreReviewer": null
+  }
+}

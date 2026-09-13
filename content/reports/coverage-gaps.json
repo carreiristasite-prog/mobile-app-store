@@ -1,0 +1,461 @@
+{
+  "coverageReportVersion": "1.0.0",
+  "asOf": "2026-08-23",
+  "releaseReady": false,
+  "inputFingerprint": "01f102ecb5e913949661b5a9ca382e87b168d2d467dc6ac39e697f3509f9c4a3",
+  "inputs": {
+    "catalog": {
+      "path": "content/catalog/exam-families.json",
+      "sha256": "70cba235826220c0a5d29e54aab5616b3a272d2afdf22305aed9d8676b477554"
+    },
+    "blueprints": {
+      "path": "content/catalog/blueprints.json",
+      "sha256": "5316f2e72d41c9abe1500975a2936f4f8ca87e1d80d7a843fec57ceb15894615"
+    },
+    "rightsRegistry": {
+      "path": "content/rights/registry.json",
+      "sha256": "a1dc884fd3e48e8c42df1637b225ca261e3b80d1647f951ae6dba69383fae21e"
+    },
+    "batchManifest": {
+      "path": "content/eligible/batches.manifest.json",
+      "sha256": "bc21de5303caf826f092dcb0623432bdc95f1c41534d98b48529d3afea18d3ba"
+    },
+    "sourceInventory": {
+      "path": "content/reports/source-inventory.json",
+      "sha256": "a0c86c91cc52c55345f198200a20dc55f0a682a65360942b672776c70d215c55"
+    },
+    "eligibleBatches": []
+  },
+  "inventory": {
+    "verifiedAgainstDisk": true,
+    "fileCount": 156,
+    "extensionCounts": {
+      "docx": 54,
+      "pdf": 102
+    },
+    "distinctHashCount": 156,
+    "duplicateHashGroupCount": 0,
+    "unmappedSourceFolders": [
+      "EAM",
+      "EFOMM",
+      "ESFECEX"
+    ],
+    "familiesWithoutLocalSources": [
+      "cnu",
+      "colegio-naval",
+      "correios",
+      "inss",
+      "pm-sp",
+      "receita-federal",
+      "soldado-fuzileiro-naval",
+      "tj-sp",
+      "tse-tre"
+    ],
+    "publicationState": "quarantine"
+  },
+  "corpus": {
+    "batchCount": 0,
+    "questionCount": 0,
+    "validationErrorCount": 0,
+    "validationErrorCodeCounts": {},
+    "eligibleAssignmentCount": 0,
+    "corpusSnapshotHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "semanticDeduplicationPolicyStatus": "blocked"
+  },
+  "summary": {
+    "familyCount": 19,
+    "approvedDefaultTrackBlueprintCount": 0,
+    "subjectCountFromApprovedBlueprints": 0,
+    "readyTrackCount": 0,
+    "blockedTrackCount": 19,
+    "activeRightsDocumentCount": 0,
+    "blockerCount": 27
+  },
+  "blockers": [
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "banco-do-brasil/agente-comercial",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "BLUEPRINT_REGISTRY_NOT_ACTIVE",
+      "scope": "blueprints",
+      "message": "registro de blueprints ainda está bloqueado"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "caixa/tecnico-bancario-novo",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "CATALOG_NOT_ACTIVE",
+      "scope": "catalog",
+      "message": "catálogo editorial ainda está bloqueado"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "cnu/selecao-nacional-unificada",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "colegio-naval/admissao",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "BATCH_MANIFEST_NOT_ACTIVE",
+      "scope": "corpus",
+      "message": "manifesto de lotes não está ativo"
+    },
+    {
+      "code": "ELIGIBLE_CORPUS_EMPTY",
+      "scope": "corpus",
+      "message": "nenhum lote elegível foi registrado"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "correios/carteiro",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "eear/cfs",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "enem/exame-nacional",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "esa/cfs-geral",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "espcex/cadete",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "inss/tecnico-do-seguro-social",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "SOURCE_FOLDER_MAPPING_REQUIRED",
+      "scope": "inventory",
+      "message": "pastas sem família canônica: EAM, EFOMM, ESFECEX"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "pf/agente",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "pm-sp/soldado-2a-classe",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "pmerj/soldado",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "prf/policial-rodoviario-federal",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "SEMANTIC_DEDUP_POLICY_NOT_APPROVED",
+      "scope": "qa",
+      "message": "método, snapshot integral do corpus e fiscalização semântica ainda não foram aprovados"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "receita-federal/auditor-fiscal",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "RIGHTS_REGISTRY_EMPTY",
+      "scope": "rights",
+      "message": "nenhum instrumento de direitos ativo e aprovado foi registrado"
+    },
+    {
+      "code": "RIGHTS_REGISTRY_NOT_ACTIVE",
+      "scope": "rights",
+      "message": "registro de direitos ainda está bloqueado"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "soldado-fuzileiro-naval/c-f-sd-fn",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "tj-sp/escrevente-tecnico-judiciario",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "tse-tre/tecnico-judiciario-administrativa",
+      "message": "blueprint aprovado ausente"
+    },
+    {
+      "code": "DEFAULT_TRACK_BLUEPRINT_MISSING",
+      "scope": "uerj/vestibular-estadual",
+      "message": "blueprint aprovado ausente"
+    }
+  ],
+  "tracks": [
+    {
+      "familyId": "banco-do-brasil",
+      "familyName": "Banco do Brasil",
+      "trackId": "agente-comercial",
+      "trackName": "Escriturário — Agente Comercial",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "caixa",
+      "familyName": "Caixa",
+      "trackId": "tecnico-bancario-novo",
+      "trackName": "Técnico Bancário Novo",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "cnu",
+      "familyName": "CNU",
+      "trackId": "selecao-nacional-unificada",
+      "trackName": "Seleção Nacional Unificada",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "colegio-naval",
+      "familyName": "Colégio Naval",
+      "trackId": "admissao",
+      "trackName": "Admissão",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "correios",
+      "familyName": "Correios",
+      "trackId": "carteiro",
+      "trackName": "Agente de Correios — Carteiro",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "eear",
+      "familyName": "EEAR",
+      "trackId": "cfs",
+      "trackName": "Curso de Formação de Sargentos",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "enem",
+      "familyName": "ENEM",
+      "trackId": "exame-nacional",
+      "trackName": "Exame Nacional",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "esa",
+      "familyName": "ESA",
+      "trackId": "cfs-geral",
+      "trackName": "Curso de Formação e Graduação de Sargentos",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "espcex",
+      "familyName": "EsPCEx",
+      "trackId": "cadete",
+      "trackName": "Cadete",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "inss",
+      "familyName": "INSS",
+      "trackId": "tecnico-do-seguro-social",
+      "trackName": "Técnico do Seguro Social",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "pf",
+      "familyName": "PF",
+      "trackId": "agente",
+      "trackName": "Agente de Polícia Federal",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "pm-sp",
+      "familyName": "PM-SP",
+      "trackId": "soldado-2a-classe",
+      "trackName": "Soldado PM de 2ª Classe",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "pmerj",
+      "familyName": "PMERJ",
+      "trackId": "soldado",
+      "trackName": "Soldado",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "prf",
+      "familyName": "PRF",
+      "trackId": "policial-rodoviario-federal",
+      "trackName": "Policial Rodoviário Federal",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "receita-federal",
+      "familyName": "Receita Federal",
+      "trackId": "auditor-fiscal",
+      "trackName": "Auditor-Fiscal da Receita Federal do Brasil",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "soldado-fuzileiro-naval",
+      "familyName": "Soldado Fuzileiro Naval",
+      "trackId": "c-f-sd-fn",
+      "trackName": "Soldado Fuzileiro Naval",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "tj-sp",
+      "familyName": "TJ-SP",
+      "trackId": "escrevente-tecnico-judiciario",
+      "trackName": "Escrevente Técnico Judiciário",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "tse-tre",
+      "familyName": "TSE/TRE",
+      "trackId": "tecnico-judiciario-administrativa",
+      "trackName": "Técnico Judiciário — Área Administrativa",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    },
+    {
+      "familyId": "uerj",
+      "familyName": "UERJ",
+      "trackId": "vestibular-estadual",
+      "trackName": "Vestibular Estadual",
+      "blueprint": null,
+      "dimensions": null,
+      "subjects": [],
+      "blockers": [
+        "approved_blueprint_missing"
+      ],
+      "status": "blocked"
+    }
+  ],
+  "decision": "blocked"
+}

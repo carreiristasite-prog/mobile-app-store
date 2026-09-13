@@ -1,0 +1,315 @@
+Essas telas estão caminhando bem, mas ainda têm erros importantes que vão prejudicar retenção, percepção de qualidade e até conversão para assinatura.
+
+Tela 1 — Home
+
+Erro 1: fundo transparente do mascote
+
+Muito grave.
+
+O Aprovinho está com aquele fundo quadriculado de PNG.
+
+Isso passa sensação de protótipo inacabado.
+
+Deve:
+
+* PNG realmente transparente
+* Sem borda
+* Sem quadrado branco
+* Integrado ao card
+
+⸻
+
+Erro 2: Aprovinho pequeno
+
+O card azul tem muito espaço vazio.
+
+O mascote deveria ocupar aproximadamente:
+
+35% a 40% do card.
+
+Hoje ocupa aproximadamente:
+
+20%.
+
+⸻
+
+Erro 3: Hierarquia da informação
+
+Hoje aparece:
+
+* Sequência
+* Ranking
+* Nome
+
+Tudo misturado.
+
+A ordem correta deveria ser:
+
+Bom dia, Cacá 👋
+
+🔥 12 dias de sequência
+
+🎯 Capitão — 3.250 XP
+
+🏆 Top 8% dos candidatos
+
+⸻
+
+Erro 4: Falta sensação de progresso
+
+Você tem:
+
+Capitão
+
+3.250 / 5.000 XP
+
+Mas o usuário não entende.
+
+Deveria mostrar:
+
+Capitão
+65% para Major
+
+Isso gera motivação.
+
+⸻
+
+Erro 5: Card IA Recomenda
+
+Muito texto.
+
+Usuário não lê.
+
+Hoje:
+
+“Seu ponto mais fraco…”
+
+“30% de acerto…”
+
+“Resolva 10 questões…”
+
+Muito longo.
+
+Melhor:
+
+📌 IA recomenda
+
+Licitações
+
+30% de acerto
+
+Resolver 10 questões →
+
+⸻
+
+Tela 2 — Criando Plano Inteligente
+
+Erro 6: progresso em 100%
+
+Isso quebra a experiência.
+
+Você está mostrando:
+
+100%
+
+Enquanto ainda está carregando.
+
+Isso parece bug.
+
+Correto:
+
+10%
+35%
+60%
+85%
+100%
+
+Animado.
+
+⸻
+
+Erro 7: checklist estática
+
+Tudo já aparece concluído.
+
+Parece falso.
+
+O ideal:
+
+✓ Analisando concurso
+
+✓ Organizando matérias
+
+○ Criando metas
+
+○ Gerando revisões
+
+○ Finalizando plano
+
+Atualizando em tempo real.
+
+⸻
+
+Erro 8: imagem gigante
+
+O robô está ocupando metade da tela.
+
+Mas ele não está ajudando.
+
+Só ocupa espaço.
+
+Reduzir aproximadamente 25%.
+
+⸻
+
+Erro 9: tela muito escura
+
+Muito azul.
+
+Parece splash screen.
+
+Não parece inteligência.
+
+Falta:
+
+* gradientes
+* brilho
+* animação
+
+⸻
+
+Tela 3 — Diagnóstico Inicial
+
+Erro 10: pergunta de dificuldade errada
+
+Hoje:
+
+Matemática
+Português
+Direito
+
+Mas e ESA?
+
+Pode ser:
+
+* Matemática
+* Português
+* História
+* Geografia
+* Inglês
+
+PF:
+
+* Constitucional
+* Penal
+* Informática
+
+Cada concurso tem matérias diferentes.
+
+⸻
+
+Erro 11: faltou opção “Outro”
+
+Muito importante.
+
+Sempre incluir:
+
+➕ Outra matéria
+
+⸻
+
+Erro 12: não existe seleção visual
+
+Quando usuário toca.
+
+O card precisa virar:
+
+* Azul IA Aprova
+* Texto branco
+* Check verde
+
+Hoje parece botão comum.
+
+⸻
+
+Erro 13: progresso errado
+
+Você mostra:
+
+1
+2
+3
+4
+
+Mas não explica.
+
+Adicionar:
+
+Etapa 3 de 4
+
+Diagnóstico Inicial
+
+⸻
+
+Erro 14: botão morto
+
+Mesmo problema da tela anterior.
+
+Botão cinza enorme.
+
+Parece erro.
+
+Melhor:
+
+“Responda as perguntas para continuar”
+
+⸻
+
+Erro estrutural mais importante
+
+O fluxo está:
+
+Onboarding
+→ Concurso
+→ Diagnóstico
+→ Plano
+
+Mas está faltando uma tela fundamental:
+
+Resumo do Plano
+
+Antes de entrar na Home.
+
+Exemplo:
+
+⸻
+
+Seu plano está pronto 🎯
+
+Concurso: ESA
+
+Meta diária: 30 questões
+
+Ponto fraco: Matemática
+
+Revisão: a cada 3 dias
+
+Previsão de conclusão: 180 dias
+
+Botão:
+
+🚀 Entrar no IA Aprova
+
+⸻
+
+Essa tela gera muito mais sensação de valor do que jogar o usuário direto na Home.
+
+Nota atual
+
+* Home: 8/10
+* Seleção concurso: 8/10
+* Diagnóstico: 7/10
+* Criação do plano: 6/10
+* Fluxo geral: 8,5/10
+
+O maior problema agora é fazer as telas parecerem inteligentes e personalizadas. Hoje elas ainda parecem formulários bonitos, não um sistema de IA construindo um plano individual para o candidato.

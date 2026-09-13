@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "1.0.0",
+  "catalogStatus": "blocked_missing_approved_blueprints",
+  "publicationPolicy": "all_families_must_pass_release_gates",
+  "contentTargetPerSubject": 1000,
+  "blueprintRegistry": "blueprints.json",
+  "blockingReasons": [
+    "approved_subject_blueprints_missing",
+    "cargo_banca_edital_phase_modality_not_approved",
+    "eligible_content_corpus_empty"
+  ],
+  "families": [
+    {
+      "id": "esa",
+      "name": "ESA",
+      "officialName": "Escola de Sargentos das Armas",
+      "institution": "Exército Brasileiro",
+      "defaultTrack": { "id": "cfs-geral", "name": "Curso de Formação e Graduação de Sargentos" },
+      "sourceFolderAliases": ["Esa"],
+      "status": "catalogued"
+    },
+    {
+      "id": "espcex",
+      "name": "EsPCEx",
+      "officialName": "Escola Preparatória de Cadetes do Exército",
+      "institution": "Exército Brasileiro",
+      "defaultTrack": { "id": "cadete", "name": "Cadete" },
+      "sourceFolderAliases": ["Especex"],
+      "status": "catalogued"
+    },
+    {
+      "id": "eear",
+      "name": "EEAR",
+      "officialName": "Escola de Especialistas de Aeronáutica",
+      "institution": "Força Aérea Brasileira",
+      "defaultTrack": { "id": "cfs", "name": "Curso de Formação de Sargentos" },
+      "sourceFolderAliases": ["EAAR"],
+      "status": "catalogued",
+      "notes": ["EAAR é um alias legado incorreto; a marca pública canônica é EEAR."]
+    },
+    {
+      "id": "colegio-naval",
+      "name": "Colégio Naval",
+      "officialName": "Concurso de Admissão ao Colégio Naval",
+      "institution": "Marinha do Brasil",
+      "defaultTrack": { "id": "admissao", "name": "Admissão" },
+      "sourceFolderAliases": [],
+      "status": "catalogued"
+    },
+    {
+      "id": "soldado-fuzileiro-naval",
+      "name": "Soldado Fuzileiro Naval",
+      "officialName": "Curso de Formação de Soldados Fuzileiros Navais",
+      "institution": "Marinha do Brasil",
+      "defaultTrack": { "id": "c-f-sd-fn", "name": "Soldado Fuzileiro Naval" },
+      "sourceFolderAliases": [],
+      "status": "catalogued"
+    },
+    {
+      "id": "pm-sp",
+      "name": "PM-SP",
+      "officialName": "Polícia Militar do Estado de São Paulo",
+      "institution": "Governo do Estado de São Paulo",
+      "defaultTrack": { "id": "soldado-2a-classe", "name": "Soldado PM de 2ª Classe" },
+      "sourceFolderAliases": ["PM SP - Soldado"],
+      "status": "catalogued"
+    },
+    {
+      "id": "pmerj",
+      "name": "PMERJ",
+      "officialName": "Polícia Militar do Estado do Rio de Janeiro",
+      "institution": "Governo do Estado do Rio de Janeiro",
+      "defaultTrack": { "id": "soldado", "name": "Soldado" },
+      "sourceFolderAliases": ["PMERJ - Soldado"],
+      "status": "catalogued"
+    },
+    {
+      "id": "pf",
+      "name": "PF",
+      "officialName": "Polícia Federal",
+      "institution": "Ministério da Justiça e Segurança Pública",
+      "defaultTrack": { "id": "agente", "name": "Agente de Polícia Federal" },
+      "sourceFolderAliases": ["PF"],
+      "status": "catalogued"
+    },
+    {
+      "id": "prf",
+      "name": "PRF",
+      "officialName": "Polícia Rodoviária Federal",
+      "institution": "Ministério da Justiça e Segurança Pública",
+      "defaultTrack": { "id": "policial-rodoviario-federal", "name": "Policial Rodoviário Federal" },
+      "sourceFolderAliases": ["PRF"],
+      "status": "catalogued"
+    },
+    {
+      "id": "banco-do-brasil",
+      "name": "Banco do Brasil",
+      "officialName": "Banco do Brasil S.A.",
+      "institution": "Banco do Brasil S.A.",
+      "defaultTrack": { "id": "agente-comercial", "name": "Escriturário — Agente Comercial" },
+      "sourceFolderAliases": ["Banco do Brasil"],
+      "status": "catalogued"
+    },
+    {
+      "id": "caixa",
+      "name": "Caixa",
+      "officialName": "Caixa Econômica Federal",
+      "institution": "Caixa Econômica Federal",
+      "defaultTrack": { "id": "tecnico-bancario-novo", "name": "Técnico Bancário Novo" },
+      "sourceFolderAliases": ["Caixa Econômica"],
+      "status": "catalogued"
+    },
+    {
+      "id": "correios",
+      "name": "Correios",
+      "officialName": "Empresa Brasileira de Correios e Telégrafos",
+      "institution": "Correios",
+      "defaultTrack": { "id": "carteiro", "name": "Agente de Correios — Carteiro" },
+      "sourceFolderAliases": [],
+      "status": "catalogued"
+    },
+    {
+      "id": "inss",
+      "name": "INSS",
+      "officialName": "Instituto Nacional do Seguro Social",
+      "institution": "INSS",
+      "defaultTrack": { "id": "tecnico-do-seguro-social", "name": "Técnico do Seguro Social" },
+      "sourceFolderAliases": [],
+      "status": "catalogued"
+    },
+    {
+      "id": "enem",
+      "name": "ENEM",
+      "officialName": "Exame Nacional do Ensino Médio",
+      "institution": "Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira",
+      "defaultTrack": { "id": "exame-nacional", "name": "Exame Nacional" },
+      "sourceFolderAliases": ["Enem"],
+      "status": "catalogued"
+    },
+    {
+      "id": "uerj",
+      "name": "UERJ",
+      "officialName": "Vestibular Estadual da UERJ",
+      "institution": "Universidade do Estado do Rio de Janeiro",
+      "defaultTrack": { "id": "vestibular-estadual", "name": "Vestibular Estadual" },
+      "sourceFolderAliases": ["UERJ"],
+      "status": "catalogued"
+    },
+    {
+      "id": "cnu",
+      "name": "CNU",
+      "officialName": "Concurso Público Nacional Unificado",
+      "institution": "Ministério da Gestão e da Inovação em Serviços Públicos",
+      "defaultTrack": { "id": "selecao-nacional-unificada", "name": "Seleção Nacional Unificada" },
+      "sourceFolderAliases": [],
+      "status": "catalogued"
+    },
+    {
+      "id": "tse-tre",
+      "name": "TSE/TRE",
+      "officialName": "Justiça Eleitoral — TSE e TREs",
+      "institution": "Justiça Eleitoral",
+      "defaultTrack": { "id": "tecnico-judiciario-administrativa", "name": "Técnico Judiciário — Área Administrativa" },
+      "sourceFolderAliases": [],
+      "status": "catalogued"
+    },
+    {
+      "id": "tj-sp",
+      "name": "TJ-SP",
+      "officialName": "Tribunal de Justiça do Estado de São Paulo",
+      "institution": "Tribunal de Justiça do Estado de São Paulo",
+      "defaultTrack": { "id": "escrevente-tecnico-judiciario", "name": "Escrevente Técnico Judiciário" },
+      "sourceFolderAliases": [],
+      "status": "catalogued"
+    },
+    {
+      "id": "receita-federal",
+      "name": "Receita Federal",
+      "officialName": "Secretaria Especial da Receita Federal do Brasil",
+      "institution": "Ministério da Fazenda",
+      "defaultTrack": { "id": "auditor-fiscal", "name": "Auditor-Fiscal da Receita Federal do Brasil" },
+      "sourceFolderAliases": ["Receita Federal"],
+      "status": "catalogued"
+    }
+  ]
+}

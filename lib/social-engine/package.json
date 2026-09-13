@@ -1,0 +1,22 @@
+{
+  "name": "@workspace/social-engine",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./golden-vectors": "./src/golden-vectors.ts"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test src/index.test.ts"
+  },
+  "engines": {
+    "node": ">=22.13 <23"
+  },
+  "dependencies": {
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:"
+  }
+}

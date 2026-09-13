@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "rootDir": "src",
+    "types": ["node"],
+    "allowImportingTsExtensions": true
+  },
+  "include": ["src"]
+}

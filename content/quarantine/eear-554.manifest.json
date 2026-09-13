@@ -1,0 +1,47 @@
+{
+  "manifestVersion": "1.0.0",
+  "datasetId": "legacy-eear-official-554",
+  "canonicalProductId": "eear",
+  "legacyAliases": [
+    "EAAR"
+  ],
+  "state": "quarantine",
+  "publishable": false,
+  "sourceReference": "../../../_ENTREGAVEIS-AUDITORIA/banco-questoes/eear-oficial-554-questoes.json",
+  "sourceSha256": "c1fccc6a453d15c0bd6f8d672a37a9e3645c5f5f0127655b133c16a15cae3a94",
+  "declaredItemCount": 554,
+  "uniqueIdCount": 554,
+  "invalidRecordCount": 0,
+  "yearCounts": {
+    "2020": 109,
+    "2021": 110,
+    "2022": 116,
+    "2023": 110,
+    "2024": 109
+  },
+  "subjectCounts": {
+    "fisica": 105,
+    "lingua-inglesa": 227,
+    "lingua-portuguesa": 105,
+    "matematica": 117
+  },
+  "originCounts": {
+    "prova_oficial_pdf": 554
+  },
+  "blockingReasons": [
+    "commercial_rights_not_cleared",
+    "source_pages_not_recorded",
+    "topics_and_skills_missing",
+    "solutions_missing",
+    "distractor_rationales_missing",
+    "independent_reviews_missing",
+    "content_fingerprints_missing",
+    "assets_and_context_not_verified"
+  ],
+  "requiredNextGate": "rights_clearance_and_item_level_reconstruction",
+  "notes": [
+    "Este manifesto referencia o lote legado por hash; não o copia nem o publica.",
+    "A presença de uma prova em fonte pública não equivale a licença comercial.",
+    "Os totais descrevem o arquivo referenciado e não constituem aprovação editorial."
+  ]
+}

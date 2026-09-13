@@ -1,0 +1,32 @@
+{
+  "rps_300_1h": {
+    "executor": "constant-arrival-rate",
+    "rate": 300,
+    "timeUnit": "1s",
+    "duration": "1h",
+    "preAllocatedVUs": 600,
+    "maxVUs": 2400
+  },
+  "rps_600_15m": {
+    "executor": "constant-arrival-rate",
+    "rate": 600,
+    "timeUnit": "1s",
+    "duration": "15m",
+    "preAllocatedVUs": 1200,
+    "maxVUs": 4800
+  },
+  "rps_1000_60s": {
+    "executor": "constant-arrival-rate",
+    "rate": 1000,
+    "timeUnit": "1s",
+    "duration": "60s",
+    "preAllocatedVUs": 2000,
+    "maxVUs": 8000
+  },
+  "sessions_5000": {
+    "executor": "per-vu-iterations",
+    "vus": 5000,
+    "iterations": 1,
+    "maxDuration": "30m"
+  }
+}

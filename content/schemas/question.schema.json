@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://iaaprova.com.br/schemas/question.schema.json",
+  "title": "IA Aprova Editorial Question",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "id", "authorId", "revision", "status", "contentType",
+    "productIds", "blueprintAssignments", "examVersionId", "subjectId", "topicId", "skillId",
+    "stem", "options", "correctOptionId", "solution", "stimulus", "difficulty",
+    "source", "rights", "reviews", "semanticDeduplication", "fingerprint"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "2.0.0" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{5,127}$" },
+    "authorId": { "type": "string", "minLength": 3 },
+    "revision": { "type": "integer", "minimum": 1 },
+    "status": {
+      "enum": ["draft", "quarantine", "rights_cleared", "in_review", "ready_for_beta", "published", "suspended"]
+    },
+    "contentType": { "enum": ["original_authoral", "official_licensed"] },
+    "productIds": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" }
+    },
+    "blueprintAssignments": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["blueprintId", "blueprintVersion", "familyId", "trackId", "subjectId", "topicId", "skillId"],
+        "properties": {
+          "blueprintId": { "type": "string", "minLength": 2 },
+          "blueprintVersion": { "type": "string", "minLength": 2 },
+          "familyId": { "type": "string", "minLength": 2 },
+          "trackId": { "type": "string", "minLength": 2 },
+          "subjectId": { "type": "string", "minLength": 2 },
+          "topicId": { "type": "string", "minLength": 2 },
+          "skillId": { "type": "string", "minLength": 2 }
+        }
+      }
+    },
+    "examVersionId": { "type": "string", "minLength": 3 },
+    "subjectId": { "type": "string", "minLength": 2 },
+    "topicId": { "type": "string", "minLength": 2 },
+    "skillId": { "type": "string", "minLength": 2 },
+    "stem": { "type": "string", "minLength": 20 },
+    "options": {
+      "type": "array", "minItems": 2, "maxItems": 5,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "text"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-e]$" },
+          "text": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "correctOptionId": { "type": "string", "pattern": "^[a-e]$" },
+    "solution": {
+      "type": "object", "additionalProperties": false,
+      "required": ["steps", "finalAnswer", "distractorRationales"],
+      "properties": {
+        "steps": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 10 } },
+        "finalAnswer": { "type": "string", "minLength": 10 },
+        "distractorRationales": {
+          "type": "object", "minProperties": 1,
+          "additionalProperties": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "stimulus": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "text", "assets"],
+      "properties": {
+        "kind": { "enum": ["none", "text", "image", "table", "diagram", "mixed"] },
+        "text": { "type": ["string", "null"] },
+        "assets": {
+          "type": "array", "uniqueItems": true,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["id", "kind", "sha256", "mimeType", "rightsDocumentId", "altText", "longDescription"],
+            "properties": {
+              "id": { "type": "string", "minLength": 3 },
+              "kind": { "enum": ["image", "table", "diagram"] },
+              "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+              "mimeType": { "type": "string", "minLength": 3 },
+              "rightsDocumentId": { "type": "string", "minLength": 3 },
+              "altText": { "type": "string", "minLength": 10 },
+              "longDescription": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "difficulty": { "enum": ["easy", "medium", "hard"] },
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "title", "owner", "sourceHash"],
+      "properties": {
+        "kind": { "enum": ["original_authoral", "official_exam"] },
+        "transformation": { "enum": ["verbatim", "adapted", "fragmented"] },
+        "title": { "type": "string", "minLength": 3 },
+        "owner": { "type": "string", "minLength": 2 },
+        "sourceHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "location": {
+          "type": "object", "additionalProperties": false,
+          "required": ["file", "page", "questionNumber"],
+          "properties": {
+            "file": { "type": "string", "minLength": 1 },
+            "page": { "type": "integer", "minimum": 1 },
+            "questionNumber": { "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "string", "minLength": 1 }] }
+          }
+        }
+      }
+    },
+    "rights": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "territories", "platforms", "validFrom"],
+      "properties": {
+        "status": { "const": "cleared" },
+        "licenseId": { "type": "string", "minLength": 3 },
+        "authoringAgreementId": { "type": "string", "minLength": 3 },
+        "territories": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+        "platforms": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "enum": ["ios", "android", "web"] } },
+        "validFrom": { "type": "string", "format": "date" },
+        "validUntil": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "reviews": {
+      "type": "array", "minItems": 3,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["role", "reviewerId", "decision", "reviewedAt", "questionRevision", "questionFingerprint"],
+        "properties": {
+          "role": { "enum": ["blind_solver", "subject_specialist", "independent_auditor", "adjudicator"] },
+          "reviewerId": { "type": "string", "minLength": 3 },
+          "decision": { "enum": ["approved", "rejected", "changes_requested"] },
+          "reviewedAt": { "type": "string", "format": "date-time" },
+          "questionRevision": { "type": "integer", "minimum": 1 },
+          "questionFingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "selectedOptionId": { "type": "string", "pattern": "^[a-e]$" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "semanticDeduplication": {
+      "type": "object", "additionalProperties": false,
+      "required": ["reviewerId", "decision", "reviewedAt", "questionRevision", "questionFingerprint", "corpusSnapshotHash", "methodVersion", "nearestQuestionId", "maxSimilarity"],
+      "properties": {
+        "reviewerId": { "type": "string", "minLength": 3 },
+        "decision": { "const": "no_material_duplicate" },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "questionRevision": { "type": "integer", "minimum": 1 },
+        "questionFingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "corpusSnapshotHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "methodVersion": { "type": "string", "minLength": 3 },
+        "nearestQuestionId": { "type": ["string", "null"] },
+        "maxSimilarity": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "fingerprint": {
+      "type": "object", "additionalProperties": false,
+      "required": ["algorithm", "value"],
+      "properties": {
+        "algorithm": { "const": "sha256-normalized-v3" },
+        "value": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "contentType": { "const": "official_licensed" } } },
+      "then": {
+        "properties": {
+          "source": {
+            "type": "object",
+            "required": ["transformation", "location"],
+            "properties": {
+              "kind": { "const": "official_exam" },
+              "transformation": {},
+              "location": {}
+            }
+          },
+          "rights": { "type": "object", "required": ["licenseId"], "properties": { "licenseId": {} } }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "contentType": { "const": "original_authoral" } } },
+      "then": {
+        "properties": {
+          "source": { "type": "object", "properties": { "kind": { "const": "original_authoral" } } },
+          "rights": { "type": "object", "required": ["authoringAgreementId"], "properties": { "authoringAgreementId": {} } }
+        }
+      }
+    }
+  ]
+}

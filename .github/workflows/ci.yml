@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Typecheck
+        run: pnpm run typecheck
+      - name: Build
+        run: pnpm -r --if-present run build
+      - name: Content pipeline tests
+        run: python -m unittest discover -s scripts/tests -p "test_content_*.py"
+      - name: Compile editorial JSON Schemas in strict mode
+        run: pnpm run test:content-schemas
+      - name: Release gate tests
+        run: python -m unittest discover -s scripts/tests -p "test_release_gate.py"
+      - name: API/mobile contract alignment
+        run: python -m unittest discover -s scripts/tests -p "test_contract_alignment.py"
+      - name: Mobile identity and guardian route gates
+        run: node artifacts/ia-aprova/scripts/check-identity-onboarding.mjs
+      - name: Mobile platform age-signal domain and integration gates
+        run: pnpm --filter @workspace/ia-aprova run test:age-signals
+      - name: Mobile transactional offline outbox
+        run: node artifacts/ia-aprova/scripts/check-offline-outbox.mjs
+      - name: API and worker unit tests
+        run: |
+          pnpm --filter @workspace/api-server test
+          pnpm --filter @workspace/worker test
+      - name: Database guard and migration contracts
+        run: node --test lib/db/integration/database-guard.test.mjs lib/db/integration/migrations-contract.test.mjs
+      - name: Dead-letter operations unit tests (PostgreSQL remains opt-in)
+        run: node --test scripts/ops/dead-letter-core.test.mjs scripts/ops/dead-letter.postgres.test.mjs
+      - name: Store release checker unit tests
+        run: python -m unittest discover -s scripts/tests -p "test_store_release_check.py"
+      - name: Security documentation and adversarial checker tests
+        run: |
+          python -m unittest discover -s scripts/security/tests -p "test_*.py"
+          python scripts/security/check_security_docs.py
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.15.9
+          terraform_wrapper: false
+      - name: Terraform format, locked providers and validation
+        run: |
+          terraform -chdir=infra fmt -check -recursive
+          terraform -chdir=infra init -backend=false -lockfile=readonly -input=false
+          terraform -chdir=infra validate
+      - name: SRE infrastructure fail-closed checks
+        shell: pwsh
+        run: ./infra/scripts/static-check.ps1
+      - name: Legal-site integrity (draft mode)
+        shell: pwsh
+        run: ./artifacts/legal-site/check.ps1 -AllowPlaceholders

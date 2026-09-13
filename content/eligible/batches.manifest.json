@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "blocked_empty_corpus",
+  "semanticDeduplicationPolicy": {
+    "status": "blocked",
+    "methodVersion": null,
+    "corpusSnapshotHash": null,
+    "preparedById": null,
+    "approval": null
+  },
+  "batches": [],
+  "blockingReasons": [
+    "no_eligible_batch_registered",
+    "semantic_deduplication_method_not_approved",
+    "full_corpus_snapshot_not_reviewed"
+  ],
+  "notes": [
+    "Somente lotes em content/eligible/batches, listados por caminho e SHA-256, podem ser avaliados para cobertura.",
+    "Quarantine e Provas Anteriores nunca são descobertos automaticamente como conteúdo elegível."
+  ]
+}

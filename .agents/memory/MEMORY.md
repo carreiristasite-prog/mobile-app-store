@@ -1,0 +1,3 @@
+- [Materia canonicalization](materia-canonicalization.md) — IA Aprova: match study-plan subjects to stats via canonMateria on BOTH read+write or progress shows 0.
+- [Per-user persistence contexts](ia-aprova-per-user-persistence.md) — IA Aprova: gate AsyncStorage writes behind a loadedRef until hydration; finishedRef/advancingRef to record-once.
+- [Bulk accent fixes](bulk-accent-encoding.md) — `perl -CSD` double-encodes literal UTF-8 replacements without `use utf8`; prefer a Python script.

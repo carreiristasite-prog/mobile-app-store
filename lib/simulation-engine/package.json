@@ -1,0 +1,15 @@
+{
+  "name": "@workspace/simulation-engine",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "engines": {
+    "node": ">=22.13 <23"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:"
+  }
+}

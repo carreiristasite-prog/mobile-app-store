@@ -1,0 +1,30 @@
+name: Load foundation static validation
+
+on:
+  pull_request:
+    paths:
+      - "load/**"
+      - ".github/workflows/load-static-validation.yml"
+  push:
+    paths:
+      - "load/**"
+      - ".github/workflows/load-static-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-only:
+    name: Offline safety and profile checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate load foundation without network traffic
+        run: python load/tools/validate_load_foundation.py --json
+      - name: Run offline validator tests
+        run: python -m unittest discover -s load/tests -p "test_*.py" -v

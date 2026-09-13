@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "SHA256",
+  "documents": [
+    {
+      "id": "terms",
+      "source": "docs/legal/terms-of-use.pt-BR.md",
+      "published": "artifacts/legal-site/full/terms-of-use.pt-BR.txt",
+      "sha256": "34688A71C32A9B156D58CEE74048BED4BA55E4BB5E18254900ED1227DD5DBE31"
+    },
+    {
+      "id": "privacy",
+      "source": "docs/legal/privacy-policy.pt-BR.md",
+      "published": "artifacts/legal-site/full/privacy-policy.pt-BR.txt",
+      "sha256": "37ACD37BF4D3C144DB92D7F4D2ADCC7341B8B929515CB26B7EF32A71C3D417C7"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packageVersion": "0.1.0-draft",
+  "generatedOn": "2026-08-23",
+  "releaseDecision": "blocked",
+  "disclaimer": "This package maps security contributions and does not close any canonical release blocker.",
+  "blockerMappings": [
+    {"id":"LEGAL-001","owner":"founder-legal","closesBlocker":false,"riskIds":["R-020"],"securityContribution":"Verify organizational identity and controlled security domain/canals; legal owner supplies canonical evidence."},
+    {"id":"LEGAL-002","owner":"privacy","closesBlocker":false,"riskIds":["R-020"],"securityContribution":"Test privacy, support, security, editorial and rights channels; remove all incident placeholders."},
+    {"id":"LEGAL-003","owner":"legal","closesBlocker":false,"riskIds":["R-020","R-023"],"securityContribution":"Provide threat/risk evidence for external Brazilian counsel; security cannot issue legal approval."},
+    {"id":"PRIV-001","owner":"privacy-engineering","closesBlocker":false,"riskIds":["R-001","R-002","R-015","R-016","R-021"],"securityContribution":"Build-hash data map, endpoint/SDK/permission/log/cache/queue/storage inventory and SBOM."},
+    {"id":"PRIV-002","owner":"privacy-legal-accounting","closesBlocker":false,"riskIds":["R-011","R-019","R-021","R-024"],"securityContribution":"Evidence retention, fraud, incident and backup flows; privacy/legal approve bases and periods."},
+    {"id":"VEND-001","owner":"procurement-privacy","closesBlocker":false,"riskIds":["R-011","R-014","R-021","R-024"],"securityContribution":"Map egress, regions, roles and security controls for Clerk, RevenueCat, GCP and other operators."},
+    {"id":"MINOR-001","owner":"product-legal","closesBlocker":false,"riskIds":["R-004","R-008","R-009","R-010","R-022"],"securityContribution":"Run synthetic E2E for every age band, guardian lifecycle, protected defaults and age-18 transition."},
+    {"id":"DSR-001","owner":"backend-privacy","closesBlocker":false,"riskIds":["R-004","R-011","R-012","R-013","R-019"],"securityContribution":"Verify real adapters and end-to-end export/deletion across every store, cache, queue, provider and backup ledger."},
+    {"id":"BILL-001","owner":"payments-legal","closesBlocker":false,"riskIds":["R-003","R-013"],"securityContribution":"Execute authorized Apple, Google and RevenueCat sandbox matrix including replay, refund, grace and restore."},
+    {"id":"STORE-001","owner":"store-privacy","closesBlocker":false,"riskIds":["R-021","R-025"],"securityContribution":"Compare final binary network/SDK/permissions with store declarations and public HTTPS URLs."},
+    {"id":"STORE-002","owner":"store-ops","closesBlocker":false,"riskIds":["R-015"],"securityContribution":"Bind assessed hashes to final App ID/package and organizational accounts; store owner supplies records."},
+    {"id":"SEC-001","owner":"security","closesBlocker":false,"riskIds":["R-001","R-002","R-003","R-004","R-005","R-006","R-007","R-008","R-010","R-012","R-013","R-014","R-015","R-016","R-017","R-018","R-019"],"securityContribution":"Approve threat model only after authorized pentest, secrets/IAM, restore and incident evidence has zero critical/high open findings."},
+    {"id":"INC-001","owner":"security-privacy","closesBlocker":false,"riskIds":["R-018","R-020"],"securityContribution":"Name response roles, run tabletops and test ANPD/data-subject communications with legal/privacy."},
+    {"id":"RIGHTS-001","owner":"editorial-legal","closesBlocker":false,"riskIds":["R-005","R-007","R-017"],"securityContribution":"Test admin quarantine, hashes, RBAC/four-eyes and prevent unlicensed publication; rights owner supplies ledger."},
+    {"id":"CONTENT-001","owner":"editorial","closesBlocker":false,"riskIds":["R-025"],"securityContribution":"Scan build/store copy for prohibited claims and route findings to editorial review."},
+    {"id":"CONSENT-001","owner":"product-privacy-legal","closesBlocker":false,"riskIds":["R-009","R-022"],"securityContribution":"Test separate affirmative/versioned actions, optional purposes, revocation and server capability gates."},
+    {"id":"SITE-001","owner":"web-legal","closesBlocker":false,"riskIds":["R-023"],"securityContribution":"Run legal checker without placeholders and verify domain, TLS, headers and links."},
+    {"id":"SITE-002","owner":"web-legal","closesBlocker":false,"riskIds":["R-023"],"securityContribution":"Compare source/page hashes and versions accepted by the build; legal owner approves content."},
+    {"id":"VEND-002","owner":"procurement-privacy-web","closesBlocker":false,"riskIds":["R-021","R-024"],"securityContribution":"Verify the public subprocessor page against approved egress/vendor evidence; procurement/privacy approve accuracy."}
+  ]
+}
+
